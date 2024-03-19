@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import { z } from "zod";
 
 const zodCheck = {
-    username: z.string().regex(/^[a-z0-9_-]{3,20}$/i, "Nom d'utilisateur invalide (entre 3 et 20 charactères)"),
-    mail: z.string().regex(/^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+ $/i, 'E-mail invalide'),
-    password: z.string().min(6, 'Ton mot de passe devrait faire au moins 6 charactères'),
+    username: z.string().regex(/^[a-z0-9_-]{3,20}$/i, "Nom d'utilisateur invalide (entre 3 et 20 charactères)."),
+    mail: z.string().regex(/^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/i, 'E-mail invalide.'),
+    password: z.string().min(6, 'Ton mot de passe devrait faire au moins 6 charactères.'),
 }
 
 const UserSchema = new mongoose.Schema({
