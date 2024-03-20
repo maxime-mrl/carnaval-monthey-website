@@ -34,6 +34,12 @@ const config = {
       },
     },
     extend: {
+      textShadow: {
+        default: '0 2px 5px rgba(0, 0, 0, 0.5)',
+        md: '0 2px 10px rgba(0, 0, 0, 0.5)',
+        lg: '0 2px 20px rgba(0, 0, 0, 0.5)',
+        xl: '0 2px 25px rgba(0, 0, 0, 0.5)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

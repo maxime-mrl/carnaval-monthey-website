@@ -1,5 +1,11 @@
+import AnimatedText from "@components/AnimatedText";
+import Header from "@components/Header";
+
 export default function Home() {
     return (
-        <h1>Hello world</h1>
+        <>
+            <Header/>
+            <AnimatedText text="Carnaval de Monthey" className="uppercase text-6xl text-shadow-xl"/>
+        </>
     )
 }
