@@ -12,7 +12,7 @@ export default function Nav() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="flex gap-5 sm:flex hidden">
+            <div className="flex gap-5 md:flex hidden">
                 <Link href="/infos">
                     <p className="logo_text">Infos</p>
                 </Link>
