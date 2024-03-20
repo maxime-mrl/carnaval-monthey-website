@@ -14,32 +14,10 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        '2xl': {max: '1535px'},
-        // => @media (max-width: 1535px) { ... }
-
-        'xl': {max: '1279px'},
-        // => @media (max-width: 1279px) { ... }
-
-        'lg': {max: '1023px'},
-        // => @media (max-width: 1023px) { ... }
-
-        'md': {max: '767px'},
-        // => @media (max-width: 767px) { ... }
-
-        'sm': {max: '639px'},
-        // => @media (max-width: 639px) { ... }
-
-        'xs': {max: '390px'},
-        // => @media (max-width: 375px) { ... }
+        "2xl": "1400px",
       },
     },
     extend: {
-      textShadow: {
-        default: '0 2px 5px rgba(0, 0, 0, 0.5)',
-        md: '0 2px 10px rgba(0, 0, 0, 0.5)',
-        lg: '0 2px 20px rgba(0, 0, 0, 0.5)',
-        xl: '0 2px 25px rgba(0, 0, 0, 0.5)',
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -91,7 +69,6 @@ const config = {
         },
       },
       animation: {
-        'spin-slow': "spin 8s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
