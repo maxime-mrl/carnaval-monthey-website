@@ -9,6 +9,7 @@ package-lock.json
 build
 
 # Other
+.idea
 
 # next.js
 /.next/
