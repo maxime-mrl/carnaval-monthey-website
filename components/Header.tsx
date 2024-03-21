@@ -12,9 +12,15 @@ const Header = () => {
                    objectFit="cover"
                    className="absolute top-0 left-0 z-0"
             />
-            <div className="absolute top-0 left-0 w-full h-full z-10 bg-gradient-to-br from-transparent via-yellow-600 to-red-900 opacity-50"/>
+            <div
+                className="absolute top-0 left-0 w-full h-full z-10 bg-gradient-to-br from-transparent via-yellow-600 to-red-900 opacity-50"/>
 
-            <ChevronDown strokeWidth={4} className="h-24 w-24 text-white absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"/>
+            <div className="p-4">
+                <ChevronDown strokeWidth={4}
+                                        className="h-24 w-24 text-white absolute bottom-10 left-[48%] z-20 cursor-pointer
+                                                            hover:animate-bounce transition-transform duration-500 ease-in-out"/>
+            </div>
+
         </header>
     );
 };
