@@ -42,4 +42,8 @@ export const loginUserCheck = z.object({
     password: zodCheck.password,
 });
 
+export const deleteUserCheck = z.object({
+    password: zodCheck.password,
+});
+
 export default mongoose.models.User || mongoose.model("User", UserSchema);

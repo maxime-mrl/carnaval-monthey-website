@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import NextAuth from "next-auth/next";
-import { AuthOptions, User } from "next-auth";
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDB } from "@utils/db";
 import userModel, { loginUserCheck } from "@models/user.model";
@@ -14,16 +14,16 @@ export const authOptions: AuthOptions = {
         mail: { label: "Email", type: "text", placeholder: "Ton e-mail" },
         username: { label: "Username", type: "text", placeholder: "Ton nom d'utilisateur" },
         password: { label: "Password", type: "password", placeholder: "Ton mot de passe" },
-        _id: { type: "text" },
       },
       async authorize(credentials) { // login
-        console.log("login")
+        console.log("er")
         const parsed = loginUserCheck.safeParse(credentials);
         if (!parsed.success) return null;
         const { mail, password } = parsed.data;
         try {
           await connectToDB();
           const user = await userModel.findOne({ mail });
+          console.log("auth")
           // check user
           if (!user) return null;
           const passwordsMatch = await bcrypt.compare(password, user.password);
@@ -37,6 +37,7 @@ export const authOptions: AuthOptions = {
           return returnUser;
         } catch (error) {
           console.log("Error: ", error);
+          return null;
         }
       },
     }),
@@ -45,6 +46,7 @@ export const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async session({ session, token }) {
+      // not sure if we should check validity with db (for now it works for deleted user as long as we have the session)
       if (token.user) session.user = token.user;
       return session;
     },

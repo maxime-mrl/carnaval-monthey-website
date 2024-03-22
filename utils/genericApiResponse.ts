@@ -1,0 +1,2 @@
+export const needLoginError = () => new Response("Tu dois être connecté pour faire ceci!", { status: 401 });
+export const incorrectPasswordError = () => new Response("Mot de passe incorrect.", { status: 401 });
