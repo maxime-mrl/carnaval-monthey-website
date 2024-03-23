@@ -5,7 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDB } from "@utils/db";
 import userModel, { loginUserCheck } from "@models/user.model";
 
-
+// HANDLE LOGIN AND SESSION CHECK
 export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({

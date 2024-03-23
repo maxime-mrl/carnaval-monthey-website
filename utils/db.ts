@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
+// Create database instance if not connected
 let isConnected = false;
-
 export const connectToDB = async () => {
     console.log("connecting to db...")
     mongoose.set('strictQuery', true);
