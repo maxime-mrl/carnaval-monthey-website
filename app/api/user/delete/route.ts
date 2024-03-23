@@ -6,7 +6,7 @@ import userModel, { deleteUserCheck } from "@models/user.model";
 import handleError from "@utils/apiErrorHandler";
 import { connectToDB } from "@utils/db";
 
-export const POST = async (req:Request) => {
+export const DELETE = async (req:Request) => {
     try {
         // retrieve session
         const session = await getServerSession(authOptions);
