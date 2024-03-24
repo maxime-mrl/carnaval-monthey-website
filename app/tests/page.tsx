@@ -9,10 +9,10 @@ export default function Tests() {
     e.preventDefault();
     const form = new FormData(e.target as HTMLFormElement);
     const resp = await fetch("/api/user/", {
-        method: "PATCH",
+        method: "PUT",
         body: JSON.stringify({
-          target: form.get('target'),
-          right: form.get('right'),
+          checkPassword: form.get('psswd'),
+          username: form.get('username'),
         })
     })
   }
@@ -21,10 +21,10 @@ export default function Tests() {
       <div className='container'>
         <form onSubmit={handleSubmit}>
           <h2>setright</h2>
-          <label htmlFor='target'>Target</label>
-          <input type='text' id='target' name='target' />
-          <label htmlFor='right'>Right</label>
-          <input type='text' id='right' name='right' />
+          <label htmlFor='psswd'>atcual password</label>
+          <input type='text' id='psswd' name='psswd' />
+          <label htmlFor='username'>username</label>
+          <input type='text' id='username' name='username' />
           <button type='submit'>Submit</button>
         </form>
       </div>

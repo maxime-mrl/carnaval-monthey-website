@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import { incorrectPasswordError, invalidDataError, needLoginError, unauthorizedError } from "@utils/api/genericResponse";
-import userModel, { deleteUserCheck, registerUserCheck } from "@models/user.model";
+import userModel, { deleteUserCheck, registerUserCheck, updateUserCheck } from "@models/user.model";
 import handleError from "@utils/api/errorHandler";
 import { connectToDB } from "@utils/db";
 import { isValidObjectId } from "mongoose";
@@ -46,15 +46,14 @@ export const POST = async (req: Request) => {
 export const DELETE = async (req:Request) => {
     try {
         // retrieve session
-        const userSession = await checkSession();
+        const userSession = await checkSession(true);
         if (!userSession) return needLoginError();
         // user logged -> check password
-        await connectToDB();
         const body = await req.json();
         const { password } = deleteUserCheck.parse(body);
-        const user = await userModel.findById(userSession._id);
-        if (!user || !(await bcrypt.compare(password, user.password))) return incorrectPasswordError();
+        if (!(await bcrypt.compare(password, userSession.password))) return incorrectPasswordError();
         // user logged and password match -> proceed
+        await connectToDB();
         await userModel.findByIdAndDelete(userSession._id);
         return new Response(JSON.stringify({deleted: userSession._id}));
     } catch(err) {
@@ -64,9 +63,24 @@ export const DELETE = async (req:Request) => {
 
 // Update self user account
 // PUT /api/user
-// head: session -- body: new user infos - ...
+// head: session -- body: new user infos and old password confirm - { checkPassword, password?, username?, mail?, }
 export const PUT = async (req:Request) => {
-    return new Response("WIP")
+    try {
+        // retrieve session
+        const userSession = await checkSession(true);
+        if (!userSession) return needLoginError();
+        // user logged -> check request and password
+        const body = await req.json();
+        const { checkPassword, ...toUpdate } = updateUserCheck.parse(body);
+        if (!toUpdate.mail && !toUpdate.username && !toUpdate.password) return invalidDataError();
+        if (!(await bcrypt.compare(checkPassword, userSession.password))) return incorrectPasswordError();
+        // update user
+        const updatedUser = await userModel.findByIdAndUpdate(userSession._id, toUpdate, { new: true });
+        if (!updatedUser) throw new Error("Impossible de mettre a jour votre compte, merci de réesseayer.");
+        return new Response(`Compte mis à jour!`);
+    } catch (err) {
+        return handleError(err);
+    }
 }
 
 // Update right of an user
@@ -88,12 +102,13 @@ export const PATCH = async (req:Request) => {
         else targetType.username = body.target; // is something else so we hope it's an username
         // search for user
         const user = await userModel.findOne(targetType);
-        if (!user || !("_id" in user)) throw new Error("Compte introuvable")
+        if (!user || !("_id" in user)) throw new Error("Compte introuvable");
         // update user
         const updatedUser = await userModel.findByIdAndUpdate(user._id, { right: body.right }, { new: true });
         if (!updatedUser) throw new Error("Impossible de mettre a jour l'utilisateur séléctionné.");
-        return new Response(`Compte ${body.target} trouvé et mis à jour!`)
+        return new Response(`Compte ${body.target} trouvé et mis à jour!`);
     } catch (err:any) {
+        // add 404 to user not found error
         if (err && typeof err.message === "string" && /introuvable/.test(err.message)) err.status = 404;
         return handleError(err);
     } 
