@@ -10,6 +10,12 @@ export default function handleError(err:any) {
         const concerned = Object.keys(err.keyValue)[0]
         return new Response(`Votre ${concerned} ${err.keyValue[concerned]} existe déjà!`, { status: 409 });
     }
+    else if (typeof err.message === "string") { // error with message
+        if (typeof err.status === "number") { // error with definded status
+            return new Response(err.message, { status: err.status });
+        }
+        return new Response(err.message);
+    }
     // unknown
     return new Response(err.toString(), { status: 500 });
 }

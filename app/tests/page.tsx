@@ -8,10 +8,11 @@ export default function Tests() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const form = new FormData(e.target as HTMLFormElement);
-    const resp = await fetch("/api/user/delete", {
-        method: "post",
+    const resp = await fetch("/api/user/", {
+        method: "PATCH",
         body: JSON.stringify({
-            password: form.get('password'),
+          target: form.get('target'),
+          right: form.get('right'),
         })
     })
   }
@@ -19,9 +20,11 @@ export default function Tests() {
     <>
       <div className='container'>
         <form onSubmit={handleSubmit}>
-          <h2>deleteform</h2>
-          <label htmlFor='password'>Password:</label>
-          <input type='password' id='password' name='password'  />
+          <h2>setright</h2>
+          <label htmlFor='target'>Target</label>
+          <input type='text' id='target' name='target' />
+          <label htmlFor='right'>Right</label>
+          <input type='text' id='right' name='right' />
           <button type='submit'>Submit</button>
         </form>
       </div>
