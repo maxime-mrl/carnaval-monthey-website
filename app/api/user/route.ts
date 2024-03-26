@@ -75,6 +75,10 @@ export const PUT = async (req:Request) => {
         if (!toUpdate.mail && !toUpdate.username && !toUpdate.password) return invalidDataError();
         if (!(await bcrypt.compare(checkPassword, userSession.password))) return incorrectPasswordError();
         // update user
+        // check if passord encrypt it
+        if (typeof toUpdate.password === "string") {
+            toUpdate.password = await bcrypt.hash(toUpdate.password, 10);
+        }
         const updatedUser = await userModel.findByIdAndUpdate(userSession._id, toUpdate, { new: true });
         if (!updatedUser) throw new Error("Impossible de mettre a jour votre compte, merci de réesseayer.");
         return new Response(`Compte mis à jour!`);

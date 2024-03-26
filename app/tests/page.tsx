@@ -12,7 +12,7 @@ export default function Tests() {
         method: "PUT",
         body: JSON.stringify({
           checkPassword: form.get('psswd'),
-          username: form.get('username'),
+          password: form.get('password'),
         })
     })
   }
@@ -23,8 +23,8 @@ export default function Tests() {
           <h2>setright</h2>
           <label htmlFor='psswd'>atcual password</label>
           <input type='text' id='psswd' name='psswd' />
-          <label htmlFor='username'>username</label>
-          <input type='text' id='username' name='username' />
+          <label htmlFor='password'>password</label>
+          <input type='text' id='password' name='password' />
           <button type='submit'>Submit</button>
         </form>
       </div>
