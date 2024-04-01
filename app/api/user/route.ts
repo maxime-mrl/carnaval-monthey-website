@@ -11,7 +11,6 @@ import checkSession from "@utils/api/checkSession";
 // head: session -- body: null 
 export const GET = async () => {
     try {
-        console.log("ok")
         // retrieve session
         const userSession = await checkSession();
         if (!userSession) return needLoginError();

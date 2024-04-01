@@ -3,6 +3,8 @@ import sharp from "sharp";
 import { connectToDB } from "@utils/db";
 import sponsorModel from "@models/sponsor.model";
 import handleError from "@utils/api/errorHandler";
+import checkSession from "@utils/api/checkSession";
+import { needLoginError, serverError, unauthorizedError } from "@utils/api/genericResponse";
 
 const sponsorDir = "public/sponsor";
 
@@ -10,7 +12,16 @@ const sponsorDir = "public/sponsor";
 // GET /api/sponsor
 // head: null -- body: null
 export const GET = async () => {
-    
+    try {
+        await connectToDB();
+        const sponsors = await sponsorModel.find({ }).select(["-__v"]);
+        if (!sponsors || sponsors.length < 1) return serverError();
+        return new Response(JSON.stringify([
+            ...sponsors
+        ]));
+    } catch (err) {
+        return handleError(err);
+    }
 }
 
 // Add a sponsor
@@ -18,6 +29,10 @@ export const GET = async () => {
 // head: session -- body: sponsor - { name, image }
 export const POST = async (req: Request) => {
     try {
+        // check session and right
+        const userSession = await checkSession();
+        if (!userSession) return needLoginError();
+        if (userSession.right < 1) return unauthorizedError();
         // get the form data
         const body = await req.formData();
         const name = body.get("name");
@@ -35,7 +50,7 @@ export const POST = async (req: Request) => {
         // save name to db
         await connectToDB();
         const sponsor = await sponsorModel.create({ name });
-        if (!sponsor || !sponsor._id) throw new Error("Impossible de créer le sponsor.");
+        if (!sponsor || !sponsor._id) return serverError();
         // save image to file
         if (!fs.existsSync(sponsorDir)) fs.mkdirSync(sponsorDir); // check if sponsor dir exist
         converted.toFile(`${sponsorDir}/${sponsor._id}.webp`);

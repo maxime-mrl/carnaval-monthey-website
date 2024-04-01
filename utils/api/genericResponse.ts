@@ -6,3 +6,5 @@ export const incorrectPasswordError = () => new Response("Mot de passe incorrect
 export const unauthorizedError = () => new Response("Tu n'as pas la permission de faire ceci!", { status: 403 });
 // request related
 export const invalidDataError = () => new Response("Données invalide, merci de réessayer!", { status: 400 });
+// server error
+export const serverError = () => new Response("Erreur serveur, merci de rééssayer dans quelques minutes", { status: 500 });
