@@ -10,6 +10,7 @@ build
 
 # Other
 .idea
+public/sponsor
 
 # next.js
 /.next/
