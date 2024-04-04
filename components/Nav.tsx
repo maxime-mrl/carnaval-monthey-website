@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Nav() {
 
     return (
-        <nav className="flex-between w-full mb-16 py-9 px-12">
+        <nav className="flex-between w-full mb-16 py-9 px-12 absolute top-0 left-0 z-20">
             <Link href="/" className="flex gap-2 flex-center">
                 <Image src="/images/logo.png" alt="Logo Carnaval de Monthey" width={50} height={50}
                        className="object-contain"/>

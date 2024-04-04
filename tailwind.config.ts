@@ -19,6 +19,11 @@ const config = {
         'bouncy': ['Bouncy', 'sans-serif'],
       },
       colors: {
+        'burnt': '#962C22',
+        'arylide': '#F2A365',
+        'snow': '#F8F2F2',
+        'dark': '#1F0101',
+        'kelly': '#4BA110',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
