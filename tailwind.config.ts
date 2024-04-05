@@ -15,6 +15,9 @@ const config = {
       padding: "2rem",
     },
     extend: {
+      textShadow: {
+        default: '0 2px 5px rgba(0, 0, 0, 0.8)'
+        },
       fontFamily: {
         'bouncy': ['Bouncy', 'sans-serif'],
       },

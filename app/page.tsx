@@ -1,15 +1,32 @@
 // Components imports
 import AnimatedText from "@components/AnimatedText";
 import Header from "@components/Header";
+import {Button} from "@components/ui/button";
 
 // Module imports
 import Image from "next/image";
+import Link from "next/link";
+
+// Assets imports
+import prince from "@public/images/prince2024.png";
+import newspaper from "@public/images/journal.png";
+import {CarouselSpacing} from "@components/CarouselSpacing";
 
 export default function Home() {
+    const images = [
+        {src: "/images/sponsors/1.png", alt: "Logo sponsor 1"},
+        {src: "/images/sponsors/2.png", alt: "Logo sponsor 2"},
+        {src: "/images/sponsors/3.png", alt: "Logo sponsor 3"},
+        {src: "/images/sponsors/4.png", alt: "Logo sponsor 4"},
+        {src: "/images/sponsors/5.png", alt: "Logo sponsor 5"},
+    ];
+
     return (
         <>
+            {/* Header component */}
             <Header/>
-            <div className="flex flex-col flex-center gap-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+            <div
+                className="flex flex-col flex-center gap-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
                 <Image src="/images/logo.png"
                        alt="Carnaval de Monthey"
                        width={200} height={200}
@@ -19,20 +36,68 @@ export default function Home() {
                 xl:text-8xl lg:whitespace-nowrap lg:text-6xl md:text-5xl sm:text-3xl xs:text-xl"/>
             </div>
 
+            {/* Teaser Section */}
             <section className="flex-col flex-center bg-dark p-16">
-                <h2 className="text-5xl text-bouncy font-bold text-snow text-center max-w-3xl">Le plus grand carnaval du Valais, ... et le meilleur du monde!</h2>
+                <h2 className="text-5xl text-bouncy font-bold text-snow text-center max-w-3xl mt-12">Le plus grand
+                    carnaval du Valais, ... et le meilleur du monde!</h2>
 
-                <div className="flex-col flex-center gap-6 mt-12 text-snow">
-                    <p className="max-w-4xl">Le carnaval de Monthey c’est 6 jours de folie et tradition ancestral. Du jeudi au mardi, masques, chars, « guggenmusik », et autres animations rythment le cœur de notre ville de Monthey.
-                        Le  fameux cortège du dimanche, qui évoque les thèmes chauds de l{'\''}actualité locale, régionale ou internationale, attire quant à lui chaque année un large public</p>
-                    <h3 className="text-3xl text-bouncy font-bold">... et, ce depuis plus de <span className="font-mono font-extrabold text-3xl">150</span> ans!</h3>
+                <div className="flex-col flex-center gap-6 my-12 text-snow">
+                    <p className="max-w-4xl">Le carnaval de Monthey c’est 6 jours de folie et tradition ancestral. Du
+                        jeudi au mardi, masques, chars, « guggenmusik », et autres animations rythment le cœur de notre
+                        ville de Monthey.
+                        Le fameux cortège du dimanche, qui évoque les thèmes chauds de l{'\''}actualité locale,
+                        régionale ou internationale, attire quant à lui chaque année un large public</p>
+                    <h3 className="text-3xl text-bouncy font-bold">... et, ce depuis plus de <span
+                        className="font-mono font-extrabold text-3xl">150</span> ans!</h3>
                 </div>
 
-                <div>
-                    <h3 className="text-4xl text-bouncy font-bold text-snow text-center mt-12">Les dates du prochain carnaval</h3>
-                    <button className="bg-yellow-600 text-bouncy text-dark text-2xl font-bold p-4 rounded-lg mt-6">Informations <span className="font-mono font-extrabold">2025</span></button>
+                <div className="flex-col flex-center text-snow gap-16">
+                    <h3 className="text-4xl text-bouncy font-bold text-snow text-center mt-12">Qu'est ce que t'attends
+                        pour venir?</h3>
+                    <Link href="/infos">
+                        <Button variant="custom"
+                                className="text-bouncy-shadow text-2xl p-6">Informations <span
+                            className="font-mono font-extrabold ml-1">2025</span></Button>
+                    </Link>
+                </div>
+            </section>
+
+            {/* Information Section */}
+            <section className="max-h-screen flex justify-between items-stretch bg-gradient-to-br from-white to-yellow-500/60 px-16 gap-16 py-20">
+                <div className="w-1/2 flex-col flex-center gap-8 p-8 text-dark text-left bg-white border-1 rounded-lg drop-shadow-2xl">
+                    <h3 className="text-4xl text-bouncy font-bold text-dark self-start">Le Prince</h3>
+                    <p className="max-w-2xl font-semibold self-start">La tradition est de nommer tous les ans un prince ou une princesse qui
+                        représentera le carnaval et notre ville pour chaque édition. Nous nous souviendrons en tout
+                        temps de sa grandeur et bonté. </p>
+                    <h3 className="text-4xl text-bouncy font-bold text-dark self-start">Edition<span className="font-mono font-extrabold"> 2024</span> : </h3>
+                    <Image src={prince} alt="Portrait de Christophe 1er"
+                                className="w-1/2"
+                    />
+                    <p className="max-w-2xl font-semibold self-start">Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité.
+                        s’engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens!
+                        Il commence ses activité canavalesque comme constructeur de chars en 1985, puis rejoint les rangs du Bout’Rions.
+                        Aujourd’hui, le voilà hissé au rôle d'acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!</p>
                 </div>
 
+                <div className="w-1/2 flex-col flex-center gap-6 p-12 text-white bg-white border-1 rounded-lg drop-shadow-2xl">
+                    <h3 className="text-4xl text-bouncy font-bold text-dark">Notre Journal</h3>
+                    <Image src={newspaper} alt="Journal du Carnaval"
+                           className="max-w-full max-h-[85%] object-contain"/>
+                    <Link href="/newspaper">
+                        <Button variant="custom"
+                                className="text-white text-bouncy-shadow text-2xl p-6">Plus d'Info</Button>
+                    </Link>
+                </div>
+            </section>
+
+            {/* Media Section */}
+            <section className="max-h-screen flex-col flex-center gap-6 bg-white p-16">
+                <h3 className="text-4xl text-bouncy font-semibold text-black text-center">Nos Sponsors</h3>
+                    <p className="max-w-2xl">Ils soutiennent notre carnaval, nous permettant de refaire des éditions chaque année.</p>
+                    <p className="font-medium">Un grand MERCI !!</p>
+                <CarouselSpacing images={images} />
+
+                <h3 className="text-4xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
             </section>
         </>
     )
