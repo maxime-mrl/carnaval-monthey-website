@@ -42,7 +42,7 @@ export default function Home() {
                     carnaval du Valais, ... et le meilleur du monde!</h2>
 
                 <div className="flex-col flex-center gap-6 my-12 text-snow">
-                    <p className="max-w-4xl">Le carnaval de Monthey c’est 6 jours de folie et tradition ancestral. Du
+                    <p className="max-w-4xl">Le carnaval de Monthey c&apos;est 6 jours de folie et tradition ancestral. Du
                         jeudi au mardi, masques, chars, « guggenmusik », et autres animations rythment le cœur de notre
                         ville de Monthey.
                         Le fameux cortège du dimanche, qui évoque les thèmes chauds de l{'\''}actualité locale,
@@ -52,7 +52,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex-col flex-center text-snow gap-16">
-                    <h3 className="text-4xl text-bouncy font-bold text-snow text-center mt-12">Qu'est ce que t'attends
+                    <h3 className="text-4xl text-bouncy font-bold text-snow text-center mt-12">Qu&apos;est ce que t&apos;attends
                         pour venir?</h3>
                     <Link href="/infos">
                         <Button variant="custom"
@@ -74,9 +74,9 @@ export default function Home() {
                                 className="w-1/2"
                     />
                     <p className="max-w-2xl font-semibold self-start">Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité.
-                        s’engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens!
-                        Il commence ses activité canavalesque comme constructeur de chars en 1985, puis rejoint les rangs du Bout’Rions.
-                        Aujourd’hui, le voilà hissé au rôle d'acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!</p>
+                        s&apos;engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens!
+                        Il commence ses activité canavalesque comme constructeur de chars en 1985, puis rejoint les rangs du Bout&apos;Rions.
+                        Aujourd&apos;hui, le voilà hissé au rôle d&apos;acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!</p>
                 </div>
 
                 <div className="w-1/2 flex-col flex-center gap-6 p-12 text-white bg-white border-1 rounded-lg drop-shadow-2xl">
@@ -85,7 +85,7 @@ export default function Home() {
                            className="max-w-full max-h-[85%] object-contain"/>
                     <Link href="/newspaper">
                         <Button variant="custom"
-                                className="text-white text-bouncy-shadow text-2xl p-6">Plus d'Info</Button>
+                                className="text-white text-bouncy-shadow text-2xl p-6">Plus d&apos;Info</Button>
                     </Link>
                 </div>
             </section>
