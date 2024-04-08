@@ -79,7 +79,7 @@ export const PUT = async (req:Request) => {
             toUpdate.password = await bcrypt.hash(toUpdate.password, 10);
         }
         const updatedUser = await userModel.findByIdAndUpdate(userSession._id, toUpdate, { new: true });
-        if (!updatedUser) throw new Error("Impossible de mettre a jour votre compte, merci de réesseayer.");
+        if (!updatedUser) throw new Error("Impossible de mettre à jour votre compte, merci de réesseayer.");
         return new Response(`Compte mis à jour!`);
     } catch (err) {
         return handleError(err);

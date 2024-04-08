@@ -10,7 +10,7 @@ import { isValidObjectId } from "mongoose";
 const sponsorDir = "public/sponsor";
 
 // Add a sponsor
-// POST /api/sponsor
+// POST /api/sponsor/update
 // head: session -- body: sponsor - { name, image }
 export const POST = async (req: Request) => {
     try {
@@ -49,7 +49,7 @@ export const POST = async (req: Request) => {
 }
 
 // Remove a sponsor
-// DELETE /api/sponsor
+// DELETE /api/sponsor/update
 // head: session -- body: sponsor - { name | id }
 export const DELETE = async (req: Request) => {
     try {
