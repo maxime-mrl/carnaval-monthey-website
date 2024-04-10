@@ -6,14 +6,16 @@ import {Button} from "@components/ui/button";
 // Module imports
 import Image from "next/image";
 import Link from "next/link";
+import {FontAwesomeIcon} from "@node_modules/@fortawesome/react-fontawesome";
+import {faInstagram, faSquareFacebook} from "@node_modules/@fortawesome/free-brands-svg-icons";
 
 // Assets imports
 import prince from "@public/images/prince2024.png";
 import newspaper from "@public/images/journal.png";
-import {CarouselSpacing} from "@components/CarouselSpacing";
+import {MovingCards} from "@components/MovingCards";
 
 export default function Home() {
-    const images = [
+    const sponsors = [
         {src: "/images/sponsors/1.png", alt: "Logo sponsor 1"},
         {src: "/images/sponsors/2.png", alt: "Logo sponsor 2"},
         {src: "/images/sponsors/3.png", alt: "Logo sponsor 3"},
@@ -30,10 +32,10 @@ export default function Home() {
                 <Image src="/images/logo.png"
                        alt="Carnaval de Monthey"
                        width={200} height={200}
-                       className="drop-shadow-2xl xs:w-28  sm:w-48 md:w-60 lg:w-72 xl:w-80"
+                       className="w-80 drop-shadow-2xl xs:w-28 sm:w-48 md:w-60 lg:w-64 xl:w-72"
                 />
-                <AnimatedText text="Carnaval de Monthey" className="text-bouncy-gradient text-2xl max-w-prose
-                xl:text-8xl lg:whitespace-nowrap lg:text-6xl md:text-5xl sm:text-3xl xs:text-xl"/>
+                <AnimatedText text="Carnaval de Monthey" className="text-bouncy-gradient text-8xl whitespace-nowrap max-w-prose
+                xs:whitespace-pre-wrap sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"/>
             </div>
 
             {/* Teaser Section */}
@@ -63,8 +65,8 @@ export default function Home() {
             </section>
 
             {/* Information Section */}
-            <section className="max-h-screen flex justify-between items-stretch bg-gradient-to-br from-white to-yellow-500/60 px-16 gap-16 py-20">
-                <div className="w-1/2 flex-col flex-center gap-8 p-8 text-dark text-left bg-white border-1 rounded-lg drop-shadow-2xl">
+            <section className="max-h-screen flex justify-center items-stretch bg-gradient-to-br from-white to-yellow-500/60 px-16 gap-16 py-20">
+                <div className="w-[40%] max-w-3xl flex-col flex-center gap-8 p-8 text-dark text-left bg-white border-1 rounded-lg drop-shadow-2xl 2xl:max-w-4xl">
                     <h3 className="text-4xl text-bouncy font-bold text-dark self-start">Le Prince</h3>
                     <p className="max-w-2xl font-semibold self-start">La tradition est de nommer tous les ans un prince ou une princesse qui
                         représentera le carnaval et notre ville pour chaque édition. Nous nous souviendrons en tout
@@ -79,7 +81,7 @@ export default function Home() {
                         Aujourd&apos;hui, le voilà hissé au rôle d&apos;acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!</p>
                 </div>
 
-                <div className="w-1/2 flex-col flex-center gap-6 p-12 text-white bg-white border-1 rounded-lg drop-shadow-2xl">
+                <div className="w-[40%] max-w-3xl flex-col flex-center gap-6 p-12 text-white bg-white border-1 rounded-lg drop-shadow-2xl 2xl:max-w-4xl">
                     <h3 className="text-4xl text-bouncy font-bold text-dark">Notre Journal</h3>
                     <Image src={newspaper} alt="Journal du Carnaval"
                            className="max-w-full max-h-[85%] object-contain"/>
@@ -93,11 +95,23 @@ export default function Home() {
             {/* Media Section */}
             <section className="max-h-screen flex-col flex-center gap-6 bg-white p-16">
                 <h3 className="text-4xl text-bouncy font-semibold text-black text-center">Nos Sponsors</h3>
-                    <p className="max-w-2xl">Ils soutiennent notre carnaval, nous permettant de refaire des éditions chaque année.</p>
-                    <p className="font-medium">Un grand MERCI !!</p>
-                <CarouselSpacing images={images} />
+                <p className="max-w-2xl">Ils soutiennent notre carnaval, nous permettant de refaire des éditions chaque
+                    année.</p>
+                <p className="font-medium">Un grand MERCI !!</p>
+                <MovingCards
+                    items={sponsors}
+                    direction="left"
+                    speed="fast"
+                />
 
-                <h3 className="text-4xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
+                <h3 className="text-5xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
+                <span className="flex gap-10 my-12">
+                    <a className="hover:scale-90 text-red-900" href="https://www.instagram.com/carnavaldemonthey/"><FontAwesomeIcon
+                        className="w-24 h-24" icon={faInstagram}/></a>
+                    <a className="hover:scale-90" href="https://fr-fr.facebook.com/Carnavaldemonthey/"><FontAwesomeIcon
+                        className="w-24 h-24 text-red-900" icon={faSquareFacebook}/></a>
+                </span>
+
             </section>
         </>
     )

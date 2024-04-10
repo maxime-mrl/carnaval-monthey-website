@@ -9,15 +9,8 @@ type TextProps = {
 
 const quote = {
     initial: {
-        opacity: 0,
-    },
-    animate:{
         opacity: 1,
-        transition: {
-            duration: 0.3,
-            delay:  0.1,
-        }
-    }
+    },
 }
 
 const AnimatedText = ({text, className=""}: TextProps) => {
@@ -34,8 +27,8 @@ const AnimatedText = ({text, className=""}: TextProps) => {
                 {text.split('').map((letter, letterIndex) => (
                     <motion.span
                         key={letter + '-' + letterIndex}
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1}}
+                        initial={{opacity: 1}}
+                        animate={{scale: [1, 1.5, 1], opacity: 1}}
                         transition={{duration: 0.1, delay: letterIndex * 0.07}} // Delay each letter by 0.1 seconds
                     >
                         {letter}
@@ -53,7 +46,7 @@ const AnimatedText = ({text, className=""}: TextProps) => {
                 {text.split('').map((letter, letterIndex) => (
                     <motion.span
                         key={letter + '-' + letterIndex}
-                        initial={{opacity: 0}}
+                        initial={{opacity: 1}}
                         animate={{opacity: 1}}
                         transition={{duration: 0.1, delay: letterIndex * 0.07}} // Delay each letter by 0.1 seconds
                         className="text-shadow"

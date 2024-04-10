@@ -103,7 +103,7 @@
   }
 
   .logo_text {
-    @apply max-sm:hidden font-semibold text-lg text-white tracking-wide hover:text-red-400;
+    @apply font-semibold text-lg text-white tracking-wide hover:text-red-400;
   }
 
   .flex-center {

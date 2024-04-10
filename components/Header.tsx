@@ -1,12 +1,12 @@
+"use client"
+
 import Image from "next/image";
 import {ChevronDown} from "lucide-react";
 
 const Header = () => {
-    const images = [
-        "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    ];
+    const handleChevronClick = () => { // Ajoute un gestionnaire de clic pour le Chevron
+        window.scrollBy({ top: window.innerHeight / 1.2, behavior: 'smooth' });
+    };
 
     return (
         <header className="w-full min-h-screen relative">
@@ -22,7 +22,9 @@ const Header = () => {
             <div className="p-4">
                 <ChevronDown strokeWidth={4}
                                         className="h-24 w-24 text-white absolute bottom-[3vh] left-[45vw] z-20 cursor-pointer
-                                                            animate-bounce"/>
+                                                            animate-bounce"
+                                        onClick={handleChevronClick}
+                />
             </div>
         </header>
     );

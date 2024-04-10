@@ -1,4 +1,7 @@
 import type { Config } from "tailwindcss"
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 const config = {
   darkMode: ["class"],
@@ -23,7 +26,7 @@ const config = {
       },
       colors: {
         'burnt': '#962C22',
-        'arylide': '#F2A365',
+        'arylide': '#E9D356',
         'snow': '#F8F2F2',
         'dark': '#1F0101',
         'kelly': '#4BA110',
@@ -67,6 +70,11 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -80,10 +88,42 @@ const config = {
         'spin-slow': "spin 8s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        scroll:
+            "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
+    screens: {
+      '2xl': {max: '1800px'},
+      // => @media (max-width: 1800px) { ... }
+
+      'xl': {max: '1280px'},
+      // => @media (max-width: 1280px) { ... }
+
+      'lg': {max: '1024px'},
+      // => @media (max-width: 1024px) { ... }
+
+      'md': {max: '768px'},
+      // => @media (max-width: 768px) { ... }
+
+      'sm': {max: '640px'},
+      // => @media (max-width: 640px) { ... }
+
+      'xs': {max: '400px'},
+      // => @media (max-width: 400px) { ... }
+    },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [addVariablesForColors],
 } satisfies Config
+
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+      Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
+}
 
 export default config
