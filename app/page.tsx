@@ -101,7 +101,7 @@ export default function Home() {
                 <MovingCards
                     items={sponsors}
                     direction="left"
-                    speed="fast"
+                    speed="normal"
                 />
 
                 <h3 className="text-5xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
