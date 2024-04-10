@@ -100,8 +100,8 @@ export default function Home() {
                 <p className="font-medium">Un grand MERCI !!</p>
                 <MovingCards
                     items={sponsors}
-                    direction="left"
-                    speed="normal"
+                    direction={"forwards"}
+                    speed={30}
                 />
 
                 <h3 className="text-5xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
