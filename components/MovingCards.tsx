@@ -1,15 +1,14 @@
 "use client";
 
-import { cn } from "@/utils/chadcn";
-import React, { useEffect, useState } from "react";
+import {cn} from "@/utils/chadcn";
+import React, {useEffect, useState} from "react";
 
 export const MovingCards = ({
-                                        items,
-                                        direction = "left",
-                                        speed = "fast",
-                                        pauseOnHover = true,
-                                        className,
-                                    }: {
+                                items,
+                                direction = "left",
+                                speed = "normal",
+                                className,
+                            }: {
     items: {
         src: string
     }[];
@@ -25,6 +24,7 @@ export const MovingCards = ({
         addAnimation();
     }, []);
     const [start, setStart] = useState(false);
+
     function addAnimation() {
         if (containerRef.current && scrollerRef.current) {
             const scrollerContent = Array.from(scrollerRef.current.children);
@@ -41,6 +41,7 @@ export const MovingCards = ({
             setStart(true);
         }
     }
+
     const getDirection = () => {
         if (containerRef.current) {
             if (direction === "left") {
