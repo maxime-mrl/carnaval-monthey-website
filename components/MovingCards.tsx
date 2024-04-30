@@ -9,7 +9,7 @@ export const MovingCards = ({
     return (
         <div
             className={cn(
-                "scroller relative z-20 max-w-7xl overflow-hidden shrink-0 w-full"
+                "scroller relative z-20 max-w-7xl max-h-52 my-6 overflow-hidden shrink-0 w-full"
             )}
             style={ {
                 "--animation-duration": `${speed}s`,
@@ -18,7 +18,7 @@ export const MovingCards = ({
         >
             <ul
                 className={cn(
-                    "flex shrink-0 gap-4 py-4 w-max flex-nowrap animate-scroll"
+                    "flex-center shrink-0 gap-4 py-4 w-max flex-nowrap animate-scroll"
                 )}
             >
                 {/* duplicate items to allow smooth repeating */}

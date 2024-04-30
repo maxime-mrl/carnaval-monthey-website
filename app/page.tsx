@@ -28,7 +28,8 @@ export default function Home() {
             {/* Header component */}
             <Header/>
             <div
-                className="flex flex-col flex-center gap-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                className="flex flex-col flex-center gap-6 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+            >
                 <Image src="/images/logo.png"
                        alt="Carnaval de Monthey"
                        width={200} height={200}
@@ -39,7 +40,7 @@ export default function Home() {
             </div>
 
             {/* Teaser Section */}
-            <section className="flex-col flex-center bg-dark p-16">
+            <section className="min-h-screen flex-col flex-center bg-dark p-16">
                 <h2 className="text-5xl text-bouncy font-bold text-snow text-center max-w-3xl mt-12">Le plus grand
                     carnaval du Valais, ... et le meilleur du monde!</h2>
 
@@ -58,24 +59,24 @@ export default function Home() {
                         pour venir?</h3>
                     <Link href="/infos">
                         <Button variant="custom"
-                                className="text-bouncy-shadow text-2xl p-6">Informations <span
+                                className="text-bouncy-shadow text-2xl p-6 mb-8">Informations <span
                             className="font-mono font-extrabold ml-1">2025</span></Button>
                     </Link>
                 </div>
             </section>
 
             {/* Information Section */}
-            <section className="max-h-screen flex justify-center items-stretch bg-gradient-to-br from-white to-yellow-500/60 px-16 gap-16 py-20">
+            <section className="min-h-screen flex justify-center items-stretch bg-gradient-to-br from-white to-yellow-500/60 px-16 gap-16 py-20">
                 <div className="w-[40%] max-w-3xl flex-col flex-center gap-8 p-8 text-dark text-left bg-white border-1 rounded-lg drop-shadow-2xl 2xl:max-w-4xl">
                     <h3 className="text-4xl text-bouncy font-bold text-dark self-start">Le Prince</h3>
-                    <p className="max-w-2xl font-semibold self-start">La tradition est de nommer tous les ans un prince ou une princesse qui
+                    <p className="max-w-2xl self-start">La tradition est de nommer tous les ans un prince ou une princesse qui
                         représentera le carnaval et notre ville pour chaque édition. Nous nous souviendrons en tout
                         temps de sa grandeur et bonté. </p>
                     <h3 className="text-4xl text-bouncy font-bold text-dark self-start">Edition<span className="font-mono font-extrabold"> 2024</span> : </h3>
                     <Image src={prince} alt="Portrait de Christophe 1er"
                                 className="w-1/2"
                     />
-                    <p className="max-w-2xl font-semibold self-start">Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité.
+                    <p className="max-w-2xl self-start">Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité.
                         s&apos;engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens!
                         Il commence ses activité canavalesque comme constructeur de chars en 1985, puis rejoint les rangs du Bout&apos;Rions.
                         Aujourd&apos;hui, le voilà hissé au rôle d&apos;acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!</p>
@@ -93,7 +94,8 @@ export default function Home() {
             </section>
 
             {/* Media Section */}
-            <section className="max-h-screen flex-col flex-center gap-6 bg-white p-16">
+            <section className="min-h-screen flex-col flex-center gap-6 bg-white p-12">
+                <div className=" h-full flex-col flex-center gap-3">
                 <h3 className="text-4xl text-bouncy font-semibold text-black text-center">Nos Sponsors</h3>
                 <p className="max-w-2xl">Ils soutiennent notre carnaval, nous permettant de refaire des éditions chaque
                     année.</p>
@@ -101,17 +103,17 @@ export default function Home() {
                 <MovingCards
                     items={sponsors}
                     direction={"forwards"}
-                    speed={30}
+                    speed={35}
                 />
 
-                <h3 className="text-5xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
-                <span className="flex gap-10 my-12">
+                <h3 className="text-4xl text-bouncy font-semibold text-black text-center">Suis nous sur les réseaux</h3>
+                <span className="flex gap-16 my-4">
                     <a className="hover:scale-90 text-red-900" href="https://www.instagram.com/carnavaldemonthey/"><FontAwesomeIcon
-                        className="w-24 h-24" icon={faInstagram}/></a>
-                    <a className="hover:scale-90" href="https://fr-fr.facebook.com/Carnavaldemonthey/"><FontAwesomeIcon
-                        className="w-24 h-24 text-red-900" icon={faSquareFacebook}/></a>
+                        className="w-16 h-16" icon={faInstagram}/></a>
+                    <a className="hove r:scale-90" href="https://fr-fr.facebook.com/Carnavaldemonthey/"><FontAwesomeIcon
+                        className="w-16 h-16 text-red-900" icon={faSquareFacebook}/></a>
                 </span>
-
+                </div>
             </section>
         </>
     )
