@@ -9,7 +9,8 @@ export const MovingCards = ({
     return (
         <div
             className={cn(
-                "scroller relative z-20 max-w-7xl max-h-52 my-6 overflow-hidden shrink-0 w-full"
+                "scroller relative z-20 max-w-6xl max-h-52 my-6 overflow-hidden shrink-0" +
+                "sm:max-w-xl md:max-w-3xl lg:max-w-3xl xl:max-w-6xl"
             )}
             style={ {
                 "--animation-duration": `${speed}s`,
