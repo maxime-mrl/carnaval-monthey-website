@@ -12,10 +12,12 @@ import {faInstagram, faSquareFacebook} from "@node_modules/@fortawesome/free-bra
 import prince from "@public/images/prince2024.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
-import { getSponsors } from "./sponsors";
+import { getSponsors } from "@utils/getSponsors";
+
+export const revalidate = 3600;
 
 export default async function Home() {
-    const sponsors = await getSponsors();
+    const sponsors = await getSponsors()
     return (
         <>
             {/* Header component */}
