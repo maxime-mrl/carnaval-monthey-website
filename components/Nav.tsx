@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import {Menu} from "@node_modules/lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 import {
     Sheet,
     SheetClose,
@@ -37,7 +38,7 @@ export default function Nav() {
             {/* Mobile Navigation */}
             <Sheet>
                 <SheetTrigger asChild>
-                    <Menu strokeWidth={2.3} size={24} className="text-white hover:cursor-pointer hidden md:flex" />
+                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer hidden md:flex" icon={faBars}/>
                 </SheetTrigger>
                 <SheetContent>
                     <SheetHeader>

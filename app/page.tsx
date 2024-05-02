@@ -1,18 +1,19 @@
 // Components imports
-import Header from "@components/Header";
-import {Button} from "@components/ui/button";
+import { Button } from "@components/ui/button";
 
 // Module imports
 import Image from "next/image";
 import Link from "next/link";
-import {FontAwesomeIcon} from "@node_modules/@fortawesome/react-fontawesome";
-import {faInstagram, faSquareFacebook} from "@node_modules/@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@node_modules/@fortawesome/react-fontawesome";
+import { faInstagram, faSquareFacebook } from "@node_modules/@fortawesome/free-brands-svg-icons";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
 
 // Assets imports
 import prince from "@public/images/prince2024.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
 import { getSponsors } from "@utils/getSponsors";
+import { ChevronDown } from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -21,11 +22,28 @@ export default async function Home() {
     return (
         <>
             {/* Header component */}
-            <Header/>
+            <header className="w-full h-dvh relative bg-[url('/images/monthey.jpg')] bg-cover">
+                {/* Gradient */}
+                <div className="absolute top-0 z-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-yellow-600 to-red-900 opacity-50"/> 
+                <div className="z-1 relative h-full">
+                    <div className="h-full flex-col flex-center gap-6 drop-shadow-3xl">
+                        <Image src="/images/logo.png"
+                            alt="Carnaval de Monthey"
+                            width={200} height={200}
+                            className="w-80
+                            sm:w-48 md:w-60 xl:w-72"
+                        />
+                        <h1 className="text-bouncy-gradient text-7xl text-center md:text-5xl lg:text-6xl">Carnaval de Monthey</h1>
+                    </div>
+                    <Link href="#about" className="absolute w-full bottom-[3vh] flex justify-center">
+                        <FontAwesomeIcon className="h-24 w-24 text-white cursor-pointer animate-bounce" icon={faAngleDown}/>
+                    </Link>
+                </div>
+            </header>
 
             {/* Teaser Section */}
             <div className="bg-dark">
-                <section className="flex-col flex-center container-size gap-12 py-16">
+                <section className="flex-col flex-center container-size full-height gap-12 py-16" id="about">
                     <h2 className="text-5xl text-bouncy font-bold text-snow text-center max-w-3xl">
                         Le plus grand carnaval du Valais, et le meilleur du monde!
                     </h2>
@@ -57,8 +75,8 @@ export default async function Home() {
             </div>
 
             {/* Information Section */}
-            <div className="bg-gradient-to-br from-snow to-yellow-500/60">
-                <section className="flex justify-center items-stretch gap-8 py-20 flex-wrap container-size">
+            <div className="bg-gradient-to-br from-snow to-arylide">
+                <section className="flex justify-center items-stretch gap-8 py-20 flex-wrap container-size full-height">
                     <article className="card text-left">
                         <h3 className="text-4xl text-bouncy font-bold text-dark self-start">Le Prince</h3>
                         <p className="max-w-2xl self-start">
@@ -97,7 +115,7 @@ export default async function Home() {
             </div>
 
             {/* Media Section */}
-            <section className="flex-col flex-center gap-6 py-6 text-center container-size">
+            <section className="flex-col flex-center gap-6 py-6 text-center container-size full-height">
                 <h3 className="text-4xl text-bouncy font-semibold text-dark text-center">
                     Nos Sponsors
                 </h3>
