@@ -13,17 +13,11 @@ const config = {
 	],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-    },
     extend: {
       dropShadow: {
+        'text': '2px 2px 2px rgba(31, 1, 1, 0.8)',
         '3xl': '10px 10px 5px rgba(31, 1, 1, 0.8)',
       },
-      textShadow: {
-        default: '0 2px 5px rgba(0, 0, 0, 0.6)'
-        },
       fontFamily: {
         'bouncy': ['Bouncy', 'sans-serif'],
       },
@@ -51,9 +45,9 @@ const config = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0.5rem",
+        md: "calc(0.5rem - 2px)",
+        sm: "calc(0.5rem - 4px)",
       },
       keyframes: {
         scroll: {

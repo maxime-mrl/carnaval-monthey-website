@@ -15,8 +15,8 @@ const EventsList = ({ events } : { events:eventItem[] }) => {
     (events ?
         <ul className="flex flex-col gap-2 w-full">
             {events.map((event, index) => (
-                <li key={index} className="flex px-10 min-h-[4em] py-2 justify-between gap-5 items-center flex-wrap bg-gradient-to-r from-burnt to-arylide md:justify-around">
-                    <div className="text-snow flex justify-center gap-6 flex-wrap text-bouncy">
+                <li key={index} className="flex px-[10vw] min-h-[4em] py-2 justify-between gap-5 items-center flex-wrap bg-gradient-to-r from-burnt to-arylide md:justify-around">
+                    <div className="text-snow flex justify-center gap-6 flex-wrap font-bouncy">
                         <span>{event.title}</span>
                         <span>{event.Time}</span>
                         <span>
@@ -26,12 +26,12 @@ const EventsList = ({ events } : { events:eventItem[] }) => {
                     </div>
                     { event.infos ?
                     <Button variant="default" className="p-6" onClick={() => {}}>
-                        <span className="text-snow text-bouncy-shadow text-2xl">
+                        <span className="text-snow custom-shadow h4">
                             Plus d&apos;Info
                         </span>
                     </Button>
                     :
-                    <span className="text-2xl px-6 opacity-0 h-0">Plus d&apos;Info</span>
+                    <span className="h4 px-6 opacity-0 h-0">Plus d&apos;Info</span>
                     }  
                 </li>
             ))}

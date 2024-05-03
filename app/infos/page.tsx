@@ -37,15 +37,15 @@ const InfoPage = () => {
         {/* header */}
         <div className='bg-dark'>
             <header className='pt-24 pb-10 flex-center flex-col gap-10 container-size'>
-                <h1 className="text-bouncy-gradient text-7xl text-center md:text-5xl lg:text-6xl">Toutes les infos</h1>
-                <h2 className='text-5xl text-bouncy font-bold text-snow text-center max-w-3xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition </h2>
+                <h1 className="h1 text-gradient text-center">Toutes les infos</h1>
+                <h2 className='h2 text-snow text-center max-w-4xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition </h2>
             </header>
         </div>
         {/* Entries pricing */}
         <section id="entries" className="container-size py-10 flex text-center flex-wrap gap-10 justify-around">
-        <h2 className='text-bouncy text-7xl md:text-5xl lg:text-6xl w-full'>Prix des entrées</h2>
+        <h2 className='h2 w-full'>Prix des entrées</h2>
             <article>
-                <h3 className='text-5xl text-bouncy font-bold text-center max-w-3xl'>Espace triboulet</h3>
+                <h3 className='h3'>Espace triboulet</h3>
                 <ul>
                     <li>Costumés et masqué: 10.-</li>
                     <li>Non masqué: 15.-</li>
@@ -53,7 +53,7 @@ const InfoPage = () => {
                 </ul>
             </article>
             <article>
-                <h3 className='text-5xl text-bouncy font-bold text-center max-w-3xl'>Cortège du dimanche</h3>
+                <h3 className='h3'>Cortège du dimanche</h3>
                 <ul>
                     <li>Entrée au cortège: 10.-</li>
                     <li>Enfants jusqu’à 15 ans: GRATUIT</li>
@@ -62,28 +62,28 @@ const InfoPage = () => {
         </section>
         <section id="entries" className="py-10 flex flex-col gap-8">
             <div className="container-size">
-                <h2 className='text-bouncy text-7xl md:text-5xl lg:text-6xl w-full'>Agenda</h2>
-                <h3 className='text-5xl text-bouncy font-bold max-w-3xl'>Jeudi OO février</h3>
+                <h2 className='h2 mb-4'>Agenda</h2>
+                <h3 className='h3'>Jeudi OO février</h3>
             </div>
             <EventsList events={thurdsdayEvent} />
             <div className="container-size">
-                <h3 className='text-5xl text-bouncy font-bold max-w-3xl'>Vendredi OO février</h3>
+                <h3 className='h3'>Vendredi OO février</h3>
             </div>
             <EventsList />
             <div className="container-size">
-                <h3 className='text-5xl text-bouncy font-bold max-w-3xl'>Samedi OO mars</h3>
+                <h3 className='h3'>Samedi OO mars</h3>
             </div>
             <EventsList />
             <div className="container-size">
-                <h3 className='text-5xl text-bouncy font-bold max-w-3xl'>Dimanche OO mars</h3>
+                <h3 className='h3'>Dimanche OO mars</h3>
             </div>
             <EventsList />
         </section>
         
         <section id="transport" className="container-size py-10 flex flex-col gap-8">
-            <h2 className='text-bouncy text-7xl md:text-5xl lg:text-6xl w-full'>Infos transports</h2>
+            <h2 className='h2'>Infos transports</h2>
             <article>
-                <h3 className='text-5xl text-bouncy font-bold max-w-3xl'>Parking voitures</h3>
+                <h3 className='h3'>Parking voitures</h3>
                 <Image
                     src={map}
                     alt="Carte parking voiture"
@@ -91,7 +91,7 @@ const InfoPage = () => {
                 />
             </article>
             <article>
-                <h3 className='text-5xl text-bouncy font-bold max-w-3xl'>Ligne de bus</h3>
+                <h3 className='h3'>Ligne de bus</h3>
                 <p className='max-w-[60ch]'>
                     Grâce aux TPC, un bus seras inclus avec le prix du cortège pour faire la liaison entre les parking et le cortège!
                 </p>
