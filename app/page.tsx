@@ -13,7 +13,6 @@ import prince from "@public/images/prince2024.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
 import { getSponsors } from "@utils/getSponsors";
-import { ChevronDown } from "lucide-react";
 
 export const revalidate = 3600;
 
@@ -30,8 +29,7 @@ export default async function Home() {
                         <Image src="/images/logo.png"
                             alt="Carnaval de Monthey"
                             width={200} height={200}
-                            className="w-80
-                            sm:w-48 md:w-60 xl:w-72"
+                            className="w-80 mobile:w-60"
                         />
                         <h1 className="h1 text-gradient text-center">Carnaval de Monthey</h1>
                     </div>
@@ -43,7 +41,7 @@ export default async function Home() {
 
             {/* Teaser Section */}
             <div className="bg-dark">
-                <section className="flex-col flex-center container-size full-height gap-12 py-16" id="about">
+                <section className="flex-col flex-center container-size gap-12 py-16" id="about">
                     <h2 className="h2 text-snow text-center max-w-3xl">
                         Le plus grand carnaval du Valais, et le meilleur du monde!
                     </h2>
@@ -63,7 +61,7 @@ export default async function Home() {
                             Qu&apos;est ce que t&apos;attends pour venir?
                         </h3>
                         <Link href="/infos">
-                            <Button variant="custom" className="text-snow custom-shadow h4 p-6">
+                            <Button variant="custom" className="text-snow text-shadow h4 p-6">
                                 Informations
                                 <span className="font-mono font-extrabold ml-1">
                                     2025
@@ -76,7 +74,7 @@ export default async function Home() {
 
             {/* Information Section */}
             <div className="bg-gradient-to-br from-snow to-arylide">
-                <section className="flex justify-center items-stretch gap-8 py-20 flex-wrap container-size full-height">
+                <section className="flex justify-center items-stretch gap-8 py-20 flex-wrap container-size">
                     <article className="card text-left">
                         <h2 className="h2 text-dark self-start">Le Prince</h2>
                         <p className="max-w-2xl self-start">
@@ -105,7 +103,7 @@ export default async function Home() {
                         />
                         <Link href="/newspaper">
                             <Button variant="custom" className="p-6">
-                                <span className="text-snow custom-shadow h4">
+                                <span className="text-snow text-shadow h4">
                                     Plus d&apos;Info
                                 </span>
                             </Button>
@@ -115,7 +113,7 @@ export default async function Home() {
             </div>
 
             {/* Media Section */}
-            <section className="flex-col flex-center gap-6 py-6 text-center container-size full-height">
+            <section className="flex-col flex-center gap-6 py-6 text-center container-size">
                 <h2 className="h2 text-dark text-center">
                     Nos Sponsors
                 </h2>

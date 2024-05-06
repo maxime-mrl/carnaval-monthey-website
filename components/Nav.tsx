@@ -23,12 +23,12 @@ export default function Nav() {
                     height={50}
                     className="object-contain"
                 />
-                <p className="logo_text md:hidden">Accueil</p>
-                <p className="logo_text hidden md:flex">Carnaval de Monthey</p>
+                <p className="logo_text mobile:hidden">Accueil</p>
+                <p className="logo_text hidden mobile:flex">Carnaval de Monthey</p>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="flex gap-5 md:hidden">
+            <div className="flex gap-5 mobile:hidden">
                 <Link href="/infos" className="logo_text">Infos</Link>
                 <Link href="/" className="logo_text">Le carnaval</Link>
                 <Link href="/" className="logo_text">Communauté</Link>
@@ -38,7 +38,7 @@ export default function Nav() {
             {/* Mobile Navigation */}
             <Sheet>
                 <SheetTrigger asChild>
-                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer hidden md:flex" icon={faBars}/>
+                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer hidden mobile:flex" icon={faBars}/>
                 </SheetTrigger>
                 <SheetContent>
                     <SheetHeader>
