@@ -1,4 +1,3 @@
-import { cn } from "@/utils/chadcn";
 import Image from "next/image";
 
 export const MovingCards = ({
@@ -14,9 +13,7 @@ export const MovingCards = ({
                 "--animation-direction": direction
             } as React.CSSProperties}
         >
-            <ul
-                className="flex-center gap-16 py-4 w-fit animate-scroll md:gap-10"
-            >
+            <ul className="flex-center gap-16 py-4 w-fit animate-scroll mobile:gap-10">
                 {/* duplicate items to allow smooth repeating */}
                 {[...items, ...items].map((sponsor, idx) => (
                     <li

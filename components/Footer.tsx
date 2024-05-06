@@ -31,10 +31,10 @@ const Footer = () => {
             {/* footer content */}
             <div className='
                 grid grid-cols-[3.5fr_1fr_3.5fr] grid-rows-1 container-size gap-y-10 py-10
-                md:grid-cols-1 md:grid-rows-2
+                mobile:grid-cols-1 mobile:grid-rows-2
             '>
                 {/* Adress & copyright stuff */}
-                <section className='flex flex-col gap-5 md:text-center md:items-center md:row-start-2'>
+                <section className='flex flex-col gap-5 mobile:text-center mobile:items-center mobile:row-start-2'>
                     <article>
                         {addressLines.map((line, index) => (
                             <p key={index}>{line}</p>
@@ -66,7 +66,7 @@ const Footer = () => {
                     </article>
                 </section>
                 {/* Logo */}
-                <section className="flex-center md:hidden">
+                <section className="flex-center mobile:hidden">
                     <Image
                         src="/images/logo.png"
                         alt="Carnaval de Monthey"
@@ -76,7 +76,7 @@ const Footer = () => {
                     />
                 </section>
                 {/* Site plan */}
-                <section className="flex flex-col text-end gap-2 md:text-center">
+                <section className="flex flex-col text-end gap-2 mobile:text-center">
                     <h3 className="font-bold mb-2">Plan du site</h3>
                     {sitePlanLines.map((line, index) => (
                         <Link href={`/${line.toLowerCase()}`} key={index}>

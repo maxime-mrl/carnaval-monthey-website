@@ -15,7 +15,6 @@ const config = {
   theme: {
     extend: {
       dropShadow: {
-        'text': '2px 2px 2px rgba(31, 1, 1, 0.8)',
         '3xl': '10px 10px 5px rgba(31, 1, 1, 0.8)',
       },
       fontFamily: {
@@ -68,28 +67,12 @@ const config = {
         'spin-slow': "spin 8s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        "scroll": "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
     screens: {
-      '2xl': {max: '1800px'},
-      // => @media (max-width: 1800px) { ... }
-
-      'xl': {max: '1280px'},
-      // => @media (max-width: 1280px) { ... }
-
-      'lg': {max: '1025px'},
-      // => @media (max-width: 1024px) { ... }
-
-      'md': {max: '769px'},
+      'mobile': {max: '769px'},
       // => @media (max-width: 768px) { ... }
-
-      'sm': {max: '640px'},
-      // => @media (max-width: 640px) { ... }
-
-      'xs': {max: '400px'},
-      // => @media (max-width: 400px) { ... }
     },
   },
   plugins: [addVariablesForColors],
