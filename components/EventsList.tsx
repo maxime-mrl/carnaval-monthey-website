@@ -10,7 +10,7 @@ type eventItem = {
     infos: null | string,
 }
 
-const EventsList = ({ events } : { events:eventItem[] }) => {
+const EventsList = ({ events } : { events?:eventItem[] }) => {
   return (
     (events ?
         <ul className="flex flex-col gap-2 w-full">

@@ -38,7 +38,7 @@ const InfoPage = () => {
         <div className='bg-dark'>
             <header className='pt-24 pb-10 flex-center flex-col gap-10 container-size'>
                 <h1 className="h1 text-gradient text-center">Toutes les infos</h1>
-                <h2 className='h2 text-snow text-center max-w-4xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition </h2>
+                <p className='h2 text-snow text-center max-w-4xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition </p>
             </header>
         </div>
         {/* Entries pricing */}
@@ -49,18 +49,19 @@ const InfoPage = () => {
                 <ul>
                     <li>Costumés et masqué: 10.-</li>
                     <li>Non masqué: 15.-</li>
-                    <li>Et le mardi, c’est gratuit!</li>
+                    <li>Et le mardi, c&apos;est gratuit!</li>
                 </ul>
             </article>
             <article>
                 <h3 className='h3'>Cortège du dimanche</h3>
                 <ul>
                     <li>Entrée au cortège: 10.-</li>
-                    <li>Enfants jusqu’à 15 ans: GRATUIT</li>
+                    <li>Enfants jusqu&apos;à 15 ans: GRATUIT</li>
                 </ul>
             </article>
         </section>
-        <section id="entries" className="py-10 flex flex-col gap-8">
+        {/* events listing */}
+        <section id="events" className="py-10 flex flex-col gap-8">
             <div className="container-size">
                 <h2 className='h2 mb-4'>Agenda</h2>
                 <h3 className='h3'>Jeudi OO février</h3>
@@ -79,7 +80,7 @@ const InfoPage = () => {
             </div>
             <EventsList />
         </section>
-        
+        {/* transport infos */}
         <section id="transport" className="container-size py-10 flex flex-col gap-8">
             <h2 className='h2'>Infos transports</h2>
             <article>
@@ -101,17 +102,17 @@ const InfoPage = () => {
                     <li>Collombey, centre commercial</li>
                     <li>Monthey, parking patinoire</li>
                     <li>Monthey, parking site chimique</li>
-                    <li>Monthey, place d’arme</li>
+                    <li>Monthey, place d&apos;arme</li>
                     <li>Collombey, centre commercial</li>
                 </ul>
                 <p>cortège -&gt;  parkings, Toutes les 20min de 16h à 18h:</p>
                 Collombey, centre commercial
                 <ul className='list-disc pl-5'>
-                    <li>Monthey, place d’arme</li>
+                    <li>Monthey, place d&apos;arme</li>
                     <li>Monthey, parking site chimique</li>
                     <li>Monthey, parking patinoire</li>
                     <li>Collombey, centre commercial</li>
-                    <li>Monthey, place d’arme</li>
+                    <li>Monthey, place d&apos;arme</li>
                 </ul>
                 <p>
                     Plan de circulation détaillé disponible&nbsp;

@@ -16,6 +16,7 @@ const config = {
     extend: {
       dropShadow: {
         '3xl': '10px 10px 5px rgba(31, 1, 1, 0.8)',
+        'input': '8px 8px 0px var(--arylide, #E9D356)',
       },
       fontFamily: {
         'bouncy': ['Bouncy', 'sans-serif'],
