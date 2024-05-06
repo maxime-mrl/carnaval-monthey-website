@@ -13,7 +13,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import {useEffect, useState} from "react";
-import {NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle} from "@components/ui/navigation-menu";
+import DropdownMenu from "@components/DropdownMenu";
 
 export default function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -31,8 +31,8 @@ export default function Nav() {
     }, []);
 
     return (
-        <nav className={`flex-between w-full py-3 px-16 fixed top-0 left-0 z-20 custom-transition ${isScrolled ? 'bg-dark' : 'bg-transparent'}`}>
-            <Link href="/" className="flex gap-2 flex-center">
+        <nav className={`flex-between w-full py-6 px-16 fixed top-0 left-0 z-20 custom-transition ${isScrolled ? 'bg-dark' : 'bg-transparent'}`}>
+            <Link href="/" className="flex gap-4 flex-center">
                 <Image
                     src="/images/logo.png"
                     alt="Logo Carnaval de Monthey"
@@ -45,12 +45,15 @@ export default function Nav() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="flex gap-5 mobile:hidden">
+            {/*<div className="flex gap-5 mobile:hidden">
                 <Link href="/infos" className="logo_text">Infos</Link>
                 <Link href="/" className="logo_text">Le carnaval</Link>
                 <Link href="/" className="logo_text">Communauté</Link>
                 <Link href="/" className="logo_text">Contact</Link>
             </div>
+            */}
+
+            <DropdownMenu />
 
             {/* Mobile Navigation */}
             <Sheet>
