@@ -17,7 +17,7 @@ const FormInput = ({ label, name, type, placeholder, autoComplete, className } :
             </label>
             <input
                 className="
-                    border-2 border-burnt px-2 py-[0.4em] rounded-lg bg-snow drop-shadow-input outline-none outline-offset-0 custom-transition
+                    border-2 border-burnt px-2 py-[0.4em] rounded-lg bg-snow drop-shadow-input outline-none outline-offset-0 transitions
                     placeholder:text-dark placeholder:opacity-50
                     focus:outline-burnt focus-visible:outline-burnt
                     hover:placeholder:opacity-70 hover:scale-[1.02]

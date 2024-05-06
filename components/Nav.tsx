@@ -31,7 +31,7 @@ export default function Nav() {
     }, []);
 
     return (
-        <nav className={`flex-between w-full py-6 px-16 fixed top-0 left-0 z-20 custom-transition ${isScrolled ? 'bg-dark' : 'bg-transparent'}`}>
+        <nav className={`flex-between w-full py-6 px-16 fixed top-0 left-0 z-20 transitions ${isScrolled ? 'bg-dark' : 'bg-transparent'}`}>
             <Link href="/" className="flex gap-4 flex-center">
                 <Image
                     src="/images/logo.png"
@@ -40,16 +40,16 @@ export default function Nav() {
                     height={50}
                     className="object-contain"
                 />
-                <p className="logo_text mobile:hidden">Accueil</p>
-                <p className="logo_text hidden mobile:flex">Carnaval de Monthey</p>
+                <p className="url text-snow mobile:hidden">Accueil</p>
+                <p className="url text-snow hidden mobile:flex">Carnaval de Monthey</p>
             </Link>
 
             {/* Desktop Navigation */}
             {/*<div className="flex gap-5 mobile:hidden">
-                <Link href="/infos" className="logo_text">Infos</Link>
-                <Link href="/" className="logo_text">Le carnaval</Link>
-                <Link href="/" className="logo_text">Communauté</Link>
-                <Link href="/" className="logo_text">Contact</Link>
+                <Link href="/infos" className="url text-snow">Infos</Link>
+                <Link href="/" className="url text-snow">Le carnaval</Link>
+                <Link href="/" className="url text-snow">Communauté</Link>
+                <Link href="/" className="url text-snow">Contact</Link>
             </div>
             */}
 
@@ -58,17 +58,17 @@ export default function Nav() {
             {/* Mobile Navigation */}
             <Sheet>
                 <SheetTrigger asChild>
-                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer custom-transition hidden mobile:flex" icon={faBars}/>
+                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer transitions hidden mobile:flex" icon={faBars}/>
                 </SheetTrigger>
                 <SheetContent className="bg-dark">
                     <SheetHeader>
                     </SheetHeader>
                     <div className="flex flex-col gap-4 mt-10">
-                        <Link href="/" className="logo_text">Accueil</Link>
-                        <Link href="/infos" className="logo_text">Infos</Link>
-                        <Link href="/" className="logo_text">Le carnaval</Link>
-                        <Link href="/" className="logo_text">Communauté</Link>
-                        <Link href="/" className="logo_text">Contact</Link>
+                        <Link href="/" className="url text-snow">Accueil</Link>
+                        <Link href="/infos" className="url text-snow">Infos</Link>
+                        <Link href="/" className="url text-snow">Le carnaval</Link>
+                        <Link href="/" className="url text-snow">Communauté</Link>
+                        <Link href="/" className="url text-snow">Contact</Link>
                     </div>
                     <SheetFooter>
                         <SheetClose asChild>

@@ -36,7 +36,7 @@ const InfoPage = () => {
         <>
         {/* header */}
         <div className='bg-dark'>
-            <header className='pt-24 pb-10 flex-center flex-col gap-10 container-size'>
+            <header className='header'>
                 <h1 className="h1 text-gradient text-center">Toutes les infos</h1>
                 <p className='h2 text-snow text-center max-w-4xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition </p>
             </header>
@@ -115,7 +115,7 @@ const InfoPage = () => {
                 </ul>
                 <p>
                     Plan de circulation détaillé disponible&nbsp;
-                    <Link href="#">
+                    <Link href="#" className='url'>
                         ici
                     </Link>
                 </p>

@@ -25,10 +25,8 @@ const EventsList = ({ events } : { events?:eventItem[] }) => {
                         </span>
                     </div>
                     { event.infos ?
-                    <Button variant="default" className="p-6" onClick={() => {}}>
-                        <span className="text-snow text-shadow h4">
-                            Plus d&apos;Info
-                        </span>
+                    <Button variant="default" onClick={() => {}}>
+                        Plus d&apos;Info
                     </Button>
                     :
                     <span className="h4 px-6 opacity-0 h-0">Plus d&apos;Info</span>

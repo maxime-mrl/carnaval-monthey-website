@@ -44,17 +44,28 @@
     width: 90%;
   }
 
-  .custom-transition {
+  .transitions {
     transition: 300ms ease-in-out;
   }
 }
 
 @layer utilities {
-  .logo_text {
-    @apply font-semibold text-lg text-snow tracking-wide hover:text-red-500 hover:font-bold custom-transition;
+  .url {
+    @apply font-semibold text-lg tracking-wide hover:text-red-500 hover:font-bold transitions;
   }
 
   .card {
     @apply w-[45ch] max-w-[65ch] grow flex-col flex items-center justify-around gap-8 p-8 bg-snow rounded-lg drop-shadow-2xl
+  }
+
+  .header {
+    @apply pt-24 pb-10 flex-center flex-col gap-10 container-size
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-burnt to-arylide hover:scale-105 transitions text-snow text-shadow h4 p-6;
+  }
+  .btn-default {
+    @apply bg-burnt hover:scale-105 text-snow transitions text-shadow h4 p-6;
   }
 }

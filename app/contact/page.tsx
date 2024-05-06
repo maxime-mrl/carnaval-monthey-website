@@ -13,7 +13,7 @@ const InfoPage = () => {
         <>
         {/* header */}
         <div className='bg-dark'>
-            <header className='pt-24 pb-10 flex-center flex-col gap-10 container-size'>
+            <header className='header'>
                 <h1 className="h1 text-gradient text-center">Nous contacter</h1>
                 <p className='h2 text-snow text-center max-w-4xl'>Tu as une question? Tu veux un stand ou vendre le journal? Et bien c&apos;est ici!</p>
             </header>
@@ -32,8 +32,8 @@ const InfoPage = () => {
                 <p className='h3 text-center'>Les O meilleurs vendeur seront recompensé!</p>
                 <h3 className='h3'>S&apos;inscrire</h3>
                 <div>
-                    <p>Avant toutes choses, tu dois avoir plus de 10ans et tes parents doivent être d’accord!</p>
-                    <p>Tour bon? alors remplis le formulaire petit vendeur disponible <a href="#" target='_blanck'>ici</a></p>
+                    <p>Avant toutes choses, tu dois <strong>avoir plus de 10ans</strong> et <strong>tes parents doivent être d&apos;accord!</strong></p>
+                    <p>Tour bon? alors remplis le formulaire petit vendeur disponible <Link href="#" target='_blanck' className='url'>ici</Link></p>
                 </div>
             </article>
             <article className='w-[20rem] max-w-[35rem] grow'>
@@ -52,7 +52,7 @@ const InfoPage = () => {
                     Tu souhaite obtenir un stand exterieur pendant le carnaval? remplis le formulaire disponible ci dessous et envoie le à l&apos;adresse suivante: <br />
                     Carnaval de Monthey, Case postale 423, 1870 Monthey
                 </p>
-                <Button variant="custom" className="text-snow text-shadow h4 p-6">
+                <Button variant="gradient">
                     Télécharger le formulaire
                 </Button>
             </article>
@@ -88,7 +88,7 @@ const InfoPage = () => {
                     placeholder='Votre message'
                     type='text'
                 />
-                <Button variant="custom" className="text-snow text-shadow h4 p-6" type='submit'>
+                <Button variant="gradient" type='submit'>
                     Envoyer
                 </Button>
             </form>

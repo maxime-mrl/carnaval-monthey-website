@@ -62,11 +62,8 @@ export default async function Home() {
                             Qu&apos;est ce que t&apos;attends pour venir?
                         </h3>
                         <Link href="/infos">
-                            <Button variant="custom" className="text-snow text-shadow h4 p-6">
-                                Informations
-                                <span className="font-mono font-extrabold ml-1">
-                                    2025
-                                </span>
+                            <Button variant="gradient">
+                                Informations OOOO
                             </Button>
                         </Link>
                     </article>
@@ -77,14 +74,12 @@ export default async function Home() {
             <div className="bg-gradient-to-br from-snow to-arylide">
                 <section className="flex justify-center items-stretch gap-8 py-20 flex-wrap container-size">
                     <article className="card text-left">
-                        <h2 className="h2 text-dark self-start">Le Prince</h2>
+                        <h2 className="h2 self-start">Le Prince</h2>
                         <p className="max-w-2xl self-start">
                             La tradition est de nommer tous les ans un prince ou une princesse qui représentera le carnaval et notre ville pour chaque édition. Nous nous souviendrons en tout temps de sa grandeur et bonté.
                         </p>
-                        <h3 className="h3 text-dark self-start">
-                            Edition
-                            <span className="font-mono font-extrabold">&nbsp;2024&nbsp;</span>
-                            :
+                        <h3 className="h3 self-start">
+                            Edition OOOO:
                         </h3>
                         <div className="flex-center flex-col">
                             <Image
@@ -114,17 +109,15 @@ export default async function Home() {
                         </p>
                     </article>
                     <article className="card">
-                        <h2 className="h2 text-dark text-center">Notre Journal</h2>
+                        <h2 className="h2 text-center">Notre Journal</h2>
                         <Image
                             src={newspaper}
                             alt="Journal du Carnaval"
                             className="max-w-full object-contain"
                         />
                         <Link href="/newspaper">
-                            <Button variant="custom" className="p-6">
-                                <span className="text-snow text-shadow h4">
-                                    Plus d&apos;Info
-                                </span>
+                            <Button variant="gradient">
+                                Plus d&apos;Info
                             </Button>
                         </Link>
                     </article>

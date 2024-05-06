@@ -55,13 +55,13 @@ const Footer = () => {
                         <p>Copyright © {year} Carnaval de Monthey - Tous droits réservés</p>
                         <p>
                             Site réalisé par&nbsp;
-                            <a className="hover:underline" href="https://maxime-morel.xyz/" target="_blank">
+                            <Link href="https://maxime-morel.xyz/" target='_blank' className='url text-snow'>
                                 Maxime Morel
-                            </a>
+                            </Link>
                             &nbsp;et&nbsp;
-                            <a className="hover:underline" href="https://port-folio-next-tourvieilles-projects.vercel.app/" target="_blank">
+                            <Link href="https://port-folio-next-tourvieilles-projects.vercel.app/" target='_blank' className='url text-snow'>
                                 Eric Tourvieille
-                            </a>
+                            </Link>
                         </p>
                     </article>
                 </section>
@@ -79,7 +79,7 @@ const Footer = () => {
                 <section className="flex flex-col text-end gap-1 mobile:text-center mobile:gap-0">
                     <h3 className="font-bold mb-2">Plan du site</h3>
                     {sitePlanLines.map((line, index) => (
-                        <Link href={`/${line.toLowerCase()}`} key={index} className='py-1'>
+                        <Link href={`/${line.toLowerCase()}`} key={index} className='py-1 url text-snow !font-normal'>
                             {line}
                         </Link>
                     ))}
