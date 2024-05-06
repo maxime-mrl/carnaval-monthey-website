@@ -60,7 +60,7 @@ const InfoPage = () => {
                 </ul>
             </article>
         </section>
-        <section id="entries" className="py-10 flex flex-col gap-8">
+        <section id="calendar" className="py-10 flex flex-col gap-8">
             <div className="container-size">
                 <h2 className='h2 mb-4'>Agenda</h2>
                 <h3 className='h3'>Jeudi OO février</h3>
