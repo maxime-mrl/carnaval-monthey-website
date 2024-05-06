@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faInstagram, faSquareFacebook} from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ const Footer = () => {
         <footer className="w-full bg-dark text-snow">
             {/* footer content */}
             <div className='
-                grid grid-cols-[3.5fr_1fr_3.5fr] grid-rows-1 w-[90%] mx-auto max-w-6xl gap-y-10 py-10
+                grid grid-cols-[3.5fr_1fr_3.5fr] grid-rows-1 container-size gap-y-10 py-10
                 md:grid-cols-1 md:grid-rows-2
             '>
                 {/* Adress & copyright stuff */}

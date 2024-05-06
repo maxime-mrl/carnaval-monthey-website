@@ -12,15 +12,13 @@ export const metadata = {
 export default function Rootlayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="fr">
+        <Provider>
             <body>
-                <Provider>
-                    <div className="flex flex-col justify-between min-h-screen">
-                        <Nav />
-                            <div className="flex-grow">{children}</div>
-                        <Footer />
-                    </div>
-                </Provider>
+                <Nav />
+                    <>{children}</>
+                <Footer />
             </body>
+        </Provider>
         </html>
     )
 }
