@@ -16,7 +16,7 @@ import {
 
 export function DropdownMenu() {
     return (
-        <NavigationMenu>
+        <NavigationMenu className="mobile:hidden">
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Infos</NavigationMenuTrigger>

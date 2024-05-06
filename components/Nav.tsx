@@ -45,14 +45,6 @@ export default function Nav() {
             </Link>
 
             {/* Desktop Navigation */}
-            {/*<div className="flex gap-5 mobile:hidden">
-                <Link href="/infos" className="url text-snow">Infos</Link>
-                <Link href="/" className="url text-snow">Le carnaval</Link>
-                <Link href="/" className="url text-snow">Communauté</Link>
-                <Link href="/" className="url text-snow">Contact</Link>
-            </div>
-            */}
-
             <DropdownMenu />
 
             {/* Mobile Navigation */}
