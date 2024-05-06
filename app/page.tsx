@@ -9,7 +9,8 @@ import { faInstagram, faSquareFacebook } from "@node_modules/@fortawesome/free-b
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
 
 // Assets imports
-import prince from "@public/images/prince2024.png";
+import prince from "@public/images/prince-picture.png";
+import princeold from "@public/images/prince2024.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
 import { getSponsors } from "@utils/getSponsors";
@@ -85,11 +86,29 @@ export default async function Home() {
                             <span className="font-mono font-extrabold">&nbsp;2024&nbsp;</span>
                             :
                         </h3>
-                        <Image
-                            src={prince}
-                            alt="Portrait de Christophe 1er"
-                            className="w-[30ch]"
-                        />
+                        <div className="flex-center flex-col">
+                            <Image
+                                src={prince}
+                                alt="Portrait de Christophe 1er"
+                                className="w-[20ch]"
+                            />
+                            <p className="h3 relative mt-[-1em] z-10 text-center">
+                                <span>Christophe IER</span>
+                                <svg
+                                    className="absolute top-1/2 left-1/2 transform -translate-y-1/2 z-[-1] -translate-x-1/2 w-[110%]"
+                                    width="381"
+                                    height="88"
+                                    viewBox="0 0 381 88"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                ><path
+                                    d="M355.926 52.283C343.671 51.5538 330.28 54.1832 318.411 55.5459C288.686 58.9583 259.607 62.6176 229.116 62.2048C200.629 61.819 170.878 61.7005 142.686 56.393C121.235 52.3545 99.2601 47.1185 78.2077 41.5421C71.6756 39.8118 65.6782 37.0839 59.1832 35.2751C53.6244 33.7271 48.4003 32.2585 42.9654 30.4289C39.7513 29.3469 36.4403 28.4814 33.1777 27.5141C30.7438 26.7926 27.757 25.3915 25.2766 25.0851"
+                                    stroke="#E9D356"
+                                    stroke-width="50"
+                                    stroke-linecap="round"
+                                /></svg>
+                            </p>
+                        </div>
                         <p className="max-w-2xl">
                             Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité. s&apos;engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens! Il commence ses activité canavalesque comme constructeur de chars en 1985, puis rejoint les rangs du Bout&apos;Rions. Aujourd&apos;hui, le voilà hissé au rôle d&apos;acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!
                         </p>
