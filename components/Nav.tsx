@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,11 +12,26 @@ import {
     SheetHeader,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import {useEffect, useState} from "react";
+import {NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle} from "@components/ui/navigation-menu";
 
 export default function Nav() {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const scrollHandler = () => {
+            window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false);
+        };
+
+        window.addEventListener('scroll', scrollHandler);
+
+        return () => {
+            window.removeEventListener('scroll', scrollHandler);
+        };
+    }, []);
 
     return (
-        <nav className="flex-between w-full py-3 px-16 fixed top-0 left-0 z-20 bg-dark">
+        <nav className={`flex-between w-full py-3 px-16 fixed top-0 left-0 z-20 custom-transition ${isScrolled ? 'bg-dark' : 'bg-transparent'}`}>
             <Link href="/" className="flex gap-2 flex-center">
                 <Image
                     src="/images/logo.png"
@@ -38,9 +55,9 @@ export default function Nav() {
             {/* Mobile Navigation */}
             <Sheet>
                 <SheetTrigger asChild>
-                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer hidden mobile:flex" icon={faBars}/>
+                    <FontAwesomeIcon className="w-8 text-white hover:cursor-pointer custom-transition hidden mobile:flex" icon={faBars}/>
                 </SheetTrigger>
-                <SheetContent>
+                <SheetContent className="bg-dark">
                     <SheetHeader>
                     </SheetHeader>
                     <div className="flex flex-col gap-4 mt-10">
