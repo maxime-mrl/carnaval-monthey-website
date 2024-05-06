@@ -30,8 +30,8 @@ const Footer = () => {
         <footer className="w-full bg-dark text-snow">
             {/* footer content */}
             <div className='
-                grid grid-cols-[3.5fr_1fr_3.5fr] grid-rows-1 container-size gap-y-10 py-10
-                mobile:grid-cols-1 mobile:grid-rows-2
+                grid grid-cols-[3.5fr_1fr_3.5fr] grid-rows-1 container-size py-10
+                mobile:grid-cols-1 mobile:grid-rows-[auto_auto] gap-y-16
             '>
                 {/* Adress & copyright stuff */}
                 <section className='flex flex-col gap-5 mobile:text-center mobile:items-center mobile:row-start-2'>
@@ -54,11 +54,11 @@ const Footer = () => {
                         <p>www.carnavaldemonthey.com | www.monthey.ch</p>
                         <p>Copyright © {year} Carnaval de Monthey - Tous droits réservés</p>
                         <p>
-                            Site réalisé par
+                            Site réalisé par&nbsp;
                             <a className="hover:underline" href="https://maxime-morel.xyz/" target="_blank">
                                 Maxime Morel
                             </a>
-                            et
+                            &nbsp;et&nbsp;
                             <a className="hover:underline" href="https://port-folio-next-tourvieilles-projects.vercel.app/" target="_blank">
                                 Eric Tourvieille
                             </a>
@@ -76,10 +76,10 @@ const Footer = () => {
                     />
                 </section>
                 {/* Site plan */}
-                <section className="flex flex-col text-end gap-2 mobile:text-center">
+                <section className="flex flex-col text-end gap-1 mobile:text-center mobile:gap-0">
                     <h3 className="font-bold mb-2">Plan du site</h3>
                     {sitePlanLines.map((line, index) => (
-                        <Link href={`/${line.toLowerCase()}`} key={index}>
+                        <Link href={`/${line.toLowerCase()}`} key={index} className='py-1'>
                             {line}
                         </Link>
                     ))}
