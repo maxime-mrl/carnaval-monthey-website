@@ -19,7 +19,9 @@ export function DropdownMenu() {
         <NavigationMenu className="mobile:hidden">
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Infos</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>
+                        <Link href="/infos">Infos</Link>
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                             <ListItem href="/infos" title="Prix des entrées"/>
@@ -33,7 +35,9 @@ export function DropdownMenu() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                <NavigationMenuTrigger>Le carnaval</NavigationMenuTrigger>
+                <NavigationMenuTrigger>
+                    <Link href="/">Le carnaval</Link>
+                </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid grid-cols-[.75fr_1fr] gap-3 p-6 md:w-[400px] lg:w-[500px]">
                             <ListItem href="" title="Traditions"/>
@@ -48,7 +52,9 @@ export function DropdownMenu() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Communauté</NavigationMenuTrigger>
+                    <NavigationMenuTrigger>
+                        <Link href="/">Communauté</Link>
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid grid-cols-[1.5fr_1fr] gap-3 p-6 md:w-[400px] lg:w-[500px]">
                             <ListItem href="" title="Forum"/>
@@ -80,13 +86,13 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-snow focus:bg-accent focus:text-accent-foreground",
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-red-500 hover:font-bold",
                         className
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none">{title}</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    <div className="text-md font-medium leading-none ">{title}</div>
+                    <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
                         {children}
                     </p>
                 </a>
