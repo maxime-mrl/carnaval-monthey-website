@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Button } from '@components/ui/button';
 import FormInput from '@components/FormInput';
 import { useRouter } from 'next/navigation';
+import register from './action';
 
 const InfoPage = () => {
     const router = useRouter();
@@ -16,11 +17,26 @@ const InfoPage = () => {
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
-        await signIn('credentials', {
+        if (!form.get("mail") || !form.get("password") || !form.get("username") || !form.get("password-confirm")) {
+            // handle error later
+            return;
+        };
+        if (form.get("password") !== form.get("password-confirm")){
+            // handle error later
+            return;
+        }
+        const registerStatus = await register({
+            mail: form.get("mail") as string,
+            password: form.get("password") as string,
+            username: form.get("username") as string,
+        });
+        if (registerStatus.success) await signIn('credentials', {
             mail: form.get('mail'),
             password: form.get('password'),
             callbackUrl: '/',
-        });
+        }); else {
+            // handle error later
+        }
     }
 
 
@@ -31,10 +47,17 @@ const InfoPage = () => {
         {/* header */}
         <div className='bg-dark'>
             <header className='header'>
-                <h1 className="h1 text-gradient text-center">Se connecter</h1>
+                <h1 className="h1 text-gradient text-center">S&apos;inscrire</h1>
             </header>
         </div>
         <form className='flex-center flex-col gap-5 container-size max-w-lg py-10' onSubmit={handleSubmit}>
+            <FormInput
+                name='username'
+                label='Nom d&apos;utilisateur:'
+                placeholder='Ton nom d&apos;utilisateur'
+                type='text'
+                autoComplete='username'
+            />
             <FormInput
                 name='mail'
                 label='E-mail:'
@@ -45,13 +68,20 @@ const InfoPage = () => {
             <FormInput
                 name='password'
                 label='Mot de passe:'
-                placeholder='Ton mot de passe'
+                placeholder='Un truc super secret!'
                 type='password'
-                autoComplete='current-password'
+                autoComplete='new-password'
             />
-            <p>Pas encore inscrit? <Link href={"/register"} className='url'>Règle ça tout de suite.</Link></p>
+            <FormInput
+                name='password-confirm'
+                label='Confrmation du mot de passe:'
+                placeholder='Le même truc super secret'
+                type='password'
+                autoComplete='off'
+            />
+            <p>Tu as déjà un compte? <Link href={"/login"} className='url'>Connecte toi.</Link></p>
             <Button variant="gradient" type='submit'>
-                Se connecter
+                S&apos;inscrire
             </Button>
         </form>
         </>

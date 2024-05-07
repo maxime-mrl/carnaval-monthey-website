@@ -21,7 +21,7 @@ export const GET = async () => {
     }
 }
 
-// Create a new user account
+// Create a new user account [NOT USED ANYMORE]
 // POST /api/user
 // head: null -- body: user infos - { username, mail, password }
 export const POST = async (req: Request) => {

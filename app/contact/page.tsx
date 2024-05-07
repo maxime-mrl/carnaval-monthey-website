@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 
-import map from "@public/images/map-parking.jpg";
 import Link from 'next/link';
 
 import newspaper from "@public/images/journal.png";
@@ -67,6 +66,7 @@ const InfoPage = () => {
                         placeholder='Nom et Prénom'
                         type='text'
                         className="w-[40ch] grow"
+                        autoComplete='name'
                     />
                     <FormInput
                         name='mail'
@@ -74,6 +74,7 @@ const InfoPage = () => {
                         placeholder='exemple@mail.com'
                         type='email'
                         className="w-[40ch] grow"
+                        autoComplete='email'
                     />
                 </div>
                 <FormInput
@@ -81,12 +82,13 @@ const InfoPage = () => {
                     label='Sujet:'
                     placeholder='Décrivez votre demande'
                     type='text'
+                    autoComplete='off'
                 />
                 <FormInput
                     name='message'
                     label='Message:'
                     placeholder='Votre message'
-                    type='text'
+                    type='textarea'
                 />
                 <Button variant="gradient" type='submit'>
                     Envoyer
