@@ -1,105 +1,63 @@
 "use client"
 
-import * as React from "react"
 import Link from "next/link"
-
-import { cn } from "@/utils/chadcn"
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
 
 export function DropdownMenu() {
     return (
-        <NavigationMenu className="mobile:hidden">
-            <NavigationMenuList>
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>
-                        <Link href="/infos">Infos</Link>
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <ListItem href="/infos" title="Prix des entrées"/>
-
-                            <ListItem href="/infos/#calendar" title="Le programme"/>
-
-                            <ListItem href="/infos/#transport" title="Accès / Transport"/>
-
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                    <Link href="/">Le carnaval</Link>
-                </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid grid-cols-[.75fr_1fr] gap-3 p-6 md:w-[400px] lg:w-[500px]">
-                            <ListItem href="" title="Traditions"/>
-
-                            <ListItem href="" title="Le Prince"/>
-
-                            <ListItem href="" title="Thèmes"/>
-
-                            <ListItem href="" title="Archives"/>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                    <NavigationMenuTrigger>
-                        <Link href="/">Communauté</Link>
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid grid-cols-[1.5fr_1fr] gap-3 p-6 md:w-[400px] lg:w-[500px]">
-                            <ListItem href="" title="Forum"/>
-
-                            <ListItem href="" title="Jeux/Concours"/>
-                        </ul>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                    <Link href="/contact" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Contact
-                        </NavigationMenuLink>
-                    </Link>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
+        <ul className="mobile:hidden flex gap-5 text-center">
+                {/* INFOS */}
+                <DropDownItem
+                    main={{ href: "/infos", title: "Infos" }}
+                    items={[
+                        { href:"/infos/#entries", title:"Prix des entrées" },
+                        { href:"/infos/#calendar", title:"Le programme" },
+                        { href:"/infos/#transport", title:"Accès / Transport" },
+                    ]}
+                />
+                {/* CARNAVAL */}
+                <DropDownItem
+                    main={{ href: "#", title: "Le carnaval" }}
+                    items={[
+                        { href:"#", title:"Traditions" },
+                        { href:"#", title:"Le Prince" },
+                        { href:"#", title:"Thèmes" },
+                        { href:"#", title:"Archives" },
+                    ]}
+                />
+                {/* COMUNAUTE */}
+                <DropDownItem
+                    main={{ href: "#", title: "Communauté" }}
+                    items={[
+                        { href:"#", title:"Forum" },
+                        { href:"#", title:"Jeux / Concours" },
+                    ]}
+                />
+                {/* CONTACT */}
+                
+                <DropDownItem
+                    main={{ href: "/contact", title: "Contact" }}
+                />
+        </ul>
     )
 }
 
-const ListItem = React.forwardRef<
-    React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-    return (
-        <li>
-            <NavigationMenuLink asChild>
-                <a
-                    ref={ref}
-                    className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-red-500 hover:font-bold",
-                        className
-                    )}
-                    {...props}
-                >
-                    <div className="text-md font-medium leading-none ">{title}</div>
-                    <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
-                        {children}
-                    </p>
-                </a>
-            </NavigationMenuLink>
-        </li>
-    )
-})
-ListItem.displayName = "ListItem"
+type linkType = { href:string, title:string }
+
+const DropDownItem = ({ main, items } : {main: linkType, items?:linkType[]}) => (
+    <li className="relative h-full flex-center group px-3">
+        <Link href={main.href} className="url">{main.title}</Link>
+        {items && 
+            <ul className="absolute top-full left-1/2 w-[18ch] -translate-x-1/2 px-3 bg-dark/80 overflow-hidden h-fit max-h-0 py-0 transitions group-hover:py-2 group-hover:max-h-[30em]">
+            {items.map((item, i) => (
+                <li key={i}>
+                    <Link href={item.href} className="block p-3 url">
+                        {item.title}
+                    </Link>
+                </li>
+            ))}
+            </ul>
+        }
+    </li>
+)
 
 export default DropdownMenu

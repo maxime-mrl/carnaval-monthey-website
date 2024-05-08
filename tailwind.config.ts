@@ -11,6 +11,10 @@ const config = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
 	],
+  safelist: [
+    "bg-dark/20",
+    "bg-dark/80"
+  ],
   prefix: "",
   theme: {
     extend: {

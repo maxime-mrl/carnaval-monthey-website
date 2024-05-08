@@ -76,10 +76,10 @@ const Footer = () => {
                     />
                 </section>
                 {/* Site plan */}
-                <section className="flex flex-col text-end gap-1 mobile:text-center mobile:gap-0">
+                <section className="flex flex-col items-end gap-1 mobile:items-center mobile:gap-0">
                     <h3 className="font-bold mb-2">Plan du site</h3>
                     {sitePlanLines.map((line, index) => (
-                        <Link href={`/${line.toLowerCase()}`} key={index} className='py-1 url text-snow !font-normal'>
+                        <Link href={`/${line.toLowerCase()}`} key={index} className='py-1 url text-snow'>
                             {line}
                         </Link>
                     ))}

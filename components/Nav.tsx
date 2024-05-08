@@ -9,32 +9,20 @@ import {faInstagram, faSquareFacebook} from "@node_modules/@fortawesome/free-bra
 
 export default function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isOpen, setIsOpen] = useState(false)
-
-    const handleClick = (e:any) => {
-        if (e.target.tagName === 'Link') {
-            setIsOpen(false);
-        } else {
-            setIsOpen(!isOpen);
-        }
-    }
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const scrollHandler = () => {
-            window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false);
-        };
-
+        const scrollHandler = () => window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false);
         window.addEventListener('scroll', scrollHandler);
-
-        return () => {
-            window.removeEventListener('scroll', scrollHandler);
-        };
+        scrollHandler();
+        return () => window.removeEventListener('scroll', scrollHandler);
     }, []);
 
     return (
+        <>
         <nav
-            className={`flex-between w-full py-6 px-16 fixed top-0 left-0 z-20 transitions ${isScrolled ? 'bg-dark' : 'bg-transparent'}`}>
-            <Link href="/" className="flex gap-4 flex-center">
+            className={`text-lg flex justify-between w-full px-[5vw] fixed top-0 left-0 z-10 transitions text-snow backdrop-blur-sm bg-dark/${isScrolled ? '80' : '20'} hover:bg-dark/80`}>
+            <Link href="/" className="flex gap-4 flex-center my-3">
                 <Image
                     src="/images/logo.png"
                     alt="Logo Carnaval de Monthey"
@@ -42,65 +30,50 @@ export default function Nav() {
                     height={50}
                     className="object-contain"
                 />
-                <p className="url text-snow mobile:hidden">Accueil</p>
-                <p className="url text-snow hidden mobile:flex">Carnaval de Monthey</p>
+                <p className="url mobile:hidden">Accueil</p>
+                <p className="url hidden mobile:flex">Carnaval de Monthey</p>
             </Link>
 
             {/* Desktop Navigation */}
             <DropdownMenu />
 
-            {/* Mobile Navigation */}
-            <button className="hidden flex-col justify-center items-center mobile:flex" onClick={handleClick}>
-                <span
-                    className={`bg-snow block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'} `}></span>
-                <span
-                    className={`bg-snow block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? 'opacity-0' : 'opacity-100'} `}></span>
-                <span
-                    className={`bg-snow block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'} `}></span>
+            {/* Mobile Burger */}
+            <button className="hidden flex-col justify-center items-center mobile:flex gap-[2px]" onClick={() => setIsOpen(!isOpen)}>
+                <span className={`bg-snow block transitions h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+                <span className={`bg-snow block transitions h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`bg-snow block transitions h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
             </button>
-
-            {
-                isOpen ?
-                    <div
-                        className="w-[80%] h-[80%] flex flex-col justify-between z-30 items-center fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2
-                                            bg-dark/30 rounded-lg backdrop-blur-md py-24">
-
-                        {/* Navigation */}
-                        <div className="flex-center flex-col gap-4 text-snow">
-                            <Link href='/' className="url text-2xl" onClick={handleClick}>Accueil</Link>
-                            <Link href='/infos' className="url" onClick={handleClick}>Infos</Link>
-                            <Link href='/carnaval' className="url" onClick={handleClick}>Le Carnaval</Link>
-                            <Link href='/community' className="url" onClick={handleClick}>Communauté</Link>
-                            <Link href='/contact' className="url" onClick={handleClick}>Contact</Link>
-                        </div>
-
-                        {/* Logo */}
-                        <Image
-                            src="/images/logo.png"
-                            alt="Carnaval de Monthey"
-                            width={100}
-                            height={100}
-                            className="max-w-[20ch] drop-shadow-2xl mx-auto"
-                        />
-
-                        {/* Socials */}
-                        <span className="flex gap-16 my-4">
-                            <a
-                                className="hover:scale-90 text-snow"
-                                href="https://www.instagram.com/carnavaldemonthey/"
-                            >
-                                <FontAwesomeIcon className="w-16 h-16" icon={faInstagram}/>
-                            </a>
-                            <a
-                                className="hover:scale-90 text-snow"
-                                href="https://fr-fr.facebook.com/Carnavaldemonthey/"
-                            >
-                                <FontAwesomeIcon className="w-16 h-16" icon={faSquareFacebook}/>
-                            </a>
-                        </span>
-                    </div>
-                    : null
-            }
         </nav>
+        {/* Mobile navigation */}
+        <div className={`${isOpen ? "flex" : "hidden"} fixed absolute-center z-50 w-[80%] h-fit bg-dark/80 backdrop-blur-sm rounded-lg py-24 text-snow flex-col items-center gap-5`}>
+            {/* Navigation */}
+            <div className="flex-center flex-col gap-4">
+                <Link href='/' className="url" onClick={() => setIsOpen(!isOpen)}>Accueil</Link>
+                <Link href='/infos' className="url" onClick={() => setIsOpen(!isOpen)}>Infos</Link>
+                <Link href='/carnaval' className="url" onClick={() => setIsOpen(!isOpen)}>Le Carnaval</Link>
+                <Link href='/community' className="url" onClick={() => setIsOpen(!isOpen)}>Communauté</Link>
+                <Link href='/contact' className="url" onClick={() => setIsOpen(!isOpen)}>Contact</Link>
+            </div>
+
+            {/* Logo */}
+            <Image
+                src="/images/logo.png"
+                alt="Carnaval de Monthey"
+                width={100}
+                height={100}
+                className="max-w-[20ch] drop-shadow-2xl mx-auto"
+            />
+
+            {/* Socials */}
+            <span className="flex gap-16 my-4">
+                <a className="url" href="https://www.instagram.com/carnavaldemonthey/">
+                    <FontAwesomeIcon className="w-16 h-16" icon={faInstagram}/>
+                </a>
+                <a className="url" href="https://fr-fr.facebook.com/Carnavaldemonthey/">
+                    <FontAwesomeIcon className="w-16 h-16" icon={faSquareFacebook}/>
+                </a>
+            </span>
+        </div>
+        </>
     )
 }
