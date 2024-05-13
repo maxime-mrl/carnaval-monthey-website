@@ -42,7 +42,7 @@ const InfoPage = () => {
             </header>
         </div>
         {/* Entries pricing */}
-        <section id="entries" className="container-size py-10 flex text-center flex-wrap gap-10 justify-around">
+        <section id="entries" className="container-size py-section flex text-center flex-wrap gap-10 justify-around">
         <h2 className='h2 w-full'>Prix des entrées</h2>
             <article>
                 <h3 className='h3'>Espace triboulet</h3>
@@ -60,7 +60,7 @@ const InfoPage = () => {
                 </ul>
             </article>
         </section>
-        <section id="calendar" className="py-10 flex flex-col gap-8">
+        <section id="calendar" className="py-section flex flex-col gap-8">
             <div className="container-size">
                 <h2 className='h2 mb-4'>Agenda</h2>
                 <h3 className='h3'>Jeudi OO février</h3>
@@ -80,7 +80,7 @@ const InfoPage = () => {
             <EventsList />
         </section>
         {/* transport infos */}
-        <section id="transport" className="container-size py-10 flex flex-col gap-8">
+        <section id="transport" className="container-size py-section flex flex-col gap-8">
             <h2 className='h2'>Infos transports</h2>
             <article>
                 <h3 className='h3'>Parking voitures</h3>

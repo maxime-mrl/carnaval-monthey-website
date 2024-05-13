@@ -18,7 +18,7 @@ const InfoPage = () => {
             </header>
         </div>
         {/* Journal */}
-        <section id="journal" className="container-size py-10 flex flex-wrap gap-10 justify-around items-center">
+        <section id="journal" className="container-size py-section flex flex-wrap gap-10 justify-around items-center">
             <article className='max-w-xl flex flex-col gap-5'>
                 <h2 className='h2 text-center'>Vendre le journal:</h2>
                 <p className='max-w-[45ch]'>Tu veux vendre le journal de Carnaval ? C&apos;est super ! Comment ça se passe?</p>
@@ -44,7 +44,7 @@ const InfoPage = () => {
             </article>
         </section>
         {/* stand */}
-        <section id="stands" className="container-size py-10 flex-center">
+        <section id="stands" className="container-size py-section flex-center">
             <article className='max-w-xl flex-center flex-col gap-5 text-center'>
                 <h2 className='h2'>Demande de stand exterieur</h2>
                 <p>
@@ -56,7 +56,7 @@ const InfoPage = () => {
                 </Button>
             </article>
         </section>
-        <section id="contact" className="container-size py-10 flex flex-col">
+        <section id="contact" className="container-size py-section flex flex-col">
             <h2 className='h2'>Autre chose? ecrit nous:</h2>
             <form className='flex-center flex-col gap-5'>
                 <div className='flex gap-x-10 gap-y-5 flex-wrap w-full'>

@@ -34,7 +34,7 @@ const InfoPage = () => {
                 <h1 className="h1 text-gradient text-center">Se connecter</h1>
             </header>
         </div>
-        <form className='flex-center flex-col gap-5 container-size max-w-lg py-10' onSubmit={handleSubmit}>
+        <form className='flex-center flex-col gap-5 container-size max-w-lg py-section' onSubmit={handleSubmit}>
             <FormInput
                 name='mail'
                 label='E-mail:'

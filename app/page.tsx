@@ -10,10 +10,9 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
 
 // Assets imports
 import prince from "@public/images/prince-picture.png";
-import princeold from "@public/images/prince2024.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
-import { getSponsors } from "@utils/getSponsors";
+import { getSponsors } from "@utils/getData";
 
 export const revalidate = 3600;
 
@@ -42,7 +41,7 @@ export default async function Home() {
 
             {/* Teaser Section */}
             <div className="bg-dark">
-                <section className="flex-col flex-center container-size gap-12 py-16" id="about">
+                <section className="flex-col flex-center container-size gap-12 py-section" id="about">
                     <h2 className="h2 text-snow text-center max-w-3xl">
                         Le plus grand carnaval du Valais, et le meilleur du monde!
                     </h2>
@@ -51,9 +50,7 @@ export default async function Home() {
                             Le carnaval de Monthey c&apos;est 6 jours de folie et tradition ancestral. Du jeudi au mardi, masques, chars, « guggenmusik », et autres animations rythment le cœur de notre ville de Monthey. Le fameux cortège du  régionale ou internationale, attire quant à lui chaque année un large public
                         </p>
                         <h3 className="h3 w-full">
-                            ... et, ce depuis plus de
-                            <span className="font-mono font-extrabold text-3xl">&nbsp;150&nbsp;</span>
-                            ans!
+                            ... et, ce depuis plus de OOO ans!
                         </h3>
                     </article>
 
@@ -72,7 +69,7 @@ export default async function Home() {
 
             {/* Information Section */}
             <div className="bg-gradient-to-br from-snow to-arylide">
-                <section className="flex justify-center items-stretch gap-8 py-20 flex-wrap container-size">
+                <section className="flex justify-center items-stretch gap-8 py-section flex-wrap container-size">
                     <article className="card text-left">
                         <h2 className="h2 self-start">Le Prince</h2>
                         <p className="max-w-2xl self-start">
@@ -125,7 +122,7 @@ export default async function Home() {
             </div>
 
             {/* Media Section */}
-            <section className="flex-col flex-center gap-6 py-6 text-center container-size">
+            <section className="flex-col flex-center gap-6 py-section text-center container-size">
                 <h2 className="h2 text-dark text-center">
                     Nos Sponsors
                 </h2>
