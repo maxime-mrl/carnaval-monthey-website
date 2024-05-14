@@ -19,24 +19,27 @@ type events = {
     title: string,
     time: string,
     place: string,
-    infos: string,
+    infos: string | null,
 }
 
 export const getEvents = cache(async () => {
     try {
         await connectToDB();
-        const events = await eventsModel.find({ }).select(["-__v"]) as events[];
-        const parsedevents: Map<string, events[]> = new Map()
+        const events = await eventsModel.find({ }).select(["date", "title", "time", "place", "infos", "-_id"]) as events[];
+        const parsedevents: Map<string, events[]> = new Map();
         events.forEach(event => {
-            const existingEvents = parsedevents.get(event.date);
-            if (existingEvents) {
-                existingEvents.push(event);
-                parsedevents.set(event.date, existingEvents);
-            } else {
-                parsedevents.set(event.date, [ event ]);
-            }
+            const updatedEvents = parsedevents.get(event.date) ? parsedevents.get(event.date) as events[] : [];
+            updatedEvents.push({
+                date: event.date,
+                title: event.title,
+                time: event.time,
+                place: event.place,
+                infos: event.infos ? event.infos : null,
+            });
+            parsedevents.set(event.date, updatedEvents);
         });
+        return parsedevents;
     } catch (err) {
-        return []
+        return [];
     }
 })

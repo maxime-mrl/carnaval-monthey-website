@@ -17,7 +17,7 @@ import { getSponsors } from "@utils/getData";
 export const revalidate = 3600;
 
 export default async function Home() {
-    const sponsors = await getSponsors()
+    const sponsors = await getSponsors();
     return (
         <>
             {/* Header component */}
