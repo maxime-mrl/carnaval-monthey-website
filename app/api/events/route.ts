@@ -12,9 +12,9 @@ import { isValidObjectId } from "mongoose";
 export const POST = async (req: Request) => {
     try {
         // check session and right
-        // const userSession = await checkSession();
-        // if (!userSession) return needLoginError();
-        // if (userSession.right < 1) return unauthorizedError();
+        const userSession = await checkSession();
+        if (!userSession) return needLoginError();
+        if (userSession.right < 1) return unauthorizedError();
         // get the data
         const body = await req.json();
         const events = setEventsCheck.parse(body.events);

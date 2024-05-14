@@ -5,12 +5,14 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { faInstagram, faSquareFacebook } from "@node_modules/@fortawesome/free-brands-svg-icons";
+import { useSession } from "next-auth/react";
 
 type linkType = { href:string, title:string }
 
 export default function Nav() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const { status } = useSession();
 
     useEffect(() => {
         const scrollHandler = () => window.scrollY > 0 ? setIsScrolled(true) : setIsScrolled(false);
@@ -57,13 +59,22 @@ export default function Nav() {
                     ]}
                 />
                 {/* COMUNAUTE */}
+                {status === "authenticated" ?
                 <DropDownItem
-                    main={{ href: "#", title: "Communauté" }}
+                    main={{ href: "", title: "Communauté" }}
                     items={[
                         { href:"#", title:"Forum" },
-                        { href:"#", title:"Jeux / Concours" },
+                        { href:"/events", title:"Evenements" },
                     ]}
                 />
+                :
+                <DropDownItem
+                    main={{ href: "/register", title: "S'inscrire" }}
+                    items={[
+                        { href: "/login", title: "Se connecter" },
+                    ]}
+                />
+                }
                 {/* CONTACT */}
                 <DropDownItem
                     main={{ href: "/contact", title: "Contact" }}
@@ -114,7 +125,11 @@ export default function Nav() {
 
 const DropDownItem = ({ main, items } : {main: linkType, items?:linkType[]}) => (
     <li className="relative h-full flex-center group px-3">
+        {main.href !== "" ?
         <Link href={main.href} className="url">{main.title}</Link>
+        :
+        <div className="font-semibold cursor-pointer">{main.title}</div>
+        }
         {items && 
             <ul className="absolute top-full left-1/2 w-[18ch] -translate-x-1/2 px-3 bg-dark/80 overflow-hidden h-fit max-h-0 py-0 transitions group-hover:py-2 group-hover:max-h-[30em]">
             {items.map((item, i) => (

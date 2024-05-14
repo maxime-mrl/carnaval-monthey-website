@@ -14,7 +14,7 @@ const InfoPage = async () => {
         <div className='bg-dark'>
             <header className='header'>
                 <h1 className="h1 text-gradient text-center">Toutes les infos</h1>
-                <p className='h2 text-snow text-center max-w-4xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition </p>
+                <p className='h2 text-snow text-center max-w-4xl'>On vous attend du OO février au OO mars OOOO pour la OOOème édition</p>
             </header>
         </div>
         {/* Entries pricing */}
