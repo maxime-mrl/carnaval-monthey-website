@@ -1,10 +1,36 @@
 import eventsModel from "@models/events.model";
 import sponsorModel from "@models/sponsor.model";
+import textModel from "@models/text.model";
 import userModel from "@models/user.model";
 import { connectToDB } from "@utils/db";
 import { cache } from "react";
 
 export const revalidate = 3600;
+
+type events = {
+    date: string,
+    title: string,
+    time: string,
+    place: string,
+    infos: string | null,
+}
+
+type textData = {
+    identifier: string,
+    text: string
+}[];
+
+export const getTexts = cache(async () => {
+    try  {
+        await connectToDB();
+        const texts = new Map();
+        const data = await textModel.find({ }).select([ "text", "identifier", "-_id" ]) as textData;
+        data.forEach(({identifier, text}) => texts.set(identifier, text));
+        return texts;
+    } catch (err) {
+        return new Map();
+    }
+})
 
 export const getSponsors = cache(async () => {
     try {
@@ -16,14 +42,6 @@ export const getSponsors = cache(async () => {
         return [];
     }
 });
-
-type events = {
-    date: string,
-    title: string,
-    time: string,
-    place: string,
-    infos: string | null,
-}
 
 export const getEvents = cache(async () => {
     try {
@@ -52,10 +70,10 @@ export const getTopUser = cache(async () => {
         await connectToDB();
         return await userModel
             .find({  })
-            .select(['username', 'points'])
+            .select(['username', 'points', "-_id"])
             .sort({ points: -1 })
             .limit(10);
     } catch (err) {
         return [];
     }
-})
+});

@@ -13,9 +13,11 @@ import prince from "@public/images/prince-picture.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
 import { getSponsors } from "@utils/getData";
+import CustomText from "@components/customText";
 
 export default async function Home() {
     const sponsors = await getSponsors();
+    
     return (
         <>
             {/* Header component */}
@@ -41,7 +43,8 @@ export default async function Home() {
             <div className="bg-dark">
                 <section className="flex-col flex-center container-size gap-12 py-section" id="about">
                     <h2 className="h2 text-snow text-center max-w-3xl">
-                        Le plus grand carnaval du Valais, et le meilleur du monde!
+                        {/* Le plus grand carnaval du Valais, et le meilleur du monde! */}
+                        <CustomText id={"test"} />
                     </h2>
                     <article className="flex-col flex-center gap-6 text-snow max-w-3xl">
                         <p>
