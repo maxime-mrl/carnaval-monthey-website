@@ -25,10 +25,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    right: {
+    points: {
         type: Number,
         default: 0
     },
+    right: {
+        type: Number,
+        default: 0
+    }
 });
 
 export const registerUserCheck = z.object({

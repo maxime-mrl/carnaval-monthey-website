@@ -1,32 +1,12 @@
-import EventsList from '@components/EventsList';
 import Image from 'next/image';
 import React from 'react';
 
 import newspaper from "@public/images/journal.png";
-import map from "@public/images/map-parking.jpg";
-import Link from 'next/link';
-import { getEvents } from '@utils/getData';
+import { getTopUser } from '@utils/getData';
 import UsersRanks from '@components/UserRanks';
 
 const InfoPage = async () => {
-    const ranks = [
-        {
-            points: "650",
-            user: "jean"
-        },
-        {
-            points: "650",
-            user: "jean"
-        },
-        {
-            points: "650",
-            user: "jean"
-        },
-        {
-            points: "650",
-            user: "jean"
-        }
-    ]
+    const ranks = await getTopUser()
     return (
         <>
         {/* header */}

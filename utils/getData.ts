@@ -1,7 +1,10 @@
 import eventsModel from "@models/events.model";
 import sponsorModel from "@models/sponsor.model";
+import userModel from "@models/user.model";
 import { connectToDB } from "@utils/db";
 import { cache } from "react";
+
+export const revalidate = 3600;
 
 export const getSponsors = cache(async () => {
     try {
@@ -39,6 +42,19 @@ export const getEvents = cache(async () => {
             parsedevents.set(event.date, updatedEvents);
         });
         return parsedevents;
+    } catch (err) {
+        return [];
+    }
+});
+
+export const getTopUser = cache(async () => {
+    try {
+        await connectToDB();
+        return await userModel
+            .find({  })
+            .select(['username', 'points'])
+            .sort({ points: -1 })
+            .limit(10);
     } catch (err) {
         return [];
     }
