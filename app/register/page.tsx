@@ -1,5 +1,5 @@
 "use client"
-import React, { FormEvent } from 'react';
+import { FormEvent } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 
 import Link from 'next/link';

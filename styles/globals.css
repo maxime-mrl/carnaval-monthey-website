@@ -16,6 +16,10 @@
     @apply bg-background text-foreground;
   }
 
+  i {
+    font-style: inherit;
+  }
+
   *[id] {
     scroll-margin-top: 4.5rem;
   }

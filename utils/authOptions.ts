@@ -17,14 +17,12 @@ const authOptions: AuthOptions = {
           password: { label: "Password", type: "password", placeholder: "Ton mot de passe" },
         },
         async authorize(credentials) { // login
-          console.log("er")
           const parsed = loginUserCheck.safeParse(credentials);
           if (!parsed.success) return null;
           const { mail, password } = parsed.data;
           try {
             await connectToDB();
             const user = await userModel.findOne({ mail });
-            console.log("auth")
             // check user
             if (!user) return null;
             const passwordsMatch = await bcrypt.compare(password, user.password);

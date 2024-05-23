@@ -13,7 +13,7 @@ import prince from "@public/images/prince-picture.png";
 import newspaper from "@public/images/journal.png";
 import { MovingCards } from "@components/MovingCards";
 import { getSponsors } from "@utils/getData";
-import CustomText from "@components/customText";
+import CustomText from "@components/CustomText/CustomText";
 
 export default async function Home() {
     const sponsors = await getSponsors();
@@ -97,8 +97,8 @@ export default async function Home() {
                                 ><path
                                     d="M355.926 52.283C343.671 51.5538 330.28 54.1832 318.411 55.5459C288.686 58.9583 259.607 62.6176 229.116 62.2048C200.629 61.819 170.878 61.7005 142.686 56.393C121.235 52.3545 99.2601 47.1185 78.2077 41.5421C71.6756 39.8118 65.6782 37.0839 59.1832 35.2751C53.6244 33.7271 48.4003 32.2585 42.9654 30.4289C39.7513 29.3469 36.4403 28.4814 33.1777 27.5141C30.7438 26.7926 27.757 25.3915 25.2766 25.0851"
                                     stroke="#E9D356"
-                                    stroke-width="50"
-                                    stroke-linecap="round"
+                                    strokeWidth="50"
+                                    strokeLinecap="round"
                                 /></svg>
                             </p>
                         </div>
