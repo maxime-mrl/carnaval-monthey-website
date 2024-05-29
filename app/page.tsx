@@ -11,13 +11,10 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
 // Assets imports
 import prince from "@public/images/prince-picture.png";
 import newspaper from "@public/images/journal.png";
-import { MovingCards } from "@components/MovingCards";
-import { getSponsors } from "@utils/getData";
+import SponsorsList from "@components/sponsors/SponsorsList";
 import CustomText from "@components/CustomText/CustomText";
 
 export default async function Home() {
-    const sponsors = await getSponsors();
-    
     return (
         <>
             {/* Header component */}
@@ -133,11 +130,7 @@ export default async function Home() {
                 <p className="font-medium">
                     Un grand MERCI !!
                 </p>
-                <MovingCards
-                    items={sponsors}
-                    direction={"forwards"}
-                    speed={5}
-                />
+                <SponsorsList />
                 <h3 className="h2 text-center">
                     Suis nous sur les réseaux
                 </h3>

@@ -48,7 +48,7 @@ export const POST = async (req: Request) => {
     }
 }
 
-// Remove a sponsor
+// Remove a sponsor [NOT USED ANYMORE]
 // DELETE /api/sponsor/update
 // head: session -- body: sponsor - { name | id }
 export const DELETE = async (req: Request) => {

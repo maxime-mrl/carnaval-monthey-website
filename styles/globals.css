@@ -56,6 +56,10 @@
     width: 90%;
   }
 
+  .modal-bg {
+    @apply bg-dark bg-opacity-60 backdrop-blur-lg p-[3em] rounded-xl border-burnt/15 border-solid border-[4px] drop-shadow-3xl text-snow;
+  }
+
   .transitions {
     transition: 200ms ease-in-out;
   }

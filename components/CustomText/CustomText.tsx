@@ -7,19 +7,20 @@ const ServerCustomText = async ({ id } : { id:string }) => {
     const session = await getServerSession(authOptions);
     const user = session && session.user ? session.user as { _id: string, username: string, right: number } : null;
     const texts = await getTexts();
+    const text = texts.get(id);
     return (
         <>
             {user && user.right >= 2 
                 ?
                 <>
                     <i className="relative">
-                        <CustomTextEditor id={id} />
-                        {texts.get(id)}
+                        <CustomTextEditor id={id} text={text} />
+                        {text}
                     </i>
                 </>
                 :
                 <i className="relative">
-                    {texts.get(id)}
+                    {text}
                 </i>
             }
         </>
