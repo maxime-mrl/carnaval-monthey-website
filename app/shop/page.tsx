@@ -9,7 +9,6 @@ const ShopPage = async () => {
     const { data:products } = await stripe.prices.list({
         expand: [ "data.product" ]
     });
-    console.log(products[0])
     return (
         <>
         {/* header */}
@@ -20,13 +19,23 @@ const ShopPage = async () => {
             </header>
         </div>
         {/* bars */}
-        <section id="bars" className="container-size py-section flex flex-wrap gap-10 justify-around items-center">
-            {products.map((product, key) => (
+        <section id="bars" className="container-size py-section flex flex-wrap gap-10">
+            {products.map((product:any, key) => (
                 <ShopItem 
                     item={product}
                     key={key}
                 />
             ))}
+            <div className={`w-[10rem] relative`}>
+                <div className='w-full h-[12rem] bg-dark/30 flex-center text-[8rem] text-snow select-none'>
+                    <p className='h-[0.2em] leading-[0]'>...</p>
+                </div>
+                <div className="w-full text-left">
+                    <p>
+                        Plus de produits arrivent bientôt!
+                    </p>
+                </div>
+            </div>
         </section>
         </>
     );
