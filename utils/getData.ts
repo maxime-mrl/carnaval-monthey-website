@@ -37,7 +37,7 @@ export const getSponsors = cache(async () => {
         await connectToDB();
         const sponsors = await sponsorModel.find({ }).select(["-__v"]);
         if (!sponsors || !Array.isArray(sponsors)) return [];
-        return sponsors.map(sponsor => ({ id: sponsor._id, alt: sponsor.name }));
+        return sponsors.map(sponsor => ({ id: sponsor._id.toString(), alt: sponsor.name.toString() }));
     } catch (err) {
         return [];
     }

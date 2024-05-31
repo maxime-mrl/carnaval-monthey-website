@@ -10,7 +10,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons"
 
 // Assets imports
 import prince from "@public/images/prince-picture.png";
-import newspaper from "@public/images/journal.png";
+import newspaper from "@public/images/journal.jpg";
 import SponsorsList from "@components/sponsors/SponsorsList";
 import CustomText from "@components/CustomText/CustomText";
 

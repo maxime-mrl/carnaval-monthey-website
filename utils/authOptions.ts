@@ -31,7 +31,7 @@ const authOptions: AuthOptions = {
             const returnUser:any = { // using any not great but for now I want this to work, will fix it later if needed
               _id: user._id,
               username: user.username,
-              right: user.right
+              right: user.right,
             }
             return returnUser;
           } catch (error) {

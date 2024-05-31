@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import newspaper from "@public/images/journal.png";
+import newspaper from "@public/images/journal.jpg";
 import { getTopUser } from '@utils/getData';
 import UsersRanks from '@components/UserRanks';
 

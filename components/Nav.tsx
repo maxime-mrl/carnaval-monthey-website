@@ -45,6 +45,7 @@ export default function Nav() {
                     items={[
                         { href:"/infos/#entries", title:"Prix des entrées" },
                         { href:"/infos/#calendar", title:"Le programme" },
+                        { href:"/infos/#theme", title:"Le thème" },
                         { href:"/infos/#transport", title:"Accès / Transport" },
                     ]}
                 />
@@ -65,6 +66,8 @@ export default function Nav() {
                     items={[
                         { href:"#", title:"Forum" },
                         { href:"/events", title:"Evenements" },
+                        { href:"/shop", title:"Shop" },
+                        { href:"/account", title:"Compte" },
                     ]}
                 />
                 :

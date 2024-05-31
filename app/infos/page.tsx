@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import map from "@public/images/map-parking.jpg";
+import theme from "@public/images/theme.jpg";
 import Link from 'next/link';
 import { getEvents } from '@utils/getData';
 
@@ -34,6 +35,34 @@ const InfoPage = async () => {
                     <li>Entrée au cortège: 10.-</li>
                     <li>Enfants jusqu&apos;à 15 ans: GRATUIT</li>
                 </ul>
+            </article>
+        </section>
+        <section id="theme" className='container-size py-section'>
+            <article className='w-fit mx-auto text-center pb-5'>
+                <h2 className='h2 mb-5'>Le thème OOOO</h2>
+                <p>
+                    Le Carnaval de Monthey c&apos;est... <br />
+                    L&apos;esprit indomptable capturé par ceux qui osent être différents et légendaires; <br />
+                    L&apos;impact frénétique qui s&apos;érige dans la ville et fait capoter la logique; <br />
+                    L&apos;emblématique Triboulet rougeoyant qui tourneboule en enivrant la foule; <br />
+                    L&apos;empreinte un tantinet débile qui laisse une trace indélébile; <br />
+                    
+                </p>
+                <p>
+                    <strong>Cette année, bambochons en toute simplicité à</strong>
+                </p>
+            </article>
+            <article className='flex flex-wrap w-full justify-center items-center gap-5 my-5'>
+                <div className='min-w-[25rem] max-w-[35rem] flex-1'>
+                    <h3 className="h2 w-full mobile:text-center"><i className='text-gradient'>L&apos;iconique</i> carnaval de Monthey</h3>
+                </div>
+                <div className='min-w-[15rem] max-w-[22rem] flex-1'>
+                    <Image
+                        src={theme}
+                        alt="Affiche Thème du carnaval"
+                        className="max-w-full object-contain"
+                    />
+                </div>
             </article>
         </section>
         {weekEvents &&
