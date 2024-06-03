@@ -23,14 +23,19 @@ export default async function Home() {
                 <div className="absolute top-0 z-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-yellow-600 to-red-900 opacity-50"/> 
                 <div className="z-1 relative h-full">
                     <div className="h-full flex-col flex-center gap-6 drop-shadow-3xl">
-                        <Image src="/images/logo.png"
-                            alt="Carnaval de Monthey"
-                            width={200} height={200}
-                            className="w-80 mobile:w-60"
-                        />
+                        <span className="relative w-80 h-80 mobile:w-60 mobile:h-60">
+                            <Image src="/images/logo.png"
+                                loading="eager"
+                                priority={true}
+                                alt="Carnaval de Monthey"
+                                fill={true}
+                                sizes="20em"
+                                style={{objectFit: "contain"}}
+                            />
+                        </span>
                         <h1 className="h1 text-gradient text-center">Carnaval de Monthey</h1>
                     </div>
-                    <Link href="#about" className="absolute w-full bottom-[3vh] flex justify-center">
+                    <Link href="#about" className="absolute w-full bottom-[3vh] flex justify-center" aria-label="Naviguer vers le bas">
                         <FontAwesomeIcon className="h-24 w-24 text-white cursor-pointer animate-bounce" icon={faAngleDown}/>
                     </Link>
                 </div>
@@ -80,6 +85,7 @@ export default async function Home() {
                             <Image
                                 src={prince}
                                 alt="Portrait de Christophe 1er"
+                                sizes="20ch"
                                 className="w-[20ch]"
                             />
                             <p className="h3 relative mt-[-1em] z-10 text-center">
@@ -110,7 +116,7 @@ export default async function Home() {
                             alt="Journal du Carnaval"
                             className="max-w-full object-contain"
                         />
-                        <Link href="/newspaper">
+                        <Link href="/shop">
                             <Button variant="gradient">
                                 Plus d&apos;Info
                             </Button>
@@ -138,12 +144,14 @@ export default async function Home() {
                     <a
                         className="hover:scale-90 text-red-900"
                         href="https://www.instagram.com/carnavaldemonthey/"
+                        aria-label="Instagram"
                     >
                         <FontAwesomeIcon className="w-16 h-16" icon={faInstagram}/>
                     </a>
                     <a
                         className="hover:scale-90 text-red-900"
                         href="https://fr-fr.facebook.com/Carnavaldemonthey/"
+                        aria-label="Facebook"
                     >
                         <FontAwesomeIcon className="w-16 h-16" icon={faSquareFacebook}/>
                     </a>

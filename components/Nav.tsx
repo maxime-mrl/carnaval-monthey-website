@@ -29,9 +29,9 @@ export default function Nav() {
                 <Image
                     src="/images/logo.png"
                     alt="Logo Carnaval de Monthey"
-                    width={50}
+                    width={46}
                     height={50}
-                    className="object-contain"
+                    // className="object-contain"
                 />
                 <p className="url mobile:hidden">Accueil</p>
                 <p className="url hidden mobile:flex">Carnaval de Monthey</p>
@@ -85,7 +85,11 @@ export default function Nav() {
             </ul>
 
             {/* Mobile Burger */}
-            <button className="hidden flex-col justify-center items-center mobile:flex gap-[2px]" onClick={() => setIsOpen(!isOpen)}>
+            <button
+                className="hidden flex-col justify-center items-center mobile:flex gap-[2px]"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Ouvrir la navigation mobile"
+            >
                 <span className={`bg-snow block transitions h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
                 <span className={`bg-snow block transitions h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : ''}`}></span>
                 <span className={`bg-snow block transitions h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
@@ -98,26 +102,49 @@ export default function Nav() {
             <div className="flex-center flex-col gap-4">
                 <Link href='/' className="url" onClick={() => setIsOpen(!isOpen)}>Accueil</Link>
                 <Link href='/infos' className="url" onClick={() => setIsOpen(!isOpen)}>Infos</Link>
-                <Link href='/carnaval' className="url" onClick={() => setIsOpen(!isOpen)}>Le Carnaval</Link>
-                <Link href='/community' className="url" onClick={() => setIsOpen(!isOpen)}>Communauté</Link>
-                <Link href='/contact' className="url" onClick={() => setIsOpen(!isOpen)}>Contact</Link>
+                <Link href='#' className="url" onClick={() => setIsOpen(!isOpen)}>Le Carnaval</Link>
+                
+                {status === "authenticated" ?
+                <>
+                    <Link href='#' className="url" onClick={() => setIsOpen(!isOpen)}>Forum</Link>
+                    <Link href='/events' className="url" onClick={() => setIsOpen(!isOpen)}>Evenements</Link>
+                    <Link href='/shop' className="url" onClick={() => setIsOpen(!isOpen)}>Shop</Link>
+                    <Link href='/contact' className="url" onClick={() => setIsOpen(!isOpen)}>Contact</Link>
+                </>
+                :
+                <>
+                    <Link href='/shop' className="url" onClick={() => setIsOpen(!isOpen)}>Shop</Link>
+                    <Link href='/contact' className="url" onClick={() => setIsOpen(!isOpen)}>Contact</Link>
+                    <Link href='/login' className="url" onClick={() => setIsOpen(!isOpen)}>Se connecter</Link>
+                    <Link href='/register' className="url" onClick={() => setIsOpen(!isOpen)}>S&apos;inscrire</Link>
+                </>
+                }
             </div>
 
             {/* Logo */}
-            <Image
+            <span className="relative w-full h-20 max-w-[20ch] drop-shadow-2xl">
+                    <Image
+                        src="/images/logo.png"
+                        alt="Carnaval de Monthey"
+                        fill={true}
+                        sizes="5em"
+                        style={{objectFit: "contain"}}
+                    />
+            </span>
+            {/* <Image
                 src="/images/logo.png"
                 alt="Carnaval de Monthey"
                 width={100}
                 height={100}
                 className="max-w-[20ch] drop-shadow-2xl mx-auto"
-            />
+            /> */}
 
             {/* Socials */}
             <span className="flex gap-16 my-4">
-                <a className="url" href="https://www.instagram.com/carnavaldemonthey/">
+                <a className="url" href="https://www.instagram.com/carnavaldemonthey/" aria-label='Instagram'>
                     <FontAwesomeIcon className="w-16 h-16" icon={faInstagram}/>
                 </a>
-                <a className="url" href="https://fr-fr.facebook.com/Carnavaldemonthey/">
+                <a className="url" href="https://fr-fr.facebook.com/Carnavaldemonthey/" aria-label='Facebook'>
                     <FontAwesomeIcon className="w-16 h-16" icon={faSquareFacebook}/>
                 </a>
             </span>

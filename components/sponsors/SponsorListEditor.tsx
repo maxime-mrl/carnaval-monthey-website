@@ -42,7 +42,7 @@ const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}
         <>
             <EditBtn onClick={toggleEditForm} />
             <div className='fixed z-50 hidden absolute-center text-lg font-sans container-size flex-center flex-col modal-bg' data-target={`sponsors-editor`}>
-                <button className='absolute right-[1em] top-[1em]' onClick={toggleEditForm}>
+                <button className='absolute right-[1em] top-[1em]' onClick={toggleEditForm} aria-label='Fermer le menu'>
                     <FontAwesomeIcon icon={faXmark} className='text-3xl' />
                 </button>
                 <h3 className="h4 py-5">Supprimer un sponsor</h3>
@@ -50,7 +50,7 @@ const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}
                     {sponsors.map((sponsor, i) => (
                         <div key={i} className='flex justify-between gap-3'>
                             <span>{sponsor.alt}</span>
-                            <button onClick={() => {handleDelete(sponsor)}}>
+                            <button onClick={() => {handleDelete(sponsor)}} aria-label='Supprimer'>
                                 <FontAwesomeIcon icon={faTrashCan} />
                             </button>
                         </div>

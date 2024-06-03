@@ -3,7 +3,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import newspaper from "@public/images/journal.png";
+import newspaper from "@public/images/journal.jpg";
 import { Button } from '@components/ui/button';
 import FormInput from '@components/FormInput';
 

@@ -16,6 +16,7 @@ const EditBtn = ({ onClick } : { onClick: () => void }) => {
         <button
             className="absolute right-[-0.5em] top-[-0.8em] cursor-pointer"
             onClick={onClick}
+            aria-label="Editer l'élément"
         >
             <FontAwesomeIcon className="bg-arylide bg-opacity-70 text-[1.5rem] p-[0.4em] rounded-[50%]" icon={faPenToSquare} />
         </button>
