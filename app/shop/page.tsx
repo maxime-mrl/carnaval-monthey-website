@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { getTopUser } from '@utils/getData';
 import ShopItem from '@components/shopItem/ShopItem';
 import { stripe } from '@utils/stripe';
-import Stripe from 'stripe';
 
 const ShopPage = async () => {
     const { data:products } = await stripe.prices.list({

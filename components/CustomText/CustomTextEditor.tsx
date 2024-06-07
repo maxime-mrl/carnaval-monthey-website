@@ -5,6 +5,7 @@ import { Button } from '@components/ui/button';
 import editCustomText from './action';
 import EditBtn from '@components/EditBtn';
 import { useRouter } from 'next/navigation';
+import { notification } from '@utils/notifications';
 
 const CustomTextEditor = ({ id, text } : { id:string, text:string }) => {
     const router = useRouter();
@@ -15,15 +16,13 @@ const CustomTextEditor = ({ id, text } : { id:string, text:string }) => {
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
         const text = form.get("custom-text") as string | null;
-        if (!text) {
-            // handle error later
-            return;
-        };
+        if (!text) return notification("error", "Texte invalide");
         if (await editCustomText({ identifier:id, text })) {
             router.refresh();
             toggleEditForm();
+            notification("success", "C'est fait!");
         } else {
-            console.log("erreur");
+            notification("error", "Impossible de modifier le texte.");
         }
     }
     return (

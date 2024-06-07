@@ -2,6 +2,7 @@
 import bcrypt from "bcrypt";
 import userModel, { registerUserCheck } from "@models/user.model";
 import { connectToDB } from "@utils/db";
+import parseErrors from "@utils/parseErrors";
 
 export default async function register(body:{ username: string, mail:string, password:string }) {
     try {
@@ -16,7 +17,7 @@ export default async function register(body:{ username: string, mail:string, pas
     } catch (err:any) {
         return {
             success: false,
-            error: err.toString()
+            error: parseErrors(err)
         };
     }
 }

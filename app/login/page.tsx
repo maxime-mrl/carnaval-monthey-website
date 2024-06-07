@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { Button } from '@components/ui/button';
 import FormInput from '@components/FormInput';
 import { useRouter } from 'next/navigation';
+import { notification } from '@utils/notifications';
+import parseErrors from '@utils/parseErrors';
 
 const InfoPage = () => {
     const router = useRouter();
@@ -16,11 +18,19 @@ const InfoPage = () => {
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
-        await signIn('credentials', {
-            mail: form.get('mail'),
-            password: form.get('password'),
-            callbackUrl: '/',
-        });
+        try {
+            const status = await signIn('credentials-login', {
+                mail: form.get('mail'),
+                password: form.get('password'),
+                redirect: false,
+            });
+            if (!status) throw new Error("Oups, ça n'as pas marché, merci de réessayer.")
+            if (status && status.error) throw new Error("Identifiants invalides.")
+            notification("success", "Bon retour parmis nous!")
+            router.push("/");
+        } catch (err:any) {
+           notification("error", parseErrors(err))
+        }
     }
 
 

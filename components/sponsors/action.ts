@@ -4,10 +4,11 @@ import { connectToDB } from "@utils/db";
 import checkSession from "@utils/api/checkSession";
 import sponsorModel from "@models/sponsor.model";
 import sharp from "sharp";
+import parseErrors from "@utils/parseErrors";
 
 const sponsorDir = "public/sponsor";
 
-export async function addSponsor(prevState:any, form: FormData) {
+export async function addSponsor(_prevState:any, form: FormData) {
     try {
         const name = form.get("sponsor-name") as string;
         const image = form.get("sponsor-image") as File;
@@ -36,10 +37,7 @@ export async function addSponsor(prevState:any, form: FormData) {
             message: "success",
         };
     } catch (err:any) {
-        console.log("e")
-        return {
-            message: err.toString()
-        };
+        return { message: parseErrors(err) }
     }
 }
 
@@ -62,7 +60,7 @@ export async function deleteSponsor(id:string) {
     } catch (err:any) {
         return {
             success: false,
-            error: err.toString()
+            error: parseErrors(err)
         };
     }
 }

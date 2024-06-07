@@ -8,6 +8,8 @@ import { Button } from '@components/ui/button';
 import FormInput from '@components/FormInput';
 import { useRouter } from 'next/navigation';
 import register from './action';
+import { notification } from '@utils/notifications';
+import parseErrors from '@utils/parseErrors';
 
 const InfoPage = () => {
     const router = useRouter();
@@ -17,25 +19,21 @@ const InfoPage = () => {
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
-        if (!form.get("mail") || !form.get("password") || !form.get("username") || !form.get("password-confirm")) {
-            // handle error later
-            return;
-        };
-        if (form.get("password") !== form.get("password-confirm")){
-            // handle error later
-            return;
-        }
-        const registerStatus = await register({
-            mail: form.get("mail") as string,
-            password: form.get("password") as string,
-            username: form.get("username") as string,
-        });
-        if (registerStatus.success) await signIn('credentials', {
-            mail: form.get('mail'),
-            password: form.get('password'),
-            callbackUrl: '/',
-        }); else {
-            // handle error later
+        try {
+            if (!form.get("mail") || !form.get("password") || !form.get("username") || !form.get("password-confirm")) throw new Error("Merci de remplir tout les champs.");
+            if (form.get("password") !== form.get("password-confirm")) throw new Error("Vérifie ton mot de passe!");
+            const registerStatus = await register({
+                mail: form.get("mail") as string,
+                password: form.get("password") as string,
+                username: form.get("username") as string,
+            });
+            if (registerStatus.success) await signIn('credentials', {
+                mail: form.get('mail'),
+                password: form.get('password'),
+                callbackUrl: '/',
+            }); else throw new Error(registerStatus.error ?? "Impossible de créer un compte")
+        } catch (err:any) {
+            notification("error", parseErrors(err))
         }
     }
 

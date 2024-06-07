@@ -10,6 +10,7 @@ import type { AuthOptions } from "next-auth";
 const authOptions: AuthOptions = {
     providers: [
       CredentialsProvider({
+        id: "credentials-login",
         name: "credentials",
         credentials: {
           mail: { label: "Email", type: "text", placeholder: "Ton e-mail" },
@@ -54,7 +55,7 @@ const authOptions: AuthOptions = {
         return token;
       },
     },
-    pages: { signIn: "/" },
+    pages: { signIn: "/login" },
 };
 
 export default authOptions;

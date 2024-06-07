@@ -8,9 +8,10 @@ import { faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { deleteSponsor, addSponsor } from './action';
 import { useRouter } from 'next/navigation';
 import { useFormState } from 'react-dom';
+import { notification } from '@utils/notifications';
 
 const initialState = {
-    message: null,
+    message: "",
 }
 
 const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}) => {
@@ -19,7 +20,10 @@ const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}
     const [state, formAction] = useFormState(addSponsor, initialState);
 
     useEffect(() => {
-        if (state.message === "success") router.refresh();
+        if (state.message === "success") {
+            notification("success", "Sponsor ajouté.");
+            router.refresh();
+        } else if (state.message !== "") notification("error", state.message);
     }, [state, router])
 
     const toggleEditForm = () => document.querySelector(`[data-target="sponsors-editor"]`)?.classList.toggle("hidden");
