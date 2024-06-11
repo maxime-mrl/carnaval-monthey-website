@@ -23,10 +23,10 @@ const SponsorsList = async ({ direction = "forwards", speed = 5 } : { direction?
             >
                 <ul className="flex-center gap-16 py-4 w-fit animate-scroll mobile:gap-10">
                     {/* duplicate items to allow smooth repeating */}
-                    {[...sponsors, ...sponsors].map((sponsor, idx) => (
+                    {[...sponsors, ...sponsors].map((sponsor, i) => (
                         <li
                             className="w-[300px] max-w-[50vw]"
-                            key={idx}
+                            key={i}
                         >
                             <Image 
                                 src={`/sponsor/${sponsor.id}.webp`}

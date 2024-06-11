@@ -50,7 +50,7 @@ export const loginUserCheck = z.object({
 });
 
 export const deleteUserCheck = z.object({
-    password: zodCheck.password,
+    checkPassword: zodCheck.password,
 });
 
 export const updateUserCheck = z.object({

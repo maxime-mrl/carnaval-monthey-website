@@ -1,11 +1,11 @@
 import EventsList from '@components/EventsList';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
+import { getEvents } from '@utils/getData';
 
 import map from "@public/images/map-parking.jpg";
 import theme from "@public/images/theme.jpg";
-import Link from 'next/link';
-import { getEvents } from '@utils/getData';
 
 const InfoPage = async () => {
     const weekEvents = await getEvents();

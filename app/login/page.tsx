@@ -26,8 +26,8 @@ const InfoPage = () => {
             });
             if (!status) throw new Error("Oups, ça n'as pas marché, merci de réessayer.")
             if (status && status.error) throw new Error("Identifiants invalides.")
-            notification("success", "Bon retour parmis nous!")
-            router.push("/");
+            notification("success", "Bon retour parmis nous!");
+            (() => {router.push("/")})();
         } catch (err:any) {
            notification("error", parseErrors(err))
         }
@@ -35,7 +35,7 @@ const InfoPage = () => {
 
 
     if (status === 'loading') return (<></>);
-    else if (status === "authenticated") router.push("/");
+    else if (status === "authenticated") (() => {router.push("/")})();
     else return (
         <>
         {/* header */}
