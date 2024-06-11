@@ -70,7 +70,7 @@ export const deleteAccount = async (body:{ checkPassword:string }) => {
 }
 
 
-export const PATCH = async (body: { right: number, target: string }) => {
+export const changeRights = async (body: { right: number, target: string }) => {
     try {
         // retrieve session and check rights
         const userSession = await checkSession(true);

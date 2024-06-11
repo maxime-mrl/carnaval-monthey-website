@@ -7,7 +7,7 @@ import FormInput from '@components/FormInput';
 import { useRouter } from 'next/navigation';
 import { notification } from '@utils/notifications';
 import parseErrors from '@utils/parseErrors';
-import { UpdateAccount, deleteAccount, getMail } from './action';
+import { UpdateAccount, changeRights, deleteAccount, getMail } from './action';
 
 const Account = () => {
     const router = useRouter();
@@ -26,20 +26,7 @@ const Account = () => {
             } = data as any;
             if (user) setMail(await getMail(user._id));
         })();
-    }, [data])
-
-    async function deleteBtn() {
-        try {
-            const passwordInput = document.getElementById("identity-confirm") as HTMLInputElement;
-            const result = await deleteAccount({ checkPassword: passwordInput.value });
-            if (!result.success) throw new Error(result.error);
-            await signOut();
-            router.push("/");
-            notification("success", "compte supprimé avec succès.");
-        } catch(err) {
-           notification("error", parseErrors(err));
-        }
-    }
+    }, [data]);
     
     async function updateUser(e: FormEvent) {
         e.preventDefault();
@@ -63,6 +50,35 @@ const Account = () => {
             router.refresh();
         } catch (err) {
            notification("error", parseErrors(err))
+        }
+    }
+
+    async function setRight(e: FormEvent) {
+        e.preventDefault()
+        const form = new FormData(e.target as HTMLFormElement);
+        try {
+            const data = {
+                target: form.get("user") as string,
+                right: parseInt(form.get("right") as string)
+            };
+            const result = await changeRights(data);
+            if (!result.success) throw new Error(result.error);
+            notification("success", "Droits mis à jour avec succès.");
+        } catch (err) {
+            notification("error", parseErrors(err));
+        }
+    }
+
+    async function deleteBtn() {
+        try {
+            const passwordInput = document.getElementById("identity-confirm") as HTMLInputElement;
+            const result = await deleteAccount({ checkPassword: passwordInput.value });
+            if (!result.success) throw new Error(result.error);
+            await signOut();
+            router.push("/");
+            notification("success", "Compte supprimé avec succès.");
+        } catch(err) {
+           notification("error", parseErrors(err));
         }
     }
 
@@ -137,6 +153,31 @@ const Account = () => {
                     </Button>
                 </div>
             </form>
+            {user.right > 2 && <>
+                <h2 className="h2 text-center w-full">Zone admin</h2>
+            <form className='flex-center flex-col gap-5 container-size max-w-lg py-section' onSubmit={setRight}>
+                <h2 className="h3">Changer les droits</h2>
+                <FormInput
+                    name='user'
+                    label='Cible:'
+                    placeholder='nom d&apos;utilisateur, mail, ou identifiant'
+                    type='text'
+                    autoComplete='none'
+                />
+                <FormInput
+                    name='right'
+                    label='Droit:'
+                    placeholder='(0: user normal; 1: changer le contenu; 2: super-admin)'
+                    type='number'
+                    value={mail}
+                />
+                <div className="flex-center gap-5 flex-wrap">
+                    <Button variant="gradient" type='submit'>
+                        Valider
+                    </Button>
+                </div>
+            </form>
+            </>}
             </>
         );
 
