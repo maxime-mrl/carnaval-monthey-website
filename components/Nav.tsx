@@ -51,12 +51,12 @@ export default function Nav() {
                 />
                 {/* CARNAVAL */}
                 <DropDownItem
-                    main={{ href: "#", title: "Le carnaval" }}
+                    main={{ href: "/history", title: "Le carnaval" }}
                     items={[
-                        { href:"#", title:"Traditions" },
-                        { href:"#", title:"Le Prince" },
-                        { href:"#", title:"Thèmes" },
-                        { href:"#", title:"Archives" },
+                        { href:"/history#prince", title:"Le Prince" },
+                        { href:"/history#", title:"Traditions" },
+                        { href:"/history#", title:"Thèmes" },
+                        { href:"/history#", title:"Archives" },
                     ]}
                 />
                 {/* COMUNAUTE */}
