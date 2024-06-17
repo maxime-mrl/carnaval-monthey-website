@@ -1,14 +1,12 @@
-import EventsList from '@components/EventsList';
+import EventsList from '@components/events/EventsList';
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
-import { getEvents } from '@utils/getData';
 
 import map from "@public/images/map-parking.jpg";
 import theme from "@public/images/theme.jpg";
 
-const InfoPage = async () => {
-    const weekEvents = await getEvents();
+const InfoPage = () => {
     return (
         <>
         {/* header */}
@@ -65,17 +63,10 @@ const InfoPage = async () => {
                 </div>
             </article>
         </section>
-        {weekEvents &&
-            <section id="calendar" className="py-section flex flex-col gap-8">
+        <section id="calendar" className="py-section flex flex-col gap-8">
             <h2 className='h2 container-size'>Agenda</h2>
-            {[...weekEvents].map(([day, events]) => (
-                <>
-                    <h3 key={day} className='h3 container-size'>{day}</h3>
-                    <EventsList events={events} />
-                </>
-            ))}
-            </section>
-        }
+            <EventsList />
+        </section>
         {/* transport infos */}
         <section id="transport" className="container-size py-section flex flex-col gap-8">
             <h2 className='h2'>Infos transports</h2>

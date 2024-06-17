@@ -1,4 +1,4 @@
-import eventsModel from "@models/events.model";
+import listsModel from "@models/lists.model";
 import sponsorModel from "@models/sponsor.model";
 import textModel from "@models/text.model";
 import userModel from "@models/user.model";
@@ -7,12 +7,9 @@ import { cache } from "react";
 
 export const revalidate = 3600;
 
-type events = {
-    date: string,
-    title: string,
-    time: string,
-    place: string,
-    infos: string | null,
+type list = {
+    identifier: string,
+    elements: string[][],
 }
 
 type textData = {
@@ -43,25 +40,16 @@ export const getSponsors = cache(async () => {
     }
 });
 
-export const getEvents = cache(async () => {
+export const getList = cache(async (identifier: string) => {
     try {
         await connectToDB();
-        const events = await eventsModel.find({ }).select(["date", "title", "time", "place", "infos", "-_id"]) as events[];
-        const parsedevents: Map<string, events[]> = new Map();
-        events.forEach(event => {
-            const updatedEvents = parsedevents.get(event.date) ? parsedevents.get(event.date) as events[] : [];
-            updatedEvents.push({
-                date: event.date,
-                title: event.title,
-                time: event.time,
-                place: event.place,
-                infos: event.infos ? event.infos : null,
-            });
-            parsedevents.set(event.date, updatedEvents);
-        });
-        return parsedevents;
+        const list = await listsModel.findOne({ identifier }).select(["identifier", "elements", "-_id"]) as list;
+        return list;
     } catch (err) {
-        return [];
+        return {
+            identifier: "error",
+            elements: []
+        };
     }
 });
 
