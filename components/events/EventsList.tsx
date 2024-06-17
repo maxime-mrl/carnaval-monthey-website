@@ -17,7 +17,6 @@ type events = {
 const EventsList = async () => {
     const session = await getServerSession(authOptions);
     const user = session && session.user ? session.user as { _id: string, username: string, right: number } : null;
-    console.log(user)
     const weekEvents = await getList("events");
     if (!weekEvents || !weekEvents.elements) return (
         <i className="relative">

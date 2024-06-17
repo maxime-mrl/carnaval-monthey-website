@@ -18,13 +18,12 @@ export const addEvent = async (_prevState:any, form: FormData) => {
 
         // check session and right
         const userSession = await checkSession();
-        console.log(userSession)
         if (!userSession) throw new Error("Tu dois etre connecter pour faire ça.");
         if (userSession.right < 1)  throw new Error("Tu n'as pas la permission pour faire ça!");
 
         // basic checks
-        if (event.length < 4) throw new Error("merci de remplir tout les champs");
-        event.forEach(elem => {if (typeof elem !== "string" || elem.length === 0) throw new Error("merci de remplir tout les champs")});
+        if (event.length < 4) throw new Error("Merci de remplir tout les champs");
+        event.forEach(elem => {if (typeof elem !== "string" || elem.length === 0) throw new Error("Merci de remplir tout les champs")});
         // find existing events
         const existingEvents = await listsModel.findOne({ identifier: "events" })
         if (!existingEvents) await listsModel.create({ identifier: "events", elements: [[]] });

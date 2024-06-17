@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import prince from "@public/images/portrait-prince.jpg";
 import Link from 'next/link';
+import List from '@components/list/List';
 
 const HistoryPage = async () => {
     return (
@@ -40,20 +41,9 @@ const HistoryPage = async () => {
                     />
                 </article>
             </div>
-            <article>
+            <article className='container-size'>
                 <h3 className='h3'>Les anciens princes</h3>
-                <ul>
-                    {/* will work on it later */}
-                    <li>2023 Vernaz Nathalie et Philippe dit Nat 1ère et Pipo 1er</li>
-                    <li>2022 Pas de prince ni de miss suite à la pandémie COVID-19</li>
-                    <li>2021 Pas de prince ni de miss suite à la pandémie COVID-19</li>
-                    <li>2020 Paunet Bernard dit Bernard 1er</li>
-                    <li>2019 Mauron Nadine dit Nadine 1ère</li>
-                    <li>2018 Mottola Rosy dit Rozy 1ère</li>
-                    <li>2017 Profilo Claudio dit Claudio 1er</li>
-                    <li>2016 Pasche Daniel dit Daniel 1er</li>
-                    <li>2015 Forny Ferdinand dit Freddy 1er</li>
-                </ul>
+                <List identifier='princes' />
             </article>
         </section>
         {/* themes history */}
@@ -62,19 +52,9 @@ const HistoryPage = async () => {
             <p className='max-w-[50ch]'>
                 Depuis de nombreuses années, nous définissons un thème de carnaval, qui nous guideras dans nos actions, idées, et choix, durant tout ce magnifique événement!
             </p>
-            <article>
+            <article className='container-size'>
                 <h3 className='h3'>Les anciens thèmes</h3>
-                <ul>
-                    {/* will work on it later */}
-                    <li>2023 	Un Monstre Carnaval 	du 16 février au 21 février 	150ème Carnaval de Monthey</li>
-                    <li>2020 	Monthey ressort ! 	du 24 février au 1er mars 	149ème Carnaval de Monthey</li>
-                    <li>2021 	Un Carnaval à la maison ! 	du 12 février au 14 février 	LA NON-ÉDITION !!!</li>
-                    <li>2020 	Un Carnaval à la Renverse ! 	du 20 février au 25 février 	148ème Carnaval de Monthey</li>
-                    <li>2019 	Mon Carnaval s&apos;affiche ! 	du 28 février au 5 mars 	147ème Carnaval de Monthey</li>
-                    <li>2018 	Un Carnaval Bestial 	du 8 février au 13 février 	146ème Carnaval de Monthey</li>
-                    <li>2017 	Un Carnaval &quot;Au sommet&quot; 	du 23 février au 28 février 	145ème Carnaval de Monthey</li>
-                    <li>2016 	Un Carnaval &quot;De toute urgence&quot; 	du 4 février au 9 février 	144ème Carnaval de Monthey</li>
-                </ul>
+                <List identifier='themes' />
             </article>
         </section>
         {/* public prizes history history */}
@@ -82,32 +62,11 @@ const HistoryPage = async () => {
             <h2 className='h2 w-full'>Bistrots et cantines primés</h2>
             <article>
                 <h3 className='h3'>Les bistrots:</h3>
-                <ul>
-                    {/* will work on it later */}
-                    <li>2020 Havana Café</li>
-                    <li>2019 Plic Café</li>
-                    <li>2018 Kekett&apos;s Bar</li>
-                    <li>2017 Plic Café</li>
-                    <li>2016 Café de la Banque</li>
-                    <li>2015 Plic Café</li>
-                    <li>2014 Plic Café</li>
-                    <li>2013 Café du Commerce</li>
-                    <li>2012 Café du Commerce</li>
-                    <li>2011 Café de la Banque</li>
-                    <li>2010 Café de la Paix</li>
-                    <li>2009 Café de la Paix</li>
-                    <li>2008 Café de la Banque</li>
-                    <li>2007 Havana Bar</li>
-                    <li>2006 Café de la Banque</li>
-                    <li>2005 Café de la Banque</li>
-                    <li>2004 Central Pub</li>
-                    <li>2003 Café de la Place</li>
-                    <li>2002 Bar du Château</li>
-                </ul>
+                <List identifier='bistrots' />
             </article>
             <article>
                 <h3 className='h3'>Les bars de la cantine:</h3>
-                aaaa
+                <List identifier='cantine' />
             </article>
         </section>
         {/* bout'rions archive */}
@@ -129,7 +88,7 @@ const HistoryPage = async () => {
         <section id="journal" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Album photo</h2>
             <p>Tu te sens encore nostalgique?</p>
-            <Link href={"http://carnavaldemonthey.com.vtxhosting.ch/igalerie/"} target='_blank'>L&apos;album de toutes les photos consérvées du carnaval est disponible ici</Link>
+            <Link href={"http://carnavaldemonthey.com.vtxhosting.ch/igalerie/"} target='_blank' className='url'>L&apos;album de toutes les photos consérvées du carnaval est disponible ici</Link>
         </section>
         </>
     );
