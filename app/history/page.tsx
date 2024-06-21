@@ -58,7 +58,7 @@ const HistoryPage = async () => {
             </article>
         </section>
         {/* public prizes history history */}
-        <section id="themes" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
+        <section id="bistrots" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Bistrots et cantines primés</h2>
             <article>
                 <h3 className='h3'>Les bistrots:</h3>
@@ -69,23 +69,7 @@ const HistoryPage = async () => {
                 <List identifier='cantine' />
             </article>
         </section>
-        {/* bout'rions archive */}
-        <section id="journal" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
-            <h2 className='h2 w-full'>Le journal</h2>
-            <article>
-                <h3 className='h3'>Historique des logos</h3>
-                <ul>
-                    {/* will work on it later */}
-                </ul>
-            </article>
-            <article>
-                <h3 className='h3'>Archive</h3>
-                <ul>
-                    {/* will work on it later */}
-                </ul>
-            </article>
-        </section>
-        <section id="journal" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
+        <section id="images" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Album photo</h2>
             <p>Tu te sens encore nostalgique?</p>
             <Link href={"http://carnavaldemonthey.com.vtxhosting.ch/igalerie/"} target='_blank' className='url'>L&apos;album de toutes les photos consérvées du carnaval est disponible ici</Link>

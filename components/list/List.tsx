@@ -7,8 +7,6 @@ const List = async ({ identifier }: { identifier: string }) => {
     const session = await getServerSession(authOptions);
     const user = session && session.user ? session.user as { _id: string, username: string, right: number } : null;
     const list = await getList(identifier);
-    console.log(list)
-    console.log(identifier)
     if (list && list.elements) list.elements.sort((a, b) => (parseInt(b[0]) - parseInt(a[0])));
 
   return (

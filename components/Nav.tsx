@@ -31,7 +31,6 @@ export default function Nav() {
                     alt="Logo Carnaval de Monthey"
                     width={46}
                     height={50}
-                    // className="object-contain"
                 />
                 <p className="url mobile:hidden">Accueil</p>
                 <p className="url hidden mobile:flex">Carnaval de Monthey</p>
@@ -54,9 +53,9 @@ export default function Nav() {
                     main={{ href: "/history", title: "Le carnaval" }}
                     items={[
                         { href:"/history#prince", title:"Le Prince" },
-                        { href:"/history#", title:"Traditions" },
-                        { href:"/history#", title:"Thèmes" },
-                        { href:"/history#", title:"Archives" },
+                        { href:"/history#themes", title:"Thèmes" },
+                        { href:"/history#bistrots", title:"Bistrots primés" },
+                        { href:"/history#images", title:"Archives photos" },
                     ]}
                 />
                 {/* COMUNAUTE */}
@@ -64,7 +63,6 @@ export default function Nav() {
                 <DropDownItem
                     main={{ href: "", title: "Communauté" }}
                     items={[
-                        { href:"#", title:"Forum" },
                         { href:"/events", title:"Evenements" },
                         { href:"/shop", title:"Shop" },
                         { href:"/account", title:"Compte" },
@@ -81,6 +79,11 @@ export default function Nav() {
                 {/* CONTACT */}
                 <DropDownItem
                     main={{ href: "/contact", title: "Contact" }}
+                    items={[
+                        { href: "/contact#journal", title: "Vendre le journal" },
+                        { href: "/contact#stands", title: "Stands exterieur" },
+                        { href: "/contact#contact", title: "Nous contacter" },
+                    ]}
                 />
             </ul>
 
@@ -102,17 +105,18 @@ export default function Nav() {
             <div className="flex-center flex-col gap-4">
                 <Link href='/' className="url" onClick={() => setIsOpen(!isOpen)}>Accueil</Link>
                 <Link href='/infos' className="url" onClick={() => setIsOpen(!isOpen)}>Infos</Link>
-                <Link href='#' className="url" onClick={() => setIsOpen(!isOpen)}>Le Carnaval</Link>
+                <Link href='/history' className="url" onClick={() => setIsOpen(!isOpen)}>Le Carnaval</Link>
                 
                 {status === "authenticated" ?
                 <>
-                    <Link href='#' className="url" onClick={() => setIsOpen(!isOpen)}>Forum</Link>
                     <Link href='/events' className="url" onClick={() => setIsOpen(!isOpen)}>Evenements</Link>
                     <Link href='/shop' className="url" onClick={() => setIsOpen(!isOpen)}>Shop</Link>
                     <Link href='/contact' className="url" onClick={() => setIsOpen(!isOpen)}>Contact</Link>
+                    <Link href='/account' className="url" onClick={() => setIsOpen(!isOpen)}>Compte</Link>
                 </>
                 :
                 <>
+                    <Link href='/events' className="url" onClick={() => setIsOpen(!isOpen)}>Evenements</Link>
                     <Link href='/shop' className="url" onClick={() => setIsOpen(!isOpen)}>Shop</Link>
                     <Link href='/contact' className="url" onClick={() => setIsOpen(!isOpen)}>Contact</Link>
                     <Link href='/login' className="url" onClick={() => setIsOpen(!isOpen)}>Se connecter</Link>
@@ -131,13 +135,6 @@ export default function Nav() {
                         style={{objectFit: "contain"}}
                     />
             </span>
-            {/* <Image
-                src="/images/logo.png"
-                alt="Carnaval de Monthey"
-                width={100}
-                height={100}
-                className="max-w-[20ch] drop-shadow-2xl mx-auto"
-            /> */}
 
             {/* Socials */}
             <span className="flex gap-16 my-4">
