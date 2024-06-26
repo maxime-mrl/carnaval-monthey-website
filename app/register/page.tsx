@@ -30,8 +30,9 @@ const Register = () => {
                 password: form.get("password") as string,
                 username: form.get("username") as string,
             });
-            // login form localstorage or throw error
-            if (registerStatus.success) await signIn('credentials', {
+            console.log(registerStatus)
+            // login localstorage or throw error
+            if (registerStatus.success) await signIn('credentials-login', {
                 mail: form.get('mail'),
                 password: form.get('password'),
                 callbackUrl: '/',
