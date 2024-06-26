@@ -1,7 +1,7 @@
 "use server"
 
 import listsModel from "@models/lists.model";
-import checkSession from "@utils/api/checkSession";
+import checkSession from "@utils/checkSession";
 import { connectToDB } from "@utils/db";
 import parseErrors from "@utils/parseErrors";
 

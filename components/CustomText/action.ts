@@ -1,6 +1,6 @@
 "use server"
 import { connectToDB } from "@utils/db";
-import checkSession from "@utils/api/checkSession";
+import checkSession from "@utils/checkSession";
 import textModel, { setTextCheck } from "@models/text.model";
 
 export default async function editCustomText(body:{text:string, identifier:string}) {

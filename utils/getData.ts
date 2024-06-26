@@ -5,18 +5,21 @@ import userModel from "@models/user.model";
 import { connectToDB } from "@utils/db";
 import { cache } from "react";
 
-export const revalidate = 3600;
 
 type list = {
     identifier: string,
     elements: string[][],
-}
-
+};
+    
 type textData = {
     identifier: string,
     text: string
 }[];
 
+// cache revalidation every hour
+export const revalidate = 3600;
+
+// get texts managed by CMS
 export const getTexts = cache(async () => {
     try  {
         await connectToDB();
@@ -29,6 +32,7 @@ export const getTexts = cache(async () => {
     }
 })
 
+// get sponsors list
 export const getSponsors = cache(async () => {
     try {
         await connectToDB();
@@ -40,6 +44,7 @@ export const getSponsors = cache(async () => {
     }
 });
 
+// Get list elements (mainly for history page)
 export const getList = cache(async (identifier: string) => {
     try {
         await connectToDB();
@@ -53,6 +58,7 @@ export const getList = cache(async (identifier: string) => {
     }
 });
 
+// Get ranking of top users by points
 export const getTopUser = cache(async () => {
     try {
         await connectToDB();

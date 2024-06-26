@@ -7,8 +7,8 @@ export default function parseErrors(err:any): string {
         return err.errors[0].message;
     }
     if (err.code === 11000 && err.keyValue) { // mongodb duplicate keys
-        const concerned = Object.keys(err.keyValue)[0]
-        return `Votre ${concerned} ${err.keyValue[concerned]} existe déjà!`
+        const concerned = Object.keys(err.keyValue)[0];
+        return `Votre ${concerned} ${err.keyValue[concerned]} existe déjà!`;
     }
     if (typeof err.message === "string") { // error with message
         return err.message;

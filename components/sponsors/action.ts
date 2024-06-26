@@ -1,7 +1,7 @@
 "use server"
 import fs from "fs";
 import { connectToDB } from "@utils/db";
-import checkSession from "@utils/api/checkSession";
+import checkSession from "@utils/checkSession";
 import sponsorModel from "@models/sponsor.model";
 import sharp from "sharp";
 import parseErrors from "@utils/parseErrors";

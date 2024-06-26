@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import userModel, { deleteUserCheck, updateUserCheck } from "@models/user.model";
 import { connectToDB } from "@utils/db"
 import parseErrors from "@utils/parseErrors";
-import checkSession from "@utils/api/checkSession";
+import checkSession from "@utils/checkSession";
 import { isValidObjectId } from "mongoose";
 
 // Get user mail with its ID
