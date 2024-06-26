@@ -138,10 +138,10 @@ export default function Nav() {
 
             {/* Socials */}
             <span className="flex gap-16 my-4">
-                <a className="url" href="https://www.instagram.com/carnavaldemonthey/" aria-label='Instagram'>
+                <a className="url" href="https://www.instagram.com/carnavaldemonthey/" aria-label='Instagram' target="_blank">
                     <FontAwesomeIcon className="w-16 h-16" icon={faInstagram}/>
                 </a>
-                <a className="url" href="https://fr-fr.facebook.com/Carnavaldemonthey/" aria-label='Facebook'>
+                <a className="url" href="https://fr-fr.facebook.com/Carnavaldemonthey/" aria-label='Facebook' target="_blank">
                     <FontAwesomeIcon className="w-16 h-16" icon={faSquareFacebook}/>
                 </a>
             </span>

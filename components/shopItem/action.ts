@@ -24,6 +24,7 @@ export const buyItem = async (itemID:string) => {
             await userModel.updateOne(user, { stripeId: stripeCustomer.id });
             user["stripeId"] = stripeCustomer.id;
         }
+        // generate the session
         const session = await stripe.checkout.sessions.create({
             customer: user.stripeId ?? "",
             mode: "payment",
@@ -35,11 +36,9 @@ export const buyItem = async (itemID:string) => {
             success_url: `http://localhost:3000/`,
             cancel_url: `http://localhost:3000/shop`
         });
-        console.log(session.url)
         redirect(session.url ?? "http://localhost:3000/shop");
     } catch (err) {
         if (isRedirectError(err)) throw err;
         console.log(err);
-    } finally {
     }
 }

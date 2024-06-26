@@ -10,19 +10,25 @@ import { notification } from '@utils/notifications';
 const CustomTextEditor = ({ id, text } : { id:string, text:string }) => {
     const router = useRouter();
 
+    // show or hide edit form
     const toggleEditForm = () => document.querySelector(`[data-target="${id}-editor"]`)?.classList.toggle("hidden");
-
+    // submit edit form
     async function handleSubmit(e: FormEvent) {
+        // get form data
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
         const text = form.get("custom-text") as string | null;
         if (!text) return notification("error", "Texte invalide");
-        if (await editCustomText({ identifier:id, text })) {
+        // try to edit text (will check perms etc)
+        const result = await editCustomText({ identifier: id, text });
+        if (result.success) {
+            // success
             router.refresh();
             toggleEditForm();
             notification("success", "C'est fait!");
         } else {
-            notification("error", "Impossible de modifier le texte.");
+            // some kind of errors
+            notification("error", result.error ?? "Une erreure inconnue est survenue...");
         }
     }
     return (

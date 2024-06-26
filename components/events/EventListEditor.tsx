@@ -1,14 +1,15 @@
 "use client"
+
 import { useEffect } from 'react';
+import { useFormState } from 'react-dom';
+import { useRouter } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { notification } from '@utils/notifications';
+import { addEvent, deleteEvent } from './action';
 import FormInput from '@components/FormInput';
 import { Button } from '@components/ui/button';
 import EditBtn from '@components/EditBtn';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/navigation';
-import { useFormState } from 'react-dom';
-import { notification } from '@utils/notifications';
-import { addEvent, deleteEvent } from './action';
 
 const initialState = {
     message: "",
@@ -16,17 +17,21 @@ const initialState = {
 
 const EventListEditor = ({ events }: {events: null | string[][]}) => {
     const router = useRouter();
+    // handle update form
     const [state, formAction] = useFormState(addEvent, initialState);
 
+    // listen for notifications
     useEffect(() => {
         if (state.message === "success") {
             notification("success", "événement ajouté.");
             router.refresh();
         } else if (state.message !== "") notification("error", state.message);
-    }, [state, router])
+    }, [state, router]);
 
+    // show or hide edit form
     const toggleEditForm = () => document.querySelector(`[data-target="events-editor"]`)?.classList.toggle("hidden");
     
+    // handle delete form
     async function handleDelete(event:string) {
         const result = await deleteEvent(event);
         if (result.success) {

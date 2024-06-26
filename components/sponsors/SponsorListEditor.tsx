@@ -17,8 +17,10 @@ const initialState = {
 const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}) => {
     const router = useRouter();
     const [ fileLabel, setFileLabel ] = useState(`Logo du sponsor`);
+    // handle update form
     const [state, formAction] = useFormState(addSponsor, initialState);
 
+    // listen for notifications
     useEffect(() => {
         if (state.message === "success") {
             notification("success", "Sponsor ajouté.");
@@ -26,8 +28,10 @@ const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}
         } else if (state.message !== "") notification("error", state.message);
     }, [state, router])
 
+    // show or hide edit form
     const toggleEditForm = () => document.querySelector(`[data-target="sponsors-editor"]`)?.classList.toggle("hidden");
 
+    // update label for file input when file selected
     function updateFileLabel(e: FormEvent) {
         if (!("id" in e.target) || e.target.id !== "sponsor-image") return;
         if (!("files" in e.target)) return;
@@ -36,6 +40,7 @@ const SponsorListEditor = ({ sponsors }: {sponsors: { id:string, alt:string }[]}
         console.log(files[0].name)
     }
     
+    // handle delete of a sponsor
     async function handleDelete(sponsor:{ id:string, alt:string }) {
         const result = await deleteSponsor(sponsor.id);
         if (result.success) router.refresh();

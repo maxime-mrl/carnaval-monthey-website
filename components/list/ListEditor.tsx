@@ -16,21 +16,25 @@ const initialState = {
 
 const ListEditor = ({ list, identifier }: {identifier: string, list: null | string[][]}) => {
     const router = useRouter();
+    // handle update form
     const [state, formAction] = useFormState(addEvent, initialState);
 
+    // listen for notifications
     useEffect(() => {
         if (state.message === "success") {
-            notification("success", "événement ajouté.");
+            notification("success", "élément ajouté.");
             router.refresh();
         } else if (state.message !== "") notification("error", state.message);
     }, [state, router])
 
+    // show or hide edit form
     const toggleEditForm = () => document.querySelector(`[data-target="${identifier}-editor"]`)?.classList.toggle("hidden");
     
+    // handle delete form
     async function handleDelete(elem:string) {
         const result = await deleteEvent(identifier, elem);
         if (result.success) {
-            notification("success", "événement supprimé.");
+            notification("success", "élément supprimé.");
             router.refresh();
         }
         else notification("error", result.error ? result.error : "Erreur inconnue");

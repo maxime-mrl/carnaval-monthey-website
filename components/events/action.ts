@@ -25,13 +25,13 @@ export const addEvent = async (_prevState:any, form: FormData) => {
         if (event.length < 4) throw new Error("Merci de remplir tout les champs");
         event.forEach(elem => {if (typeof elem !== "string" || elem.length === 0) throw new Error("Merci de remplir tout les champs")});
         // find existing events
-        const existingEvents = await listsModel.findOne({ identifier: "events" })
+        const existingEvents = await listsModel.findOne({ identifier: "events" });
         if (!existingEvents) await listsModel.create({ identifier: "events", elements: [[]] });
         // check if same events arleady exist
-        else if (existingEvents.elements.find((elem: string[]) => elem[1] === event[1])) throw new Error("Les noms d'événements doivent etre unique")
+        else if (existingEvents.elements.find((elem: string[]) => elem[1] === event[1])) throw new Error("Les noms d'événements doivent etre unique");
 
         // save to db
-        const elements = existingEvents && existingEvents.elements ? [ ...existingEvents.elements, event ] : [ event ]
+        const elements = existingEvents && existingEvents.elements ? [ ...existingEvents.elements, event ] : [ event ];
         await connectToDB();
         const events = await listsModel.findOneAndUpdate({ identifier: "events" }, { elements });
         if (!events || !events._id) throw new Error("Une erreur est survenue merci de réessayer");

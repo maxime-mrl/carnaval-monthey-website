@@ -12,7 +12,7 @@ type events = {
     time: string,
     place: string,
     infos: string | null,
-}
+};
 
 const EventsList = async () => {
     const session = await getServerSession(authOptions);
