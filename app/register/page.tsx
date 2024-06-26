@@ -11,29 +11,33 @@ import register from './action';
 import { notification } from '@utils/notifications';
 import parseErrors from '@utils/parseErrors';
 
-const InfoPage = () => {
+const Register = () => {
     const router = useRouter();
     const { status } = useSession();
 
-    
+    // register user
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
         try {
+            // check that everythin is here
             if (!form.get("mail") || !form.get("password") || !form.get("username") || !form.get("password-confirm")) throw new Error("Merci de remplir tout les champs.");
+            // check password / confirm pass match
             if (form.get("password") !== form.get("password-confirm")) throw new Error("Vérifie ton mot de passe!");
+            // try to create account
             const registerStatus = await register({
                 mail: form.get("mail") as string,
                 password: form.get("password") as string,
                 username: form.get("username") as string,
             });
+            // login form localstorage or throw error
             if (registerStatus.success) await signIn('credentials', {
                 mail: form.get('mail'),
                 password: form.get('password'),
                 callbackUrl: '/',
-            }); else throw new Error(registerStatus.error ?? "Impossible de créer un compte")
+            }); else throw new Error(registerStatus.error ?? "Impossible de créer un compte");
         } catch (err:any) {
-            notification("error", parseErrors(err))
+            notification("error", parseErrors(err));
         }
     }
 
@@ -87,4 +91,4 @@ const InfoPage = () => {
 };
 
 
-export default InfoPage;
+export default Register;

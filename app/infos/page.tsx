@@ -6,7 +6,7 @@ import Link from 'next/link';
 import map from "@public/images/map-parking.jpg";
 import theme from "@public/images/theme.jpg";
 
-const InfoPage = () => {
+const Infos = () => {
     return (
         <>
         {/* header */}
@@ -35,6 +35,7 @@ const InfoPage = () => {
                 </ul>
             </article>
         </section>
+        {/* Theme of the year */}
         <section id="theme" className='container-size py-section'>
             <article className='w-fit mx-auto text-center pb-5'>
                 <h2 className='h2 mb-5'>Le thème OOOO</h2>
@@ -63,6 +64,7 @@ const InfoPage = () => {
                 </div>
             </article>
         </section>
+        {/* event for the carnaval */}
         <section id="calendar" className="py-section flex flex-col gap-8">
             <h2 className='h2 container-size'>Agenda</h2>
             <EventsList />
@@ -113,4 +115,4 @@ const InfoPage = () => {
     );
 };
 
-export default InfoPage;
+export default Infos;

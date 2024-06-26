@@ -10,22 +10,25 @@ import { useRouter } from 'next/navigation';
 import { notification } from '@utils/notifications';
 import parseErrors from '@utils/parseErrors';
 
-const InfoPage = () => {
+const Login = () => {
     const router = useRouter();
     const { status } = useSession();
 
-    
+    // log-in user
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
         const form = new FormData(e.target as HTMLFormElement);
         try {
+            // try to log-in
             const status = await signIn('credentials-login', {
                 mail: form.get('mail'),
                 password: form.get('password'),
                 redirect: false,
             });
-            if (!status) throw new Error("Oups, ça n'as pas marché, merci de réessayer.")
-            if (status && status.error) throw new Error("Identifiants invalides.")
+            // throw potentials errors
+            if (!status) throw new Error("Oups, ça n'as pas marché, merci de réessayer.");
+            if (status && status.error) throw new Error("Identifiants invalides.");
+            // success
             notification("success", "Bon retour parmis nous!");
             (() => {router.push("/")})();
         } catch (err:any) {
@@ -44,6 +47,7 @@ const InfoPage = () => {
                 <h1 className="h1 text-gradient text-center">Se connecter</h1>
             </header>
         </div>
+        {/* login form */}
         <form className='flex-center flex-col gap-5 container-size max-w-lg py-section' onSubmit={handleSubmit}>
             <FormInput
                 name='mail'
@@ -68,5 +72,4 @@ const InfoPage = () => {
     );
 };
 
-
-export default InfoPage;
+export default Login;

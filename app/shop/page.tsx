@@ -3,10 +3,8 @@ import React from 'react';
 import ShopItem from '@components/shopItem/ShopItem';
 import { stripe } from '@utils/stripe';
 
-const ShopPage = async () => {
-    const { data:products } = await stripe.prices.list({
-        expand: [ "data.product" ]
-    });
+const Shop = async () => {
+    const { data:products } = await stripe.prices.list({ expand: [ "data.product" ] });
     return (
         <>
         {/* header */}
@@ -16,8 +14,8 @@ const ShopPage = async () => {
                 <p className='h2 text-snow text-center max-w-4xl'>Soutiens nous en achetant nos goodies</p>
             </header>
         </div>
-        {/* bars */}
-        <section id="bars" className="container-size py-section flex flex-wrap gap-10">
+        {/* shop */}
+        <section id="shop" className="container-size py-section flex flex-wrap gap-10">
             {products.map((product:any, key) => (
                 <ShopItem 
                     item={product}
@@ -39,4 +37,4 @@ const ShopPage = async () => {
     );
 };
 
-export default ShopPage;
+export default Shop;

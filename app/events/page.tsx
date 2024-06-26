@@ -5,7 +5,7 @@ import newspaper from "@public/images/journal.jpg";
 import { getTopUser } from '@utils/getData';
 import UsersRanks from '@components/UserRanks';
 
-const InfoPage = async () => {
+const Events = async () => {
     const ranks = await getTopUser()
     return (
         <>
@@ -16,7 +16,7 @@ const InfoPage = async () => {
                 <p className='h2 text-snow text-center max-w-4xl'>Tu cherches a t&apos;occuper pendant le carnaval? viens relever nos défis!</p>
             </header>
         </div>
-        {/* bars */}
+        {/* bars competition */}
         <section id="bars" className="container-size py-section flex flex-wrap gap-10 justify-around items-center">
             <article className='max-w-xl flex flex-col gap-5 items-center'>
                 <h2 className='h2 text-center'>Parcours de bars</h2>
@@ -36,6 +36,7 @@ const InfoPage = async () => {
                 />
             </article>
         </section>
+        {/* ranking */}
         <section id="classement" className="py-section">
             <h2 className='h2 text-center'>Classement</h2>
             <UsersRanks ranks={ranks} />
@@ -45,4 +46,4 @@ const InfoPage = async () => {
     );
 };
 
-export default InfoPage;
+export default Events;

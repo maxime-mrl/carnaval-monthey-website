@@ -14,7 +14,7 @@ import newspaper from "@public/images/journal.jpg";
 import SponsorsList from "@components/sponsors/SponsorsList";
 import CustomText from "@components/CustomText/CustomText";
 
-export default async function Home() {
+const Home = async () => {
     return (
         <>
             {/* Header component */}
@@ -160,3 +160,5 @@ export default async function Home() {
         </>
     )
 }
+
+export default Home;

@@ -1,13 +1,45 @@
+"use client"
+
 import Image from 'next/image';
-import React from 'react';
+import React, { FormEvent } from 'react';
 
 import Link from 'next/link';
 
 import newspaper from "@public/images/journal.jpg";
 import { Button } from '@components/ui/button';
 import FormInput from '@components/FormInput';
+import { notification } from '@utils/notifications';
+import parseErrors from '@utils/parseErrors';
+import { z } from 'zod';
 
-const InfoPage = () => {
+const Contact = () => {
+    
+    const zodCheck = z.object({
+        name: z.string().regex(/^.{2,40}$/i, "Nom invalide (entre 2 et 40 charactères)."),
+        mail: z.string().regex(/^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+$/i, 'E-mail invalide.'),
+        subject: z.string().regex(/^.{5,100}$/i, 'Ton sujet doit faire entre 5 et 100 charactères.'),
+        message: z.string().regex(/^.{20,5000}$/i, 'Ton message doit faire entre 20 et 5000 charactères.'),
+    });
+
+    async function sendContact(e: FormEvent) {
+        e.preventDefault();
+        const form = new FormData(e.target as HTMLFormElement);
+        try {
+            // check every input is present
+            if (!form.get("name") || !form.get("mail") || !form.get("subject") || !form.get("message")) throw new Error("Merci de remplir tous les champs");
+            // check data validity
+            const inputs = zodCheck.parse({
+                name: form.get("name") as string,
+                mail: form.get("mail") as string,
+                subject: form.get("subject") as string,
+                message: form.get("message") as string
+            });
+            // fake send message
+            notification("success", `Votre mesage "${inputs.subject.slice(0,3)}..." à bien été envoyé!`);
+        } catch (err) {
+           notification("error", parseErrors(err));
+        }
+    }
     return (
         <>
         {/* header */}
@@ -21,7 +53,7 @@ const InfoPage = () => {
         <section id="journal" className="container-size py-section flex flex-wrap gap-10 justify-around items-center">
             <article className='max-w-xl flex flex-col gap-5'>
                 <h2 className='h2 text-center'>Vendre le journal:</h2>
-                <p className='max-w-[45ch]'>Tu veux vendre le journal de Carnaval ? C&apos;est super ! Comment ça se passe?</p>
+                <p className='max-w-[45ch]'>Tu souhaites vendre le journal du Carnaval ? C&apos;est super ! Comment ça se passe?</p>
                 <ul className='list-disc list-inside'>
                     <li>Chaque journal est vendu <strong>CHF 5.-</strong></li>
                     <li><strong>Tu gagnes 1.- par journal</strong> vendu. Si tu reçois de l&apos;argent en plus, il est pour toi.</li>
@@ -56,9 +88,10 @@ const InfoPage = () => {
                 </Button>
             </article>
         </section>
+        {/* Contact form */}
         <section id="contact" className="container-size py-section flex flex-col">
             <h2 className='h2'>Autre chose? ecrit nous:</h2>
-            <form className='flex-center flex-col gap-5'>
+            <form className='flex-center flex-col gap-5' onSubmit={sendContact}>
                 <div className='flex gap-x-10 gap-y-5 flex-wrap w-full'>
                     <FormInput
                         name='name'
@@ -99,4 +132,4 @@ const InfoPage = () => {
     );
 };
 
-export default InfoPage;
+export default Contact;

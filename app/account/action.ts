@@ -7,6 +7,7 @@ import parseErrors from "@utils/parseErrors";
 import checkSession from "@utils/api/checkSession";
 import { isValidObjectId } from "mongoose";
 
+// Get user mail with its ID
 export const getMail = async (id:string) => {
     try {
         await connectToDB();
@@ -21,6 +22,7 @@ export const getMail = async (id:string) => {
     }
 }
 
+// Change account infos for users
 export const UpdateAccount = async (body:{ username?: string, mail?:string, password?:string, checkPassword:string }) => {
     try {
         // retrieve session
@@ -31,8 +33,7 @@ export const UpdateAccount = async (body:{ username?: string, mail?:string, pass
         if (!toUpdate.mail && !toUpdate.username && !toUpdate.password) throw new Error("Tu dois au moins mettre a jour un élément.");
         if (!(await bcrypt.compare(checkPassword, userSession.password))) throw new Error("Mot de passe incorrect");
         // update user
-        // check if passord encrypt it
-        if (typeof toUpdate.password === "string") toUpdate.password = await bcrypt.hash(toUpdate.password, 10);
+        if (typeof toUpdate.password === "string") toUpdate.password = await bcrypt.hash(toUpdate.password, 10); // check if passord encrypt it
         const updatedUser = await userModel.findByIdAndUpdate(userSession._id, toUpdate, { new: true });
         if (!updatedUser) throw new Error("Impossible de mettre à jour votre compte, merci de réesseayer.");
         return {
@@ -47,6 +48,7 @@ export const UpdateAccount = async (body:{ username?: string, mail?:string, pass
     }
 }
 
+// Delete user account
 export const deleteAccount = async (body:{ checkPassword:string }) => {
     try {
         // retrieve session
@@ -69,7 +71,7 @@ export const deleteAccount = async (body:{ checkPassword:string }) => {
     }
 }
 
-
+// Change rights of user by an admin
 export const changeRights = async (body: { right: number, target: string }) => {
     try {
         // retrieve session and check rights

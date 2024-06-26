@@ -4,7 +4,7 @@ import prince from "@public/images/portrait-prince.jpg";
 import Link from 'next/link';
 import List from '@components/list/List';
 
-const HistoryPage = async () => {
+const History = async () => {
     return (
         <>
         {/* header */}
@@ -57,7 +57,7 @@ const HistoryPage = async () => {
                 <List identifier='themes' />
             </article>
         </section>
-        {/* public prizes history history */}
+        {/* public prizes history */}
         <section id="bistrots" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Bistrots et cantines primés</h2>
             <article>
@@ -69,6 +69,7 @@ const HistoryPage = async () => {
                 <List identifier='cantine' />
             </article>
         </section>
+        {/* Image album */}
         <section id="images" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Album photo</h2>
             <p>Tu te sens encore nostalgique?</p>
@@ -78,4 +79,4 @@ const HistoryPage = async () => {
     );
 };
 
-export default HistoryPage;
+export default History;
