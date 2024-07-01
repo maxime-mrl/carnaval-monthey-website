@@ -44,7 +44,7 @@ const EventListEditor = ({ events }: {events: null | string[][]}) => {
     return (
         <>
             <EditBtn onClick={toggleEditForm} />
-            <div className='fixed z-50 hidden absolute-center text-lg font-sans container-size flex-center flex-col modal-bg' data-target={`events-editor`}>
+            <div className='fixed z-50 hidden absolute-center text-lg font-sans container-size modal-bg max-h-[80vh] overflow-auto' data-target={`events-editor`}>
                 <button className='absolute right-[1em] top-[1em]' onClick={toggleEditForm} aria-label='Fermer le menu'>
                     <FontAwesomeIcon icon={faXmark} className='text-3xl' />
                 </button>

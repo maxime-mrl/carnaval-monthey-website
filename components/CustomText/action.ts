@@ -15,8 +15,13 @@ export default async function editCustomText(body:{text:string, identifier:strin
         const { text, identifier } = setTextCheck.parse(body);
         // update the text
         await connectToDB();
-        const updatedUser = await textModel.findOneAndUpdate({ identifier }, { text }, { new: true });
-        if (!updatedUser) throw new Error("Impossible de mettre à jour le texte, merci de réesseayer.");
+        let updatedText = null
+        if (!(await textModel.findOne({ identifier }))) {
+            updatedText = await textModel.create({ text, identifier });
+        } else {
+            updatedText = await textModel.findOneAndUpdate({ identifier }, { text }, { new: true });
+        }
+        if (!updatedText) throw new Error("Impossible de mettre à jour le texte, merci de réesseayer.");
         return {
             success: true,
         };

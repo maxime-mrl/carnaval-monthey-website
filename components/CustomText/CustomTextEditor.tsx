@@ -20,7 +20,7 @@ const CustomTextEditor = ({ id, text } : { id:string, text:string }) => {
         const text = form.get("custom-text") as string | null;
         if (!text) return notification("error", "Texte invalide");
         // try to edit text (will check perms etc)
-        const result = await editCustomText({ identifier: id, text });
+        const result = await editCustomText({ identifier: id, text: text.toString() });
         if (result.success) {
             // success
             router.refresh();
@@ -28,7 +28,7 @@ const CustomTextEditor = ({ id, text } : { id:string, text:string }) => {
             notification("success", "C'est fait!");
         } else {
             // some kind of errors
-            notification("error", result.error ?? "Une erreure inconnue est survenue...");
+            notification("error", result.error ?? "Une erreur inconnue est survenue...");
         }
     }
     return (
@@ -39,8 +39,7 @@ const CustomTextEditor = ({ id, text } : { id:string, text:string }) => {
                     <FormInput
                         name='custom-text'
                         label={`Editer le texte ${id}`}
-                        placeholder='nouveau texte'
-                        type='text'
+                        type='textarea'
                         autoComplete='none'
                         value={text}
                     />

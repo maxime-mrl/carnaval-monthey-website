@@ -23,7 +23,7 @@ const FormInput = ({ label, name, type, placeholder, autoComplete, className, va
                 <label htmlFor={name} className="pl-2">
                     {label}
                 </label>
-                <textarea className={inputStyle} id={name} name={name}></textarea>
+                <textarea className={inputStyle} id={name} name={name} defaultValue={value}></textarea>
             </>
             : type === "file" ?
             <>

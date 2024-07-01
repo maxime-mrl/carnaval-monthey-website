@@ -14,7 +14,7 @@ type input = {
 const EditBtn = ({ onClick } : { onClick: () => void }) => {
     return (
         <button
-            className="absolute right-[-0.5em] top-[-0.8em] cursor-pointer"
+            className="absolute z-10 right-[-0.5em] top-[-0.8em] cursor-pointer"
             onClick={onClick}
             aria-label="Editer l'élément"
         >

@@ -36,6 +36,8 @@ const Contact = () => {
             });
             // fake send message
             notification("success", `Votre mesage "${inputs.subject.slice(0,3)}..." à bien été envoyé!`);
+            const formElement = e.target as HTMLFormElement
+            formElement.reset()
         } catch (err) {
            notification("error", parseErrors(err));
         }

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { z } from "zod";
 
 const zodCheck = {
-    text: z.string().regex(/^.{3,2000}$/i, "Le texte doit faire entre 3 et 2000 charactère, sinon ça va casser!"),
+    text: z.string().regex(/^(\n|.){3,2000}$/i, "Le texte doit faire entre 3 et 2000 charactère, sinon ça va casser!"),
     identifier: z.string().regex(/^[a-z0-9_-]{3,50}$/i, 'Identifiant invalide.'),
 }
 
