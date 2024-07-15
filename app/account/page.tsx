@@ -165,7 +165,7 @@ const Account = () => {
                         Supprimer le compte
                     </Button>
                     <Button variant="default" type='button' onClick={async () => {await signOut(); router.push("/")}}>
-                        Se deconnecter
+                        Se déconnecter
                     </Button>
                 </div>
             </form>

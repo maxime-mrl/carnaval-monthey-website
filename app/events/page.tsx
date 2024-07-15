@@ -12,8 +12,8 @@ const Events = async () => {
         {/* header */}
         <div className='bg-dark'>
             <header className='header'>
-                <h1 className="h1 text-gradient text-center">Evenement live</h1>
-                <p className='h2 text-snow text-center max-w-4xl'>Tu cherches a t&apos;occuper pendant le carnaval? viens relever nos défis!</p>
+                <h1 className="h1 text-gradient text-center">évènement live</h1>
+                <p className='h2 text-snow text-center max-w-4xl'>Tu cherches à t&apos;occuper pendant le carnaval? Viens relever nos défis!</p>
             </header>
         </div>
         {/* bars competition */}
@@ -21,11 +21,11 @@ const Events = async () => {
             <article className='max-w-xl flex flex-col gap-5 items-center'>
                 <h2 className='h2 text-center'>Parcours de bars</h2>
                 <p className='max-w-[50ch]'>
-                    Bois un verre dans le plus de bar possible pour gagner des points, tes points seront affiché sur le forum et un prix seras donné aux trois plus grands trous (et oui là on peux le dire) du carnaval.
+                    Bois un verre dans le plus de bars possible pour gagner des points, tes points seront affichés sur le forum et un prix sera donné aux trois plus grands trous (et oui là on peut le dire) du carnaval.
                 </p>
                 <p className='h3 text-center'>Comment ça se passe?</p>
                 <p className='max-w-[50ch]'>
-                    Après avoir commandé dans un bar partenaire tu pourras demander une “preuve de boisson”, un code QR à scanner. Après t’être connécté a ton compte, les points sont automatiquement marqués!
+                    Après avoir commandé dans un bar partenaire tu pourras demander une “preuve de boisson”, un code QR à scanner. Après t&apos;être connecté a ton compte, les points sont automatiquement marqués!
                 </p>
             </article>
             <article className='w-[20rem] max-w-[35rem] grow'>

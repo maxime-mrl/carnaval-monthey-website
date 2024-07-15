@@ -62,10 +62,10 @@ const Contact = () => {
                     <li>Si tu n&apos;as pas tout vendu, <strong>tu dois ramener les journaux qui te restent</strong>. On t&apos;aidera à faire le calcul de ce que tu dois rendre et de ce que tu as gagné.</li>
                     <li>Tu dois rapporter les invendus et l&apos;argent <strong>au plus tard le mercredi 14 février 2024 !</strong></li>
                 </ul>
-                <p className='h3 text-center'>Les O meilleurs vendeur seront recompensé!</p>
+                <p className='h3 text-center'>Les O meilleurs vendeurs seront récompensés!</p>
                 <h3 className='h3'>S&apos;inscrire</h3>
                 <div>
-                    <p>Avant toutes choses, tu dois <strong>avoir plus de 10ans</strong> et <strong>tes parents doivent être d&apos;accord!</strong></p>
+                    <p>Avant toute chose, tu dois <strong>avoir plus de 10 ans</strong> et <strong>tes parents doivent être d&apos;accord!</strong></p>
                     <p>Tour bon? alors remplis le formulaire petit vendeur disponible <Link href="#" target='_blanck' className='url'>ici</Link></p>
                 </div>
             </article>
@@ -80,9 +80,9 @@ const Contact = () => {
         {/* stand */}
         <section id="stands" className="container-size py-section flex-center">
             <article className='max-w-xl flex-center flex-col gap-5 text-center'>
-                <h2 className='h2'>Demande de stand exterieur</h2>
+                <h2 className='h2'>Demande de stand extérieur</h2>
                 <p>
-                    Tu souhaite obtenir un stand exterieur pendant le carnaval? remplis le formulaire disponible ci dessous et envoie le à l&apos;adresse suivante: <br />
+                    Tu souhaites obtenir un stand extérieur pendant le carnaval? remplis le formulaire disponible ci-dessous et envoie-le à l&apos;adresse suivante: <br />
                     Carnaval de Monthey, Case postale 423, 1870 Monthey
                 </p>
                 <Button variant="gradient">
@@ -92,7 +92,7 @@ const Contact = () => {
         </section>
         {/* Contact form */}
         <section id="contact" className="container-size py-section flex flex-col">
-            <h2 className='h2'>Autre chose? ecrit nous:</h2>
+            <h2 className='h2'>Autre chose? écris-nous:</h2>
             <form className='flex-center flex-col gap-5' onSubmit={sendContact}>
                 <div className='flex gap-x-10 gap-y-5 flex-wrap w-full'>
                     <FormInput

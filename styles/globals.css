@@ -20,8 +20,21 @@
     font-style: inherit;
   }
 
-  *[id] {
+  *[id] { /* add a bit of scroll margin to scrolls anchors */
     scroll-margin-top: 4.5rem;
+  }
+
+  ::-webkit-scrollbar {
+    @apply transitions w-[0.4rem] hover:w-[0.6rem];
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-snow;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark/80 transitions hover:bg-dark;
+    border-radius: 3em;
   }
 }
 

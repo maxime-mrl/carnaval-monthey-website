@@ -50,7 +50,7 @@ const Home = async () => {
                     </h2>
                     <article className="flex-col flex-center gap-6 text-snow max-w-3xl">
                         <p>
-                            Le carnaval de Monthey c&apos;est 6 jours de folie et tradition ancestral. Du jeudi au mardi, masques, chars, « guggenmusik », et autres animations rythment le cœur de notre ville de Monthey. Le fameux cortège du  régionale ou internationale, attire quant à lui chaque année un large public
+                            Le carnaval de Monthey c&apos;est 6 jours de folie et tradition ancestrale. Du jeudi au mardi, masques, chars, « guggenmusik », et autres animations rythment le cœur de notre ville de Monthey. Le fameux cortège du  régionale ou internationale, attire quant à lui chaque année un large public
                         </p>
                         <h3 className="h3 w-full">
                             ... et, ce depuis plus de OOO ans!
@@ -59,7 +59,7 @@ const Home = async () => {
 
                     <article className="flex-col flex-center text-snow gap-16">
                         <h3 className="h3 text-center">
-                            Qu&apos;est ce que t&apos;attends pour venir?
+                            Qu&apos;est-ce que t&apos;attends pour venir?
                         </h3>
                         <Link href="/infos">
                             <Button variant="gradient">
@@ -79,7 +79,7 @@ const Home = async () => {
                             La tradition est de nommer tous les ans un prince ou une princesse qui représentera le carnaval et notre ville pour chaque édition. Nous nous souviendrons en tout temps de sa grandeur et bonté.
                         </p>
                         <h3 className="h3 self-start">
-                            Edition OOOO:
+                            édition OOOO:
                         </h3>
                         <div className="flex-center flex-col">
                             <Image
@@ -106,7 +106,7 @@ const Home = async () => {
                             </p>
                         </div>
                         <p className="max-w-2xl">
-                            Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité. s&apos;engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens! Il commence ses activité canavalesque comme constructeur de chars en 1985, puis rejoint les rangs du Bout&apos;Rions. Aujourd&apos;hui, le voilà hissé au rôle d&apos;acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!
+                            Arrivé à Monthey le jour de sa naissance, Christophe 1er devient résolument actif dans à peu près tout ce que fait notre cité. S&apos;engage tout petit dans les scouts, mais pas juste le petit scout. Il devient président des anciens! Il commence ses activités canavalesques comme constructeur de chars en 1985, puis rejoint les rangs du Bout&apos;Rions. Aujourd&apos;hui, le voilà hissé au rôle d&apos;acteur principal de notre Carnaval. Longue vie à CHRISTOPHE 1er !!!
                         </p>
                     </article>
                     <article className="card">
@@ -138,7 +138,7 @@ const Home = async () => {
                 </p>
                 <SponsorsList />
                 <h3 className="h2 text-center">
-                    Suis nous sur les réseaux
+                    Suis-nous sur les réseaux
                 </h3>
                 <span className="flex gap-16 my-4">
                     <a

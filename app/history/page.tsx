@@ -48,7 +48,7 @@ const History = async () => {
         <section id="themes" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Les thèmes</h2>
             <p className='max-w-[50ch]'>
-                Depuis de nombreuses années, nous définissons un thème de carnaval, qui nous guideras dans nos actions, idées, et choix, durant tout ce magnifique événement!
+                Depuis de nombreuses années, nous définissons un thème de carnaval, qui nous guidera dans nos actions, idées, et choix, durant tout ce magnifique évènement!
             </p>
             <article className='container-size'>
                 <h3 className='h3'>Les anciens thèmes</h3>
@@ -71,7 +71,7 @@ const History = async () => {
         <section id="images" className="container-size py-section text-center flex flex-col gap-10 justify-around items-center">
             <h2 className='h2 w-full'>Album photo</h2>
             <p>Tu te sens encore nostalgique?</p>
-            <Link href={"http://carnavaldemonthey.com.vtxhosting.ch/igalerie/"} target='_blank' className='url'>L&apos;album de toutes les photos consérvées du carnaval est disponible ici</Link>
+            <Link href={"http://carnavaldemonthey.com.vtxhosting.ch/igalerie/"} target='_blank' className='url'>L&apos;album de toutes les photos conservées du carnaval est disponible ici.</Link>
         </section>
         </>
     );

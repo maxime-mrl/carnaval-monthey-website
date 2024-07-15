@@ -83,7 +83,7 @@ const Infos = () => {
             <article>
                 <h3 className='h3'>Ligne de bus</h3>
                 <p className='max-w-[60ch]'>
-                    Grâce aux TPC, un bus seras inclus avec le prix du cortège pour faire la liaison entre les parking et le cortège!
+                    Grâce aux TPC, un bus sera inclus avec le prix du cortège pour faire la liaison entre les parkings et le cortège!
                 </p>
                 <p>parkings -&gt;  cortège, Toutes les 20min de 11h à 14h:</p>
                 Collombey, centre commercial

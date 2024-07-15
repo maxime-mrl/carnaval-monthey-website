@@ -11,7 +11,7 @@ const Shop = async () => {
         <div className='bg-dark'>
             <header className='header'>
                 <h1 className="h1 text-gradient text-center">Shop</h1>
-                <p className='h2 text-snow text-center max-w-4xl'>Soutiens nous en achetant nos goodies</p>
+                <p className='h2 text-snow text-center max-w-4xl'>Soutiens-nous en achetant nos goodies</p>
             </header>
         </div>
         {/* shop */}
