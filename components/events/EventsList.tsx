@@ -64,7 +64,7 @@ const EventsList = async () => {
                                     </span>
                                 </div>
                                 { event.infos ?
-                                <Link href={"#"}>
+                                <Link href={"#"} className="btn-gradient rounded-md !py-3">
                                     Plus d&apos;Info
                                 </Link>
                                 :

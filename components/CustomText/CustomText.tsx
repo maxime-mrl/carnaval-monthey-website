@@ -31,10 +31,9 @@ const TextElement = ({ text } : { text: string }) => {
         <>
             {textArray.length > 1 ?
             textArray.map((line:string, i:number) => (
-                <i className="relative" key={i}>
+                <p key={i}>
                     {line}
-                    <br />
-                </i>
+                </p>
             ))
             :
             <>
