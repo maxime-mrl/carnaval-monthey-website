@@ -11,11 +11,9 @@ const List = async ({ identifier }: { identifier: string }) => {
 
   return (
     <i className="relative flex flex-col gap-8 my-5">
-        <span className="absolute top-[-1rem] right-10">
-            {user && user.right >= 2 && 
-                <ListEditor list={list && list.elements ? list.elements : []} identifier={identifier} />
-            }
-        </span>
+        {user && user.right >= 2 && 
+            <ListEditor list={list && list.elements ? list.elements : []} identifier={identifier} />
+        }
         {list && list.elements ?
         <ul>
             {list.elements.map((elem, index) => (
